@@ -1,0 +1,26 @@
+<template name="ae1f4a86">
+  <view class="_div data-v-f919eede lyform">
+    <scroll-view class="_scroll-view data-v-f919eede scroll" scroll-y="{{true}}">
+      <view class="_div data-v-f919eede content">
+        <view class="_div data-v-f919eede text_area">
+          <view class="_dl data-v-f919eede">
+            <view class="_dt data-v-f919eede"> 标题 <label class="_span data-v-f919eede">*</label></view>
+            <view class="_dd data-v-f919eede"><input type="text" value="{{title}}" bindinput="handleProxy" placeholder="请输入不超过50字的标题" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_input data-v-f919eede" /></view>
+          </view>
+          <view class="_dl data-v-f919eede">
+            <view class="_dt data-v-f919eede"> 类型 <label class="_span data-v-f919eede">*</label></view>
+            <view class="_dd data-v-f919eede">
+              <picker bindchange="handleProxy" value="{{index}}" range="{{array}}" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_picker data-v-f919eede">
+                <view class="_view data-v-f919eede picker"> {{array[index]}}
+                  <view class="_i data-v-f919eede iconfont icon-xiala"></view>
+                </view>
+              </picker>
+            </view>
+          </view>
+          <view class="_dl data-v-f919eede comm">
+            <view class="_dt data-v-f919eede"> 内容 <label class="_span data-v-f919eede">*</label></view>
+            <view class="_dd data-v-f919eede"><textarea name id value="{{content}}" bindinput="handleProxy" placeholder="请输入留言内容" class="_textarea data-v-f919eede textinput" data-eventid="{{'2'}}" data-comkey="{{$k}}" /></view></view></view> <view class="_div data-v-f919eede fj"><view class="_div data-v-f919eede"><image src="/images/fj.png" class="_img data-v-f919eede fj" alt></image>
+          添加附件
+        </view> <view class="_div data-v-f919eede icon">+</view></view> <view class="_div data-v-f919eede fj"><view class="_div data-v-f919eede"><image src="/images/tp.png" class="_img data-v-f919eede fj" alt></image>
+          添加图片
+        </view> <view class="_div data-v-f919eede icon">+</view></view> <view class="_div data-v-f919eede fj gk"><view class="_div data-v-f919eede">是否公开</view> <view class="_div data-v-f919eede icon"><switch checked bindchange="handleProxy" color="{{color}}" class="_switch data-v-f919eede wx-switch-input" data-eventid="{{'3'}}" data-comkey="{{$k}}" /></view></view></view> <view class="_div data-v-f919eede btn"><view class="_div data-v-f919eede tj" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">提交</view></view></scroll-view></view></template>

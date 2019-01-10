@@ -1,0 +1,325 @@
+<template>
+  <div class="ldbywy_detail">
+    <scroll-view class="scroll" :scroll-y="true">
+      <div class="content headbox">
+        <!--<div class="head">-->
+          <!--<div class="photo">-->
+            <!--<img v-if="detail.REPRESENT_ORIGIN_IMG==null" src="../../images/default_img.jpg" alt="">-->
+            <!--<img v-if="detail.REPRESENT_ORIGIN_IMG!=null" :src="detail.REPRESENT_ORIGIN_IMG" alt="">-->
+          <!--</div>-->
+          <!--<div class="info">-->
+            <!--<div class="name">{{detail.REPRESENT_USER_NAME}}</div>-->
+            <!--<div class="count">已接待群众数:{{detail.PEPRESENT_COUNT}}</div>-->
+            <!--<div class="now">现任{{detail.USER_POSITION}}</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <div class="head2">
+          <div class="bg"></div>
+          <div class="head2_content">
+            <div class="info">
+              <img v-if="detail.REPRESENT_ORIGIN_IMG==null" src="../../images/default_img.jpg" alt="">
+              <img v-if="detail.REPRESENT_ORIGIN_IMG!=null" :src="detail.REPRESENT_ORIGIN_IMG" alt="">
+              <dl>
+                <dt>{{detail.REPRESENT_USER_NAME}}</dt>
+                <dd>
+                  <div class="zw">
+                    <p>现任 {{detail.USER_POSITION}}</p>
+                  </div>
+                  <div class="count">
+                   <i class="iconfont icon-renshu-"></i>
+                    已接待群众数:{{detail.PEPRESENT_COUNT}}
+                  </div>
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--<div class="hr"></div>-->
+      <!--<div class="content">-->
+        <!--<div class="jianjie">-->
+          <!--<h4>简介</h4>-->
+          <!--<div class="article">-->
+            <!--<p>-->
+              <!--<wxParse :content="article" :imageProp="imgmode"></wxParse>-->
+            <!--</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>&lt;!&ndash;简介END&ndash;&gt;-->
+      <!--<div class="hr"></div>-->
+      <div class="content already" v-if="detail.COMMENT.length">
+        <h4>已接待群众</h4>
+        <div class="member"  v-for="(list,index1) in detail.COMMENT" :key="index1" @click="goDetail(list.COMMENT_ID)">
+          <div class="userinfo">
+            <img v-if="list.USER_PIC==null" src="../../images/user_pic.png" alt="">
+            <img v-if="list.USER_PIC!=null" :src="list.USER_PIC" alt="">
+            <div class="username">{{list.USER_NAME}}</div>
+          </div>
+          <div class="time">{{list.CREATE_TIME}}</div>
+        </div>
+      </div>
+      <div class="content ly_btn">
+        <div class="btn" @click="goWyly">
+          给Ta留言
+        </div>
+      </div>
+    </scroll-view>
+  </div>
+</template>
+
+<script>
+  import * as conf from '../../utils/config'
+  import wxParse from 'mpvue-wxparse'
+  export default {
+
+    data () {
+      return {
+        detail:"",
+        article:"",
+        imgmode:{
+          mode:"widthFix",
+          domain:conf.IP
+        }
+      }
+    },
+
+    created () {
+
+    },
+    methods:{
+      goDetail(comId){
+        wx.navigateTo({
+          url:`/pages/answering/main?comId=${comId}`
+        })
+      },
+      goWyly(){
+        wx.navigateTo({
+          url:`/pages/lyform/main`
+        });
+      }
+    },
+    onLoad(params){
+
+      var that=this;
+      wx.getStorage({
+        key: 'token',
+        success(ret) {
+          wx.request({
+            url:`${conf.HOST}/stddj-gzgj/servlet/represent.action?method=getRepresentDetail`, // 仅为示例，并非真实的接口地址
+            data: {
+              representId: params.representId
+            },
+            header: {
+              'content-type': 'application/json', // 默认值
+              'Authorization':ret.data
+            },
+            success(res) {
+              //console.log(JSON.stringify(res.data))
+              that.detail=res.data[0];
+              var html0 =res.data[0].REPRESENT_CONTENT;
+              var html1 = html0.replace(/\s+style="[^"]*"/g,'')
+              var newHtml = html1.replace(/<img/g, '<img style="max-width:100%;"')
+              that.article=`<div style="font: 30rpx '微软雅黑' !important; color:'#333;'">${newHtml}</div>`;
+            }
+          })
+        }
+      })
+    },
+    components: {
+      wxParse
+    },
+  }
+</script>
+
+<style scoped lang="less">
+  @import url("~mpvue-wxparse/src/wxParse.css");
+  @import "../../common/css/less/base";
+  @import "../../common/css/font/iconfont.css";
+
+  .ldbywy_detail{
+    width: 100%;
+    height:100vh;
+    overflow: hidden;
+    .scroll{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: url("../../images/logo.png") no-repeat;
+      background-size: 363rpx 70rpx;
+      background-position: center bottom 30rpx;
+      padding-bottom: 130rpx;
+      .headbox{
+        padding:0;
+        box-sizing: border-box;
+      }
+      .head{
+        display: flex;
+        padding:30rpx 0;
+        .photo{
+          width: 95rpx;
+          height: 136rpx;
+          overflow: hidden;
+          margin-right: 20rpx;
+          img{
+            width: 100%;
+            height:100%;
+          }
+        }
+        .info{
+          .name{
+            font:38rpx "黑体";
+            margin-top:10rpx;
+            margin-bottom:10rpx;
+            font-weight: bold;
+          }
+          .count,.now{
+            font:22rpx "黑体";
+            color:@smfontColor;
+          }
+        }
+      }
+      .head2{
+        width: 100%;
+        height: 444rpx;
+        position: relative;
+        box-sizing: border-box;
+        .bg{
+          width: 100%;
+          height: 222rpx;
+          background: @mainColor;
+        }
+        .head2_content{
+          width: 100%;
+          padding:0 40rpx;
+          box-sizing: border-box;
+          position: absolute;
+          left: 0;
+          top:0
+        }
+        .info{
+          width: 100%;
+          height:370rpx;
+          background: #fff;
+          border-radius: 10rpx;
+          padding:84rpx 78rpx;
+          box-sizing: border-box;
+          box-shadow: 0 2rpx 5rpx rgba(248,218,217,0.6);
+          img{
+            width: 160rpx;
+            height: 204rpx;
+            border-radius: 10rpx;
+            margin-right: 50rpx;
+            float: left;
+          }
+          dl{
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            dt{
+              font:40rpx "微软雅黑";
+              font-width: bold;
+              color:#333;
+            }
+            dd{
+              color:#7f8699;
+              .zw{
+                font:22rpx "黑体";
+                margin-bottom:5rpx;
+                border-bottom: 1rpx solid #f2f2f2;
+                margin-bottom: 16rpx;
+                line-height: 30rpx;
+                padding-bottom: 10rpx;
+              }
+              .count{
+                display: flex;
+                font:22rpx "黑体";
+                align-items: center;
+                i{
+                  font-size:26rpx;
+                  color:#7f8699;
+                  margin-right: 10rpx;
+                }
+              }
+            }
+          }
+        }
+      }
+      .jianjie{
+        background: #fff;
+        .article{
+          font:32rpx "黑体";
+          line-height:50rpx;
+          color:#333;
+          text-align: justify;
+          img{
+            width: 100%;
+            margin:20rpx auto;
+          }
+        }
+      }
+      .member{
+        width: 100%;
+        height: 90rpx;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1rpx solid #f2f2f2;
+        .userinfo{
+          display: flex;
+          align-items: center;
+          font:30rpx "微软雅黑";
+          color:#333;
+          img{
+            width: 64rpx;
+            height: 64rpx;
+            border-radius: 48rpx;
+            margin-right: 20rpx;
+          }
+        }
+        .time{
+          font:22rpx "黑体";
+          color:@smfontColor;
+        }
+      }
+    }
+
+    .content{
+      width: 100%;
+      padding:0 40rpx;
+      box-sizing: border-box;
+    }
+    .already{
+      padding:30rpx 40rpx;
+      background: #fff;
+    }
+    .hr{
+      width: 100%;
+      height: 20rpx;
+      background: #fbfdfe;
+    }
+    h4{
+      height:86rpx;
+      font:38rpx "黑体";
+      font-weight: bold;
+      line-height:86rpx;
+      letter-spacing: -2rpx;
+    }
+    .ly_btn{
+      position: fixed;
+      bottom: 30rpx;
+      left: 0;
+      .btn{
+        width: 100%;
+        height: 88rpx;
+        background: @mainColor;
+        color: #fff;
+        font:30rpx "微软雅黑";
+        line-height: 88rpx;
+        text-align: center;
+        border-radius:10rpx;
+      }
+    }
+  }
+</style>

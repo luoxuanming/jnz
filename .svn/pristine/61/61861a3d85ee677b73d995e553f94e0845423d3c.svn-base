@@ -1,0 +1,852 @@
+require("../../common/manifest.js");
+require("../../common/vendor.js");
+global.webpackJsonp([4],{
+
+/***/ 157:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(158);
+
+
+
+var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */]);
+app.$mount();
+
+/***/ }),
+
+/***/ 158:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_template_compiler_index_id_data_v_39fada25_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(185);
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(159)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-39fada25"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_selector_type_script_index_0_index_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_template_compiler_index_id_data_v_39fada25_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_selector_type_template_index_0_index_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src\\pages\\jjbfq2\\index.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-39fada25", Component.options)
+  } else {
+    hotAPI.reload("data-v-39fada25", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ 159:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 160:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_config__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hlj_picker_mpvue__ = __webpack_require__(161);
+
+
+var _data$created$methods;
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+//import dateTimePicker from '../../utils/index'
+
+
+/* harmony default export */ __webpack_exports__["a"] = (_data$created$methods = {
+  data: function data() {
+    return {
+      mpArr: [], //默认选中当前时间
+      otherArr: [],
+      mpFlag: false,
+      startTime: "",
+      endTime: "",
+      timeType: 0,
+      date: '2018-10-01',
+      time: '12:00',
+      dateTimeArray: null,
+      dateTime: null,
+      dateTimeArray1: null,
+      dateTime1: null,
+      startYear: 2000,
+      endYear: 2050,
+
+      start1: "2015-01-01",
+      end1: "2020-09-01",
+      date1: "请选择",
+      index3: 0,
+      array3: ["不限制", "民生微实事", "志愿者服务活动", "其他意见建议"]
+    };
+  },
+  created: function created() {},
+
+  methods: {
+    bindDateChange: function bindDateChange(e) {
+      // console.log(e.target.value)
+      this.date = e.target.value;
+    },
+    handleTime: function handleTime(index) {
+      if (index == '0' || index == 0) {
+        this.timeType = 0;
+      } else {
+        this.timeType = 1;
+      }
+      this.mpFlag = true;
+    },
+    confirm: function confirm(e) {
+      var dateArr = e.slice(0, 3);
+      var timeArr = e.slice(3);
+
+      var date = dateArr.join('-');
+      var time = timeArr.join(':');
+      var value = date + " " + time;
+      //console.log(that.timeType);
+      if (this.timeType == 0) {
+        //开始时间
+        this.startTime = value;
+      } else {
+        //结束时间
+        this.endTime = value;
+        //console.log(value)
+      }
+      this.mpFlag = false; //关闭picker
+    },
+    bindDateChange1: function bindDateChange1(e) {
+      //console.log(e.target.value)
+      this.date1 = e.target.value;
+    },
+    bindPickerChange3: function bindPickerChange3(e) {
+      // console.log(e.target.value)
+      this.index3 = e.target.value;
+    },
+    preStep: function preStep() {
+      wx.navigateBack({
+        delta: 1
+      });
+    },
+    getHourMinArr: function getHourMinArr() {
+      var arrmin = [];
+      var arrsec = [];
+      for (var i = 0; i < 24; i++) {
+        var value = i;
+        if (i < 10) {
+          value = '0' + i;
+        }
+        arrmin.push(parseInt(value));
+      }
+      for (var i = 0; i < 60; i++) {
+        var value = i;
+        if (i < 10) {
+          value = '0' + i;
+        }
+        arrsec.push(parseInt(value));
+      }
+      this.otherArr[0] = arrmin;
+      this.otherArr[1] = arrsec;
+    },
+    initCurrentTime: function initCurrentTime() {
+      var d = new Date();
+      var year = d.getFullYear();
+      var month = d.getMonth() - 1;
+      var date = d.getDate();
+      var hour = d.getHours();
+      var min = d.getMinutes();
+      this.mpArr = [year, month, date, hour, min];
+    }
+  },
+  onLoad: function onLoad() {}
+}, __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_data$created$methods, "created", function created() {
+  this.getHourMinArr(); //获取时分数组
+  this.initCurrentTime(); //获取当前时间
+}), __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_defineProperty___default()(_data$created$methods, "components", {
+  hljPickerMpvue: __WEBPACK_IMPORTED_MODULE_2_hlj_picker_mpvue__["a" /* default */]
+}), _data$created$methods);
+
+/***/ }),
+
+/***/ 161:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_mpvue_loader_1_1_2_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mpvue_loader_1_1_2_mpvue_loader_lib_template_compiler_index_id_data_v_c3e8615e_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_mpvue_loader_1_1_2_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(184);
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(162)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_mpvue_loader_1_1_2_mpvue_loader_lib_selector_type_script_index_0_index_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__mpvue_loader_1_1_2_mpvue_loader_lib_template_compiler_index_id_data_v_c3e8615e_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_mpvue_loader_1_1_2_mpvue_loader_lib_selector_type_template_index_0_index_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "node_modules\\hlj-picker-mpvue\\src\\index.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c3e8615e", Component.options)
+  } else {
+    hotAPI.reload("data-v-c3e8615e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ 162:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 163:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_js__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants_js__ = __webpack_require__(43);
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  name: "hlj-picker",
+  props: {
+    visible: {
+      require: true,
+      type: Boolean,
+      default: false
+    },
+    otherOptions: {
+      type: Array,
+      default: []
+    },
+    value: {
+      type: Array,
+      default: []
+    },
+    title: {
+      type: String,
+      default: "请选择日期"
+    },
+    indicatorStyle: {
+      type: String,
+      default: ""
+    },
+    indicatorClass: {
+      type: String,
+      default: ""
+    },
+    maskStyle: {
+      type: String,
+      default: ""
+    },
+    maskClass: {
+      type: String,
+      default: ""
+    },
+    showYearsRange: {
+      type: Number,
+      default: 3
+    },
+    isShowNormalDatePicker: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data: function data() {
+    return {
+      years: [],
+      months: [],
+      days: [],
+      activedYear: this.value[0] || __WEBPACK_IMPORTED_MODULE_2__constants_js__["d" /* NOW_YEAR */], // 选中年份
+      activedMonth: this.value[1] || __WEBPACK_IMPORTED_MODULE_2__constants_js__["c" /* NOW_MONTH */], // 选中月份
+      activedDay: this.value[2] || __WEBPACK_IMPORTED_MODULE_2__constants_js__["b" /* NOW_DAY */], // 选中日期
+      currentValue: this.value
+    };
+  },
+
+  watch: {
+    value: function value(newVal) {
+      if (newVal.length) {
+        this.handleCurrentValueInit(newVal[0], newVal[1], newVal[2]);
+      }
+    }
+  },
+  methods: {
+    // 处理日期时间更新
+    handleUpdate: function handleUpdate(year, month, day) {
+      var daysNum = year === __WEBPACK_IMPORTED_MODULE_2__constants_js__["d" /* NOW_YEAR */] && month === __WEBPACK_IMPORTED_MODULE_2__constants_js__["c" /* NOW_MONTH */] ? this.isShowNormalDatePicker ? __WEBPACK_IMPORTED_MODULE_2__constants_js__["b" /* NOW_DAY */] : Object(__WEBPACK_IMPORTED_MODULE_1__utils_js__["c" /* getDays */])(year, month) : Object(__WEBPACK_IMPORTED_MODULE_1__utils_js__["c" /* getDays */])(year, month);
+      // const monthsNum = year === NOW_YEAR ? NOW_MONTH : 12
+      var monthsNum = 12;
+      var activedDay = day > daysNum ? 1 : day;
+
+      this.years = Object(__WEBPACK_IMPORTED_MODULE_1__utils_js__["f" /* setYearsList */])(__WEBPACK_IMPORTED_MODULE_2__constants_js__["d" /* NOW_YEAR */], this.showYearsRange, this.isShowNormalDatePicker);
+      this.months = Object(__WEBPACK_IMPORTED_MODULE_1__utils_js__["e" /* setMonthsList */])(monthsNum);
+      this.days = Object(__WEBPACK_IMPORTED_MODULE_1__utils_js__["d" /* setDaysList */])(daysNum);
+    },
+    handlePickerCancle: function handlePickerCancle() {
+      this.$emit('close');
+    },
+    handlePickerSelect: function handlePickerSelect() {
+      this.$emit('close');
+      var callbackValue = this.handleCallbackDataFormat(this.currentValue);
+      this.$emit('confirm', callbackValue);
+    },
+
+    // 回调数据处理
+    handleCallbackDataFormat: function handleCallbackDataFormat(value) {
+      // console.log('回调value', value)
+      var callbackValue = [this.years[value[0]], this.months[value[1]], this.days[value[2]]];
+      if (this.otherOptions.length) {
+        var cloneValue = Object(__WEBPACK_IMPORTED_MODULE_1__utils_js__["a" /* deepClone */])(value);
+        this.otherOptions.forEach(function (options, index) {
+          var currentItem = options[cloneValue[index]];
+          callbackValue.push(currentItem);
+        });
+      }
+      // console.log('回调callbackValue', callbackValue)
+      return callbackValue;
+    },
+
+    // 默认数据初始化
+    handleCurrentValueInit: function handleCurrentValueInit(year, month, day) {
+      var yearIndex = Object(__WEBPACK_IMPORTED_MODULE_1__utils_js__["b" /* getActivedIndex */])(this.years, year);
+      var monthIndex = Object(__WEBPACK_IMPORTED_MODULE_1__utils_js__["b" /* getActivedIndex */])(this.months, month);
+      var dayIndex = Object(__WEBPACK_IMPORTED_MODULE_1__utils_js__["b" /* getActivedIndex */])(this.days, day);
+      var currentValue = [yearIndex, monthIndex, dayIndex];
+      // 处理额外添加的选项的索引
+      if (this.otherOptions.length && this.value.length) {
+        // cloneValue：获取额外添加的值
+        var cloneValue = Object(__WEBPACK_IMPORTED_MODULE_1__utils_js__["a" /* deepClone */])(this.value);
+        this.otherOptions.forEach(function (options, index) {
+          var currentItem = Object(__WEBPACK_IMPORTED_MODULE_1__utils_js__["b" /* getActivedIndex */])(options, cloneValue[index]);
+          currentValue.push(currentItem);
+        });
+      } else if (this.otherOptions.length) {
+        var addArr = [];
+        this.otherOptions.forEach(function (item, index) {
+          addArr[index] = 0;
+        });
+        // console.log('addArr', addArr)
+        currentValue = [].concat(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_toConsumableArray___default()(currentValue), addArr);
+      }
+      console.log(currentValue, '>>>>>>>>>');
+      this.currentValue = currentValue;
+    },
+
+    // 监听选项变化
+    handlePickerChange: function handlePickerChange(e) {
+      var value = e.mp.detail.value;
+      this.currentValue = e.mp.detail.value;
+      this.handleUpdate(this.years[value[0]], this.months[value[1]], this.days[value[2]]);
+    }
+  },
+  mounted: function mounted() {
+    console.log(this.activedYear, this.activedMonth, this.activedDay);
+    this.handleUpdate(this.activedYear, this.activedMonth, this.activedDay);
+    this.handleCurrentValueInit(this.activedYear, this.activedMonth, this.activedDay);
+  }
+});
+
+/***/ }),
+
+/***/ 184:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return (_vm.visible) ? _c('div', {
+    staticClass: "hlj-picker"
+  }, [_c('div', {
+    staticClass: "hlj-picker-body hlj-animate-slide-up"
+  }, [_c('div', {
+    staticClass: "hlj-picker-control"
+  }, [_c('a', {
+    staticClass: "hlj-picker__action hlj-picker-cancel",
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": _vm.handlePickerCancle
+    }
+  }, [_vm._v("取消")]), _vm._v(" "), _c('span', {
+    staticClass: "hlj-picker-title"
+  }, [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c('a', {
+    staticClass: "hlj-picker__action hlj-picker-select",
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": _vm.handlePickerSelect
+    }
+  }, [_vm._v("确定")])]), _vm._v(" "), _c('div', {
+    staticClass: "hlj-picker-content"
+  }, [_c('picker-view', {
+    staticStyle: {
+      "width": "100%",
+      "height": "300px"
+    },
+    attrs: {
+      "value": _vm.currentValue,
+      "indicator-style": 'height: 34px;' + _vm.indicatorStyle,
+      "indicator-class": _vm.indicatorClass,
+      "mask-style": _vm.maskStyle,
+      "imask-class": _vm.maskClass,
+      "eventid": '2'
+    },
+    on: {
+      "change": _vm.handlePickerChange
+    }
+  }, [_c('picker-view-column', {
+    attrs: {
+      "mpcomid": '0'
+    }
+  }, _vm._l((_vm.years), function(item, index) {
+    return _c('div', {
+      key: index,
+      staticClass: "picker-view-column"
+    }, [_vm._v(_vm._s(item) + "年")])
+  })), _vm._v(" "), _c('picker-view-column', {
+    attrs: {
+      "mpcomid": '1'
+    }
+  }, _vm._l((_vm.months), function(item, index) {
+    return _c('div', {
+      key: index,
+      staticClass: "picker-view-column"
+    }, [_vm._v(_vm._s(item) + "月")])
+  })), _vm._v(" "), _c('picker-view-column', {
+    attrs: {
+      "mpcomid": '2'
+    }
+  }, _vm._l((_vm.days), function(item, index) {
+    return _c('div', {
+      key: index,
+      staticClass: "picker-view-column"
+    }, [_vm._v(_vm._s(item) + "日")])
+  })), _vm._v(" "), _vm._l((_vm.otherOptions), function(optionsList, index) {
+    return _c('picker-view-column', {
+      key: index,
+      attrs: {
+        "mpcomid": '3-' + index
+      }
+    }, _vm._l((optionsList), function(item, childIndex) {
+      return _c('div', {
+        key: childIndex,
+        staticClass: "picker-view-column"
+      }, [_vm._v(_vm._s(item))])
+    }))
+  })], 2)], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "hlj-mark hlj-animate-fade-in",
+    attrs: {
+      "eventid": '3'
+    },
+    on: {
+      "click": _vm.handlePickerCancle
+    }
+  })]) : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-c3e8615e", esExports)
+  }
+}
+
+/***/ }),
+
+/***/ 185:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "jjb"
+  }, [_c('scroll-view', {
+    staticClass: "scroll",
+    attrs: {
+      "scroll-y": true
+    }
+  }, [_c('div', {
+    staticClass: "state"
+  }, [_c('div', {
+    staticClass: "content"
+  }, [_c('div', {
+    staticClass: "circle"
+  }, [_c('i', {
+    staticClass: "iconfont icon-gou active"
+  }), _vm._v(" "), _c('dl', [_c('dt', [_vm._v("已完成")]), _vm._v(" "), _c('dd', [_vm._v("选择发起类型")])], 1)], 1), _vm._v(" "), _c('div', {
+    staticClass: "default_line"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "circle"
+  }, [_c('i', {
+    staticClass: "iconfont icon-icon-test1"
+  }), _vm._v(" "), _c('dl', [_c('dt', [_vm._v("未开始")]), _vm._v(" "), _c('dd', [_vm._v("填写信息并发起")])], 1)], 1)])]), _vm._v(" "), _c('div', {
+    staticClass: "hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "info"
+  }, [_c('div', {
+    staticClass: "content"
+  }, [_c('h4', [_vm._v("填写信息")]), _vm._v(" "), _c('dl', {
+    staticClass: "list"
+  }, [_c('dt', [_vm._v("\n            开始时间"), _c('span', {
+    staticClass: "xing"
+  }, [_vm._v("*")])]), _vm._v(" "), _c('dd', [_c('span', {
+    staticClass: "picker",
+    class: _vm.startTime == '' ? 'moren' : ' ',
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": function($event) {
+        _vm.handleTime(0)
+      }
+    }
+  }, [_vm._v(_vm._s(_vm.startTime == '' ? '请选择' : _vm.startTime) + " "), _c('i', {
+    staticClass: "iconfont icon-xiala"
+  })], 1)])], 1), _vm._v(" "), _c('dl', {
+    staticClass: "list"
+  }, [_c('dt', [_vm._v("\n            结束时间"), _c('span', {
+    staticClass: "xing"
+  }, [_vm._v("*")])]), _vm._v(" "), _c('dd', [_c('span', {
+    staticClass: "picker",
+    class: _vm.endTime == '' ? 'moren' : ' ',
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": function($event) {
+        _vm.handleTime(1)
+      }
+    }
+  }, [_vm._v(_vm._s(_vm.endTime == '' ? '请选择' : _vm.endTime) + " "), _c('i', {
+    staticClass: "iconfont icon-xiala"
+  })], 1)])], 1), _vm._v(" "), _c('dl', {
+    staticClass: "list"
+  }, [_c('dt', [_vm._v("\n            地点\n          ")]), _vm._v(" "), _c('dd', [_c('input', {
+    attrs: {
+      "type": "text",
+      "placeholder": "请输入不超过50字的地址"
+    }
+  })])], 1), _vm._v(" "), _c('dl', {
+    staticClass: "list"
+  }, [_c('dt', [_vm._v("\n            参与人\n          ")]), _vm._v(" "), _c('dd', [_c('picker', {
+    attrs: {
+      "value": _vm.index3,
+      "range": _vm.array3,
+      "eventid": '2'
+    },
+    on: {
+      "change": _vm.bindPickerChange3
+    }
+  }, [_c('view', {
+    staticClass: "picker",
+    class: _vm.index3 == 0 ? 'moren' : ' '
+  }, [_vm._v("\n                " + _vm._s(_vm.array3[_vm.index3]) + " "), _c('i', {
+    staticClass: "iconfont icon-xiala"
+  })], 1)])], 1)], 1), _vm._v(" "), _c('dl', {
+    staticClass: "list zt"
+  }, [_c('dt', [_vm._v("\n            主题 "), _c('span', {
+    staticClass: "xing"
+  }, [_vm._v("*")])]), _vm._v(" "), _c('dd', {
+    staticStyle: {
+      "width": "100%"
+    }
+  }, [_c('input', {
+    staticStyle: {
+      "width": "100%"
+    },
+    attrs: {
+      "type": "text",
+      "placeholder": "输入此次相聚的主题，限制200字内"
+    }
+  })])], 1)], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "fj"
+  }, [_c('div', [_c('img', {
+    staticClass: "fj",
+    attrs: {
+      "src": "../../images/fj.png",
+      "alt": ""
+    }
+  }), _vm._v("\n        添加附件\n      ")]), _vm._v(" "), _c('div', {
+    staticClass: "icon"
+  }, [_vm._v("+")])]), _vm._v(" "), _c('div', {
+    staticClass: "hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "fj"
+  }, [_c('div', [_c('img', {
+    staticClass: "fj",
+    attrs: {
+      "src": "../../images/tp.png",
+      "alt": ""
+    }
+  }), _vm._v("\n        添加图片\n      ")]), _vm._v(" "), _c('div', {
+    staticClass: "icon"
+  }, [_vm._v("+")])]), _vm._v(" "), _c('div', {
+    staticClass: "hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "btn_groups content"
+  }, [_c('span', [_vm._v("+ 添加选项")]), _vm._v(" "), _c('div', {
+    staticClass: "btns"
+  }, [_c('div', {
+    attrs: {
+      "eventid": '3'
+    },
+    on: {
+      "click": _vm.preStep
+    }
+  }, [_vm._v("上一步")]), _vm._v(" "), _c('div', [_vm._v("发布 "), _c('i', {
+    staticClass: "iconfont icon-fabu"
+  })], 1)])]), _vm._v(" "), _c('hljPickerMpvue', {
+    attrs: {
+      "visible": _vm.mpFlag,
+      "value": _vm.mpArr,
+      "otherOptions": _vm.otherArr,
+      "showYearsRange": 6,
+      "eventid": '4',
+      "mpcomid": '0'
+    },
+    on: {
+      "confirm": _vm.confirm,
+      "close": _vm.close
+    }
+  })], 1)], 1)
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-39fada25", esExports)
+  }
+}
+
+/***/ })
+
+},[157]);
+//# sourceMappingURL=main.js.map

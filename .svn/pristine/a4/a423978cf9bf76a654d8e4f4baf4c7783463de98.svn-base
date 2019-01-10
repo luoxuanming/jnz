@@ -1,0 +1,75 @@
+<template>
+  <div class="search">
+    <div class="input_area">
+      <i class="iconfont icon-sousuo1"></i>
+      <input type="text" :placeholder="placeholder">
+    </div>
+    <span @click="Back">取消</span>
+  </div>
+</template>
+
+<script>
+    export default {
+       data(){
+         return{
+           search:"",
+         }
+       },
+      methods:{
+        Back(){
+          wx.navigateBack();
+        }
+      },
+      props:{
+        placeholder:{
+          type:String,
+          required:true
+        }
+      }
+    }
+</script>
+
+<style scoped lang="less">
+  @import "../../common/css/font/iconfont.css";
+  .search{
+    width: 100%;
+    height: 96rpx;
+    background: #fff;
+    padding:26rpx 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    .input_area{
+      width: 600rpx;
+      height: 60rpx;
+      background:#f7f8fc;
+      border-radius: 10rpx;
+      padding-left: 70rpx;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      position: relative;
+      input{
+        width: 100%;
+        font:28rpx "黑体";
+        line-height:60rpx;
+      }
+      input::placeholder{
+        color:#bfbfbf;
+      }
+      .iconfont{
+        position: absolute;
+        left: 10rpx;
+        font-size: 32rpx;
+        color:#bfbfbf;
+      }
+    }
+    span{
+      font:28rpx "黑体";
+      color:#bfbfbf;
+      padding-right:14rpx;
+      line-height:60rpx;
+    }
+  }
+</style>

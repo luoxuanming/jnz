@@ -1,0 +1,24 @@
+<template name="871eaa54">
+  <view class="_div data-v-05d27ebc power">
+    <view class="_div data-v-05d27ebc head">
+      <image src="/images/power.png" alt class="_img data-v-05d27ebc power_img"></image>
+      <view class="_div data-v-05d27ebc tab">
+        <view class="_div data-v-05d27ebc btnGroups">
+          <view class="_div data-v-05d27ebc btn {{current == 0 ? 'active' : ' '}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">先进人物</view>
+          <view class="_div data-v-05d27ebc btn {{current == 1 ? 'active' : ' '}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">身边好人</view>
+        </view>
+      </view>
+    </view>
+    <scroll-view scroll-y="{{true}}" class="_scroll-view data-v-05d27ebc scroll">
+      <view class="_div data-v-05d27ebc content">
+        <view class="_div data-v-05d27ebc list" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}" wx:for="{{powerList}}" wx:for-index="index" wx:for-item="item">
+          <image src="{{item.NEWS_THUMB_IMG}}" alt class="_img data-v-05d27ebc"></image>
+          <view class="_dl data-v-05d27ebc">
+            <view class="_dt data-v-05d27ebc">{{item.NEWS_AUTHOR}}</view>
+            <view class="_dd data-v-05d27ebc">{{item.SUB_TITLE}}</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

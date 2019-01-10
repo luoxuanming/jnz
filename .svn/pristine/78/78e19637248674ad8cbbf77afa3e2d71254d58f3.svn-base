@@ -1,0 +1,56 @@
+<template name="a59b7f5c">
+  <view class="_div data-v-4de3ea10 jjb">
+    <view class="_div data-v-4de3ea10 head">
+      <view class="_div data-v-4de3ea10 content head_content">
+        <view class="_div data-v-4de3ea10 bg"><input type="text" placeholder="江南中街道第一党支部" class="_input data-v-4de3ea10" />
+          <view class="_div data-v-4de3ea10 icons"> | <view class="_i data-v-4de3ea10 iconfont icon-sousuo1"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <scroll-view scroll-y="{{true}}" class="_scroll-view data-v-4de3ea10 scroll">
+      <view class="_div data-v-4de3ea10 content body">
+        <view class="_div data-v-4de3ea10 result_span"><label bindtap="handleProxy" data-tabId="0" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_span data-v-4de3ea10 {{tab[0] == true ? 'cut span0' : 'span0'}}">投票评议</label> <label bindtap="handleProxy" data-tabId="1" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_span data-v-4de3ea10 {{tab[1] == true ? 'cut span0' : 'span0'}}">党员大会</label> <label bindtap="handleProxy" data-tabId="2" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_span data-v-4de3ea10 {{tab[2] == true ? 'cut span0' : 'span0'}}">组织活动</label> <label bindtap="handleProxy" data-tabId="3" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_span data-v-4de3ea10 {{tab[3] == true ? 'cut span0' : 'span0'}}">支委会</label> <label bindtap="handleProxy" data-tabId="4" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_span data-v-4de3ea10 {{tab[4] == true ? 'cut span0' : 'span0'}}">党课</label></view>
+        <image class="_img data-v-4de3ea10 nullImg" src="/images/ly_null0.png" wx:if="{{nullImg}}"></image>
+        <view class="_div data-v-4de3ea10 list" wx:if="{{list.length}}" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'6-'+index}}" data-comkey="{{$k}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
+          <view class="_div data-v-4de3ea10 userinfos">
+            <image wx:if="{{item.USER_PIC==null}}" src="/images/user_pic.png" alt class="_img data-v-4de3ea10"></image>
+            <image wx:if="{{item.USER_PIC!=null}}" src="{{item.USER_PIC}}" binderror="handleProxy" alt data-eventid="{{'5-'+index}}" data-comkey="{{$k}}" class="_img data-v-4de3ea10"></image>
+            <view class="_dl data-v-4de3ea10">
+              <view class="_dt data-v-4de3ea10">
+                {{item.CREATE_USER_NAME}} <label class="_span data-v-4de3ea10">{{item.CREATE_TIME}}</label></view>
+              <view class="_dd data-v-4de3ea10"><label wx:key="index1" key="{{index1}}" wx:for="{{item.MEETING_TYPE}}" wx:for-index="index1" wx:for-item="type" class="_span data-v-4de3ea10">{{type}}</label></view>
+            </view>
+          </view>
+          <view class="_div data-v-4de3ea10 text">
+            {{item.MEETING_TITLE}}
+          </view>
+          <view class="_dl data-v-4de3ea10 org">
+            <view class="_dd data-v-4de3ea10">
+              <view class="_i data-v-4de3ea10 iconfont icon-shijian"></view>
+              {{item.BEGIN_TIME}} ~ {{item.END_TIME}}
+            </view>
+            <view class="_dt data-v-4de3ea10">
+              <view class="_i data-v-4de3ea10 iconfont icon-dangzhibu"></view>{{item.ATTEND_ORG_NAME}}
+            </view>
+            <view class="_dd data-v-4de3ea10">
+              <view class="_i data-v-4de3ea10 iconfont icon-dingwei1"></view> <label class="_span data-v-4de3ea10">{{item.MEETING_ADDR}}</label>
+            </view>
+          </view>
+          <view class="_dl data-v-4de3ea10 count">
+            <view class="_dt data-v-4de3ea10">
+              <view class="_i data-v-4de3ea10 iconfont icon-renshu-"></view>
+              {{item.meetCount}}人参与
+            </view>
+            <view class="_dd data-v-4de3ea10">
+              <view class="_i data-v-4de3ea10 iconfont icon-xinxi"></view>
+              {{item.meetNoCount}}未读消息
+            </view>
+          </view>
+          <view class="_div data-v-4de3ea10 tag">{{item.MEETING_STATUS}}</view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="_div data-v-4de3ea10 f_icon" bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}">+</view>
+  </view>
+</template>

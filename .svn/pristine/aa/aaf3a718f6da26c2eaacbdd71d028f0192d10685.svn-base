@@ -1,0 +1,113 @@
+<template>
+  <div class="gjgz">
+    <img src="../../images/gjgz.png" alt="" class="gjgz_bg">
+    <div class="content">
+      <div><img src="../../images/gjgz01.png" mode="widthFix" alt="" @click="goZddw"></div>
+      <div><img src="../../images/gjgz02.png" mode="widthFix" alt="" @click="goLdbywy"></div>
+      <div><img src="../../images/gjgz03.png" mode="widthFix" alt="" @click="goWyly"></div>
+    </div>
+    <div class="logo_container">
+      <img src="../../images/logo.png" alt="" class="logo">
+    </div>
+  </div>
+</template>
+
+<script>
+
+
+export default {
+  components: {
+
+  },
+
+  data () {
+    return {
+
+    }
+  },
+  methods:{
+    goZddw(){
+      wx.navigateTo({
+        url:`/pages/zddw/main`
+      });
+    },
+    goWyly(){
+      wx.getStorage({
+        key: 'userInfos',
+        success(res) {
+          // console.log(JSON.stringify(res.data.USER_ID))
+          wx.navigateTo({
+            url:`/pages/wyly/main?userId=${res.data.USER_ID}`
+          });
+        },
+        fail(){
+          wx.showToast({
+            title:"请登录后重试",
+            icon:"none",
+            duration:2000
+          })
+          setTimeout(function(){
+            wx.navigateTo({
+              url:`/pages/index/main`
+            })
+          },2000)
+        }
+      })
+
+    },
+    goLdbywy(){
+
+      wx.navigateTo({
+        url:`/pages/ldbywy/main`
+      });
+    }
+  },
+  created () {
+
+  }
+}
+</script>
+
+<style scoped lang="less">
+.gjgz{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  bottom: 0;
+  overflow: hidden;
+  background: url("../../images/logo.png") no-repeat;
+  background-size: 363rpx 70rpx;
+  background-position: center bottom 30rpx;
+  .gjgz_bg{
+    width: 100%;
+    height: 364rpx;
+  }
+  .content{
+    position: relative;
+    left:0;
+    top:0;
+    width: 690rpx;
+    height: 100vh;
+    margin: 0 auto;
+    div{
+      img{
+        width: 100%;
+        margin-bottom: 25rpx;
+      }
+    }
+  }
+  .logo_container{
+    position: absolute;
+    width: 100%;
+    bottom: 30rpx;
+    display: flex;
+    justify-content: center;
+    .logo{
+      width: 363rpx;
+      height: 70rpx;
+      margin:0 auto;
+    }
+  }
+
+}
+</style>

@@ -1,0 +1,5 @@
+<import src="/base/infoList/infoList.vue.wxml" /><template name="6ba115f3">
+  <view class="_div data-v-12edacf2 dwzn">
+    <scroll-view scroll-y="{{true}}" class="_scroll-view data-v-12edacf2 scroll"><template data="{{...$root[$kk+'0'], $root}}" is="fe787ba2"></template></scroll-view>
+  </view>
+</template>

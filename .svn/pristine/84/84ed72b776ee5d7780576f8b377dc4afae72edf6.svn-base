@@ -1,0 +1,12 @@
+<template name="3bed169f">
+  <view class="_div data-v-7255ab9a wybs">
+    <view class="_div data-v-7255ab9a imggroup">
+      <image src="/images/wybs.png" alt class="_img data-v-7255ab9a wybs_bg"></image>
+      <image src="/images/dangwu.png" alt class="_img data-v-7255ab9a wimg" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></image>
+      <image src="/images/zhengwu.png" alt class="_img data-v-7255ab9a wimg" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"></image>
+    </view>
+    <view class="_div data-v-7255ab9a logo_container">
+      <image src="/images/logo.png" alt class="_img data-v-7255ab9a logo"></image>
+    </view>
+  </view>
+</template>

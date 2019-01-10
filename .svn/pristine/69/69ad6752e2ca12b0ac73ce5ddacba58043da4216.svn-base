@@ -1,0 +1,20 @@
+<template name="7057f7e1">
+  <view class="_div data-v-33e0ff22 tab">
+    <view class="_div data-v-33e0ff22 content">
+      <scroll-view class="_scroll-view data-v-33e0ff22 scroll" scroll-x="{{true}}">
+        <view class="_ul data-v-33e0ff22">
+          <view wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{channellist}}" wx:for-index="index" wx:for-item="item" class="_li data-v-33e0ff22 {{current == item.CHANNEL_ID ? 'current' : ''}}">{{item.CHANNEL_NAME}}
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="_div data-v-33e0ff22 list" bindtap="handleProxy" wx:key="index" key="{{index}}" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}" wx:for="{{newlist}}" wx:for-index="index" wx:for-item="item">
+      <view class="_dl data-v-33e0ff22">
+        <view class="_dt data-v-33e0ff22">{{item.MAIN_TITLE}}</view>
+        <view class="_dd data-v-33e0ff22"><label class="_span data-v-33e0ff22">{{item.MODIFY_TIME}}</label> <label class="_span data-v-33e0ff22 count">{{item.READ_COUNT}} 阅读</label></view>
+      </view>
+      <image wx:if="{{item.NEWS_THUMB_IMG!=null}}" src="{{item.NEWS_THUMB_IMG}}" binderror="handleProxy" alt class="_img data-v-33e0ff22 listimg" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}"></image>
+    </view>
+    <view wx:if="{{!newlist.length}}" class="_div data-v-33e0ff22" style="font:28rpx '黑体';color:#7f8699;text-align: center; padding:20rpx 0">暂无数据</view>
+  </view>
+</template>

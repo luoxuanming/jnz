@@ -1,0 +1,67 @@
+<template name="5cbf669b">
+  <view class="_div data-v-30b10ba2 volunteerAct">
+    <view class="_div data-v-30b10ba2 searchBox">
+      <view class="_div data-v-30b10ba2 search">
+        <view class="_div data-v-30b10ba2 addr">
+          <view class="_i data-v-30b10ba2"></view><label class="_span data-v-30b10ba2">江南中街道</label>
+        </view>
+        <view class="_div data-v-30b10ba2 input_area">
+          <view class="_i data-v-30b10ba2"></view> <input type="text" placeholder="{{placeholder}}" class="_input data-v-30b10ba2" />
+        </view>
+      </view>
+      <view class="_div data-v-30b10ba2 content">
+        <view class="_div data-v-30b10ba2 btnGroups">
+          <view class="_div data-v-30b10ba2 btn">志愿者申请</view>
+          <view class="_div data-v-30b10ba2 btn">活动日历</view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-30b10ba2 cards">
+      <view class="_div data-v-30b10ba2 content">
+        <view class="_div data-v-30b10ba2 cardlist" wx:for="{{cardlist}}" wx:for-index="index" wx:for-item="item">
+          <view class="_div data-v-30b10ba2 pic">
+            <image src="/images/pic01.png" alt class="_img data-v-30b10ba2 banner"></image> <label class="_span data-v-30b10ba2">进行中</label>
+          </view>
+          <view class="_div data-v-30b10ba2 cont">
+            <view class="_div data-v-30b10ba2">
+              <view class="_p data-v-30b10ba2">志愿活动名称占位志愿活动名称占位志...</view>
+              <view class="_i data-v-30b10ba2"></view>
+            </view>
+            <view class="_dl data-v-30b10ba2">
+              <view class="_dt data-v-30b10ba2">
+                <view class="_i data-v-30b10ba2"></view>广东广州天河去
+              </view>
+              <view class="_dd data-v-30b10ba2">
+                <view class="_i data-v-30b10ba2"></view>10.09 周六 10:00
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-30b10ba2 past">
+      <view class="_div data-v-30b10ba2 content">
+        <view class="_div data-v-30b10ba2 title">往期志愿活动</view>
+        <view class="_div data-v-30b10ba2 actlist" wx:key="index" key="{{index}}" wx:for="{{pastlist}}" wx:for-index="index" wx:for-item="item">
+          <view class="_div data-v-30b10ba2 pic">
+            <image src="/images/dy_pic02.png" alt class="_img data-v-30b10ba2"></image> <label class="_span data-v-30b10ba2">进行中</label>
+            <view class="_div data-v-30b10ba2 text">关爱小动物</view>
+          </view>
+          <view class="_div data-v-30b10ba2 info">
+            <view class="_p data-v-30b10ba2"> 志愿活动名称占位志愿活动名称占位志... </view>
+            <view class="_dl data-v-30b10ba2">
+              <view class="_dt data-v-30b10ba2">
+                <view class="_i data-v-30b10ba2"></view>广东广州天河区
+              </view>
+              <view class="_dd data-v-30b10ba2"><label class="_span data-v-30b10ba2">
+                  <view class="_i data-v-30b10ba2"></view>10.09 周六 10:00
+                </label><label class="_span data-v-30b10ba2">
+                  <view class="_i data-v-30b10ba2"></view>志愿活动
+                </label></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

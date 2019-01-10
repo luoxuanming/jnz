@@ -1,0 +1,391 @@
+require("../../common/manifest.js");
+require("../../common/vendor.js");
+global.webpackJsonp([6],{
+
+/***/ 333:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(334);
+
+
+
+var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */]);
+app.$mount();
+
+/***/ }),
+
+/***/ 334:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_template_compiler_index_id_data_v_6a9bee04_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(337);
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(335)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-6a9bee04"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_selector_type_script_index_0_index_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_template_compiler_index_id_data_v_6a9bee04_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_selector_type_template_index_0_index_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src\\pages\\zjdx\\index.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6a9bee04", Component.options)
+  } else {
+    hotAPI.reload("data-v-6a9bee04", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ 335:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 336:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_Vuex__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_config__ = __webpack_require__(2);
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  data: function data() {
+    return {
+      kcList: [],
+      zlList: [1, 1, 1, 1],
+      id: ""
+    };
+  },
+
+  computed: __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_extends___default()({}, Object(__WEBPACK_IMPORTED_MODULE_2_Vuex__["a" /* mapGetters */])({
+    token: "token"
+  })),
+  created: function created() {
+    this.getHotkc();
+    this.getfenlei();
+  },
+
+  methods: {
+    getHotkc: function getHotkc() {
+      var that = this;
+      wx.getStorage({
+        key: 'token',
+        success: function success(ret) {
+          wx.request({
+            //获取热门微课
+            url: __WEBPACK_IMPORTED_MODULE_3__utils_config__["c" /* HOST */] + "/stddj-learn/servlet/learn.action?method=getAllHotCourse",
+            data: {},
+            header: {
+              'content-type': 'application/json', // 默认值
+              'Authorization': ret.data
+            },
+            success: function success(res) {
+              //console.log(JSON.stringify(res.data));
+              that.kcList = res.data;
+            }
+          });
+        }
+      });
+    },
+    goWkcList: function goWkcList() {
+      var that = this;
+      wx.navigateTo({
+        url: "/pages/outLink/main?type=1&CAT_ID=" + that.id
+      });
+    },
+    goSee: function goSee(DOC_ID, RES_ID, CAT_ID) {
+      wx.getStorage({
+        key: 'userInfos',
+        success: function success(res) {
+          console.log(res.data);
+          var m_ORG_ID = res.data.ORG_ID;
+          var m_USER_NAME = res.data.USER_NAME;
+          var m_USER_ID = res.data.USER_ID;
+          var m_ORG_NAME = res.data.ORG_ID;
+          //console.log(m_ORG_ID+":"+m_USER_NAME+":"+m_USER_ID+":"+m_ORG_NAME)
+          wx.navigateTo({
+            url: "/pages/outLink/main?type=2&DOC_ID=" + DOC_ID + "&RES_ID=" + RES_ID + "&CAT_ID=" + CAT_ID + "&m_ORG_ID=" + m_ORG_ID + "&m_USER_NAME=" + m_USER_NAME + "&m_USER_ID=" + m_USER_ID + "&m_ORG_NAME=" + m_ORG_NAME
+          });
+        },
+        fail: function fail() {
+          wx.navigateTo({
+            url: "/pages/login/main"
+          });
+        }
+      });
+    },
+    getfenlei: function getfenlei() {
+      var that = this;
+      wx.getStorage({
+        key: 'token',
+        success: function success(ret) {
+          wx.request({
+            //获取热门微课
+            url: __WEBPACK_IMPORTED_MODULE_3__utils_config__["c" /* HOST */] + "/stddj-learn/servlet/learn.action?method=getLearnCat",
+            data: {},
+            header: {
+              'content-type': 'application/json', // 默认值
+              'Authorization': ret.data
+            },
+            success: function success(res) {
+              that.id = res.data[0].CAT_ID;
+            }
+          });
+        }
+      });
+    },
+    goDtcg: function goDtcg() {
+      console.log(1);
+      wx.getStorage({
+        key: 'userInfos',
+        success: function success(res) {
+          console.log(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default()(res.data.USER_CODE));
+          wx.navigateTo({
+            url: "/pages/outLink/main?type=4&USER_CODE=" + res.data.USER_CODE + "&ORG_ID=" + res.data.ORG_ID
+          });
+        },
+        fail: function fail() {
+          wx.navigateTo({
+            url: "/pages/login/main"
+          });
+        }
+      });
+    },
+    errorfn: function errorfn(index) {
+      this.list[index].NEWS_THUMB_IMG = "../../images/default_img.jpg";
+    }
+  },
+  components: {}
+});
+
+/***/ }),
+
+/***/ 337:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "zjdx"
+  }, [_c('div', {
+    staticClass: "head"
+  }, [_c('img', {
+    staticClass: "zjdx_bg",
+    attrs: {
+      "src": "../../images/zjdx.png",
+      "mode": "widthFix",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "btnGroups"
+  }, [_c('div', {
+    staticClass: "btn",
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": _vm.goWkcList
+    }
+  }, [_vm._v("微课程")]), _vm._v(" "), _c('div', {
+    staticClass: "btn"
+  }, [_vm._v("图文资料")]), _vm._v(" "), _c('div', {
+    staticClass: "btn",
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": _vm.goDtcg
+    }
+  }, [_vm._v("闯关答题")])])]), _vm._v(" "), _c('scroll-view', {
+    staticClass: "scroll",
+    attrs: {
+      "scroll-y": true
+    }
+  }, [(_vm.kcList.length) ? _c('div', {
+    staticClass: "content"
+  }, [_c('h4', [_vm._v("热门微课")]), _vm._v(" "), _c('div', {
+    staticClass: "kc"
+  }, [_vm._l((_vm.kcList), function(item, index) {
+    return _c('div', {
+      key: index,
+      staticClass: "kc_list",
+      attrs: {
+        "eventid": '3-' + index
+      },
+      on: {
+        "click": function($event) {
+          _vm.goSee(item.DOC_ID, item.RES_ID, item.CAT_ID)
+        }
+      }
+    }, [_c('div', {
+      staticClass: "pic"
+    }, [_c('img', {
+      attrs: {
+        "src": item.DOC_THUMB_IMG,
+        "mode": "widthFix",
+        "alt": "",
+        "eventid": '2-' + index
+      },
+      on: {
+        "error": function($event) {
+          _vm.errorfn(index)
+        }
+      }
+    })]), _vm._v(" "), _c('dl', [_c('dt', [_vm._v(_vm._s(item.DOC_NAME))]), _vm._v(" "), _c('dd', [_c('span', [_vm._l((5), function(start, s_index) {
+      return _c('img', {
+        key: index,
+        staticClass: "start",
+        attrs: {
+          "src": start < item.DOC_RATE ? '../../images/start_active.png' : '../../images/start.png',
+          "alt": ""
+        }
+      })
+    }), _vm._v(" "), _vm._v("\n                " + _vm._s(item.DOC_RATE) + "分")], 2), _vm._v(" "), _c('span', [_vm._v(_vm._s(item.LearnCount) + "人观看")])])], 1)], 1)
+  }), _vm._v(" "), (_vm.index > 5) ? _c('div', {
+    staticClass: "more"
+  }, [_vm._v("\n          查看更多>\n        ")]) : _vm._e()], 2)], 1) : _vm._e(), _vm._v(" "), _c('div', {
+    staticClass: "hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_c('h4', [_vm._v("热门资料")])], 1), _vm._v(" "), _c('div', {
+    staticClass: "content zl_content"
+  }, [_vm._l((_vm.zlList), function(item, index) {
+    return (_vm.zlList.length) ? _c('div', {
+      key: index,
+      staticClass: "zl_list"
+    }, [_c('img', {
+      staticClass: "zl_img",
+      attrs: {
+        "src": "../../images/default_img.jpg",
+        "alt": ""
+      }
+    }), _vm._v(" "), _c('dl', [_c('dt', [_vm._v("港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务")]), _vm._v(" "), _c('dd', [_c('div', [_vm._v("总课程"), _c('span', [_vm._v("12")]), _vm._v("节")]), _vm._v(" "), _c('div', [_vm._v("2018-08-09")]), _vm._v(" "), _c('div', {
+      staticClass: "count"
+    }, [_vm._v("15学分")])])], 1)], 1) : _vm._e()
+  }), _vm._v(" "), _c('div', {
+    staticClass: "more"
+  }, [_vm._v("\n        查看更多>\n      ")])], 2)])], 1)
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-6a9bee04", esExports)
+  }
+}
+
+/***/ })
+
+},[333]);
+//# sourceMappingURL=main.js.map

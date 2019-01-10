@@ -1,0 +1,98 @@
+<import src="/modules/mpvue-wxparse/src/wxParse.vue.wxml" />
+<import src="/base/infoList/infoList.vue.wxml" /><template name="13ede620">
+  <view class="_div data-v-c141fa98 serverDetail">
+    <scroll-view scroll-y="{{true}}" class="_scroll-view data-v-c141fa98 scroll">
+      <view class="_div data-v-c141fa98 head">
+        <view class="_div data-v-c141fa98 content">
+          <view class="_div data-v-c141fa98 top_img">
+            <image src="/images/serverDetail.png" alt class="_img data-v-c141fa98 serverbg"></image>
+            <view class="_div data-v-c141fa98 layer">
+              <view class="_p data-v-c141fa98 org_name" wx:if="{{infos.UNIT_NAME!=null}}">
+                {{infos.UNIT_NAME}}
+              </view>
+              <view class="_p data-v-c141fa98 org_name" wx:if="{{infos.UNIT_NAME==null}}"> 江南中街道党群服务中心 </view>
+            </view>
+          </view>
+          <view class="_div data-v-c141fa98 addr">
+            <view class="_dl data-v-c141fa98">
+              <view class="_dt data-v-c141fa98">{{infos.DISTANCE}}km | {{infos.UNIT_ADDR}}</view>
+              <view class="_dd data-v-c141fa98">联系电话：{{infos.UNIT_TEL}}</view>
+            </view>
+            <view class="_i data-v-c141fa98 iconfont icon-dianhua" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-c141fa98 hr"></view>
+      <view class="_div data-v-c141fa98 brief {{flag || type == 1 ? 'brief_more' : ' '}}">
+        <view class="_div data-v-c141fa98 content">
+          <view class="_h3 data-v-c141fa98">简介</view> <template data="{{...$root[$kk+'0'], $root}}" is="a913ef8c"></template>
+          <view class="_div data-v-c141fa98 guodu {{flag || type == 1 ? 'gd_none' : ' '}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"><label class="_span data-v-c141fa98">查看更多 </label>
+            <view class="_i data-v-c141fa98 iconfont icon-jiantou-copy"></view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{type!=1}}" class="_div data-v-c141fa98">
+        <view class="_div data-v-c141fa98 hr"></view>
+        <view class="_div data-v-c141fa98 gonggao">
+          <view class="_div data-v-c141fa98 content">
+            <view class="_h3 data-v-c141fa98">服务公告</view> <template data="{{...$root[$kk+'1'], $root}}" is="fe787ba2"></template>
+          </view>
+        </view>
+        <view class="_div data-v-c141fa98 hr"></view>
+        <view class="_div data-v-c141fa98 members">
+          <view class="_div data-v-c141fa98 content">
+            <view class="_h3 data-v-c141fa98">班子成员</view>
+            <view class="_div data-v-c141fa98 member_box">
+              <scroll-view scroll-x="{{true}}" class="_scroll-view data-v-c141fa98 scroll_member">
+                <view class="_div data-v-c141fa98 card" wx:key="index" key="{{index}}" wx:for="{{members}}" wx:for-index="index" wx:for-item="item">
+                  <view class="_dl data-v-c141fa98">
+                    <view class="_dt data-v-c141fa98">江小南</view>
+                    <view class="_dd data-v-c141fa98">支部书记</view>
+                  </view> <label class="_span data-v-c141fa98 biaozhi"></label>
+                </view>
+              </scroll-view>
+            </view>
+          </view>
+        </view>
+        <view class="_div data-v-c141fa98 hr"></view>
+        <view class="_div data-v-c141fa98 fuwuzhan">
+          <view class="_div data-v-c141fa98 content">
+            <view class="_h3 data-v-c141fa98">社区党群服务站</view>
+            <scroll-view scroll-x="{{true}}" class="_scroll-view data-v-c141fa98 scroll-fwz">
+              <view class="_div data-v-c141fa98 show" wx:key="index" key="{{index}}" wx:for="{{shows}}" wx:for-index="index" wx:for-item="item">
+                <image src="/images/dy_pic02.png" alt class="_img data-v-c141fa98 fwz_pic"></image>
+                <view class="_p data-v-c141fa98">青凤社区党群服务站</view>
+              </view>
+            </scroll-view>
+          </view>
+        </view>
+        <view class="_div data-v-c141fa98 hr"></view>
+        <view class="_div data-v-c141fa98 zddw">
+          <view class="_div data-v-c141fa98 content">
+            <view class="_h3 data-v-c141fa98 zddwh3">辖区重点单位<view class="_div data-v-c141fa98 more">更多<view class="_i data-v-c141fa98 iconfont icon-jiantou"></view>
+              </view>
+            </view>
+            <view class="_div data-v-c141fa98 zdlist">
+              <view class="_dl data-v-c141fa98">
+                <view class="_dt data-v-c141fa98">行政单位</view>
+                <view class="_dd data-v-c141fa98">单位名称占位单位名称占位单位名称占位</view>
+              </view>
+            </view>
+            <view class="_div data-v-c141fa98 zdlist">
+              <view class="_dl data-v-c141fa98">
+                <view class="_dt data-v-c141fa98">机关单位</view>
+                <view class="_dd data-v-c141fa98">单位名称占位单位名称占位单位名称占位</view>
+              </view>
+            </view>
+            <view class="_div data-v-c141fa98 zdlist">
+              <view class="_dl data-v-c141fa98">
+                <view class="_dt data-v-c141fa98">私企单位</view>
+                <view class="_dd data-v-c141fa98">单位名称占位单位名称占位单位名称占位</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

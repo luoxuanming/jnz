@@ -1,0 +1,21 @@
+<template name="9885feae">
+  <view class="_div data-v-3ea5143d zddw">
+    <scroll-view scroll-y="{{true}}" class="_scroll-view data-v-3ea5143d scroll">
+      <view class="_div data-v-3ea5143d content">
+        <view class="_div data-v-3ea5143d jllist" wx:if="{{list.length}}" wx:key="index" key="{{index}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
+          <image class="_img data-v-3ea5143d disimg" wx:if="{{item.UNIT_THUMB_IMG}}" src="{{item.UNIT_THUMB_IMG}}" binderror="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}"></image>
+          <view class="_div data-v-3ea5143d center" bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}">
+            <view class="_div data-v-3ea5143d name">{{item.UNIT_NAME}}</view>
+            <view class="_div data-v-3ea5143d">
+              <view class="_div data-v-3ea5143d addr">{{item.DISTANCE}}km | {{item.UNIT_ADDR}}</view>
+              <view class="_div data-v-3ea5143d tel">联系电话:{{item.UNIT_TEL}}</view>
+            </view>
+          </view>
+          <view class="_div data-v-3ea5143d phone">
+            <image src="/images/phone.png" class="_img data-v-3ea5143d icon" bindtap="handleProxy" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}"></image>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

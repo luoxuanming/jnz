@@ -1,0 +1,30 @@
+<template name="6bfad1e6">
+  <view class="_div data-v-64a1f3f4 listbar">
+    <view class="_ul data-v-64a1f3f4">
+      <view bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_li data-v-64a1f3f4">
+        <image src="/images/listbar03.png" class="_img data-v-64a1f3f4 list_icon" alt></image>
+        <view class="_p data-v-64a1f3f4">党建地图</view> <label class="_span data-v-64a1f3f4">找到身边的党组织</label>
+      </view>
+      <view bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_li data-v-64a1f3f4">
+        <image src="/images/listbar01.png" class="_img data-v-64a1f3f4 list_icon" alt></image>
+        <view class="_p data-v-64a1f3f4">志愿活动</view> <label class="_span data-v-64a1f3f4">我志愿,我快乐</label>
+      </view>
+      <view bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_li data-v-64a1f3f4">
+        <image src="/images/listbar02.png" class="_img data-v-64a1f3f4 list_icon" alt></image>
+        <view class="_p data-v-64a1f3f4">榜样的力量</view> <label class="_span data-v-64a1f3f4">学榜样，做榜样</label>
+      </view>
+      <view bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_li data-v-64a1f3f4">
+        <image src="/images/listbar04.png" class="_img data-v-64a1f3f4 list_icon" alt></image>
+        <view class="_p data-v-64a1f3f4">指尖党校</view> <label class="_span data-v-64a1f3f4">学习也能赚积分</label>
+      </view>
+      <view bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_li data-v-64a1f3f4">
+        <image src="/images/listbar06.png" class="_img data-v-64a1f3f4 list_icon" alt></image>
+        <view class="_p data-v-64a1f3f4">共建共治</view> <label class="_span data-v-64a1f3f4">示范引领民意通达</label>
+      </view>
+      <view bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_li data-v-64a1f3f4">
+        <image src="/images/listbar05.png" class="_img data-v-64a1f3f4 list_icon" alt></image>
+        <view class="_p data-v-64a1f3f4">我要办事</view> <label class="_span data-v-64a1f3f4">党务政务一“点”不远</label>
+      </view>
+    </view>
+  </view>
+</template>

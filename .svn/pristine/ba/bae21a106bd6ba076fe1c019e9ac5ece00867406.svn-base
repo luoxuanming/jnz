@@ -1,0 +1,1 @@
+<import src="/pages/lyform/index.vue.wxml" /><template is="1e9a0e6c" data="{{ ...$root['0'], $root }}"/>

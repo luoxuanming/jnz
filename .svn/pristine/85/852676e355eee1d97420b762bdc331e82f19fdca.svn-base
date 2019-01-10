@@ -1,0 +1,27 @@
+<template name="35675ee5">
+  <view class="_div data-v-c3e8615e hlj-picker" wx:if="{{visible}}">
+    <view class="_div data-v-c3e8615e hlj-picker-body hlj-animate-slide-up">
+      <view class="_div data-v-c3e8615e hlj-picker-control">
+        <view class="_a data-v-c3e8615e hlj-picker__action hlj-picker-cancel" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">取消</view> <label class="_span data-v-c3e8615e hlj-picker-title">{{title}}</label>
+        <view class="_a data-v-c3e8615e hlj-picker__action hlj-picker-select" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">确定</view>
+      </view>
+      <view class="_div data-v-c3e8615e hlj-picker-content">
+        <picker-view value="{{currentValue}}" indicator-style="{{'height: 34px;' + indicatorStyle}}" indicator-class="{{indicatorClass}}" mask-style="{{maskStyle}}" imask-class="{{maskClass}}" style="width: 100%; height: 300px;" bindchange="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_picker-view data-v-c3e8615e">
+          <picker-view-column class="_picker-view-column data-v-c3e8615e">
+            <view class="_div data-v-c3e8615e picker-view-column" wx:key="index" key="{{index}}" wx:for="{{years}}" wx:for-index="index" wx:for-item="item">{{item}}年</view>
+          </picker-view-column>
+          <picker-view-column class="_picker-view-column data-v-c3e8615e">
+            <view class="_div data-v-c3e8615e picker-view-column" wx:key="index" key="{{index}}" wx:for="{{months}}" wx:for-index="index" wx:for-item="item">{{item}}月</view>
+          </picker-view-column>
+          <picker-view-column class="_picker-view-column data-v-c3e8615e">
+            <view class="_div data-v-c3e8615e picker-view-column" wx:key="index" key="{{index}}" wx:for="{{days}}" wx:for-index="index" wx:for-item="item">{{item}}日</view>
+          </picker-view-column>
+          <picker-view-column wx:key="index" key="{{index}}" wx:for="{{otherOptions}}" wx:for-index="index" wx:for-item="optionsList" class="_picker-view-column data-v-c3e8615e">
+            <view class="_div data-v-c3e8615e picker-view-column" wx:key="childIndex" key="{{childIndex}}" wx:for="{{optionsList}}" wx:for-index="childIndex" wx:for-item="item">{{item}}</view>
+          </picker-view-column>
+        </picker-view>
+      </view>
+    </view>
+    <view class="_div data-v-c3e8615e hlj-mark hlj-animate-fade-in" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}"></view>
+  </view>
+</template>

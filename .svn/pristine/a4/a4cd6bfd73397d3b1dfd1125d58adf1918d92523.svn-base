@@ -1,0 +1,30 @@
+<template name="5f91a658">
+  <view class="_div data-v-e9251e04 dfjn">
+    <scroll-view class="_scroll-view data-v-e9251e04 scroll" scroll-y="{{true}}">
+      <view class="_div data-v-e9251e04 msg content"> 请核缴费信息，待缴金额可修改至少更高 </view>
+      <view class="_div data-v-e9251e04 content">
+        <view class="_div data-v-e9251e04 card">
+          <view class="_dl data-v-e9251e04">
+            <view class="_dt data-v-e9251e04"> 党员姓名 </view>
+            <view class="_dd data-v-e9251e04"> 赵广军 </view>
+          </view>
+          <view class="_dl data-v-e9251e04">
+            <view class="_dt data-v-e9251e04"> 所在支部 </view>
+            <view class="_dd data-v-e9251e04"> 江南中党支部 </view>
+          </view>
+          <view class="_dl data-v-e9251e04">
+            <view class="_dt data-v-e9251e04"> 缴费月份 </view>
+            <view class="_dd data-v-e9251e04"> 2019-12 </view>
+          </view>
+          <view class="_dl data-v-e9251e04">
+            <view class="_dt data-v-e9251e04"> 代缴金额（元） </view>
+            <view class="_dd data-v-e9251e04"> 0.01 </view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-e9251e04 content">
+        <view class="_div data-v-e9251e04 btn"> 确认缴纳 </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

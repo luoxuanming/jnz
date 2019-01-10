@@ -1,0 +1,45 @@
+{
+  "pages": [
+
+    "pages/index/main",
+    "pages/djmap/main",
+    "pages/twzljj/main",
+    "pages/applyVolunteer/main",
+
+    "pages/jjbfq2/main",
+    "pages/ldbywy/main",
+    "pages/ldbywyDetail/main",
+    "pages/pay/main",
+    "pages/dfjn/main",
+
+    "pages/login/main",
+    "pages/lyform/main",
+    "pages/jjb/main",
+    "pages/chat/main",
+    "pages/jjbfq/main",
+    "pages/zddw/main",
+    "pages/answering/main",
+    "pages/zjdx/main",
+    "pages/wyly/main",
+    "pages/examPower/main",
+    "pages/outLink/main",
+    "pages/serverDetail/main",
+    "pages/wybs/main",
+    "pages/volunteerActivty/main",
+    "pages/gzgz/main",
+    "pages/mapsearch/main",
+    "pages/newsDetail/main",
+    "pages/infoPulish/main",
+    "pages/dnfg/main",
+    "pages/dwzn/main",
+    "pages/logs/main",
+    "pages/welcome/main"
+
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "江南中街道党群服务中心",
+    "backgroundColor": "#ffffff"
+  }
+}

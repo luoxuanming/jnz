@@ -1,0 +1,42 @@
+<template name="4f758dce">
+  <view class="_div data-v-4a32ab3c ldbywy_detail">
+    <scroll-view class="_scroll-view data-v-4a32ab3c scroll" scroll-y="{{true}}">
+      <view class="_div data-v-4a32ab3c content headbox">
+        <view class="_div data-v-4a32ab3c head2">
+          <view class="_div data-v-4a32ab3c bg"></view>
+          <view class="_div data-v-4a32ab3c head2_content">
+            <view class="_div data-v-4a32ab3c info">
+              <image wx:if="{{detail.REPRESENT_ORIGIN_IMG==null}}" src="/images/default_img.jpg" alt class="_img data-v-4a32ab3c"></image>
+              <image wx:if="{{detail.REPRESENT_ORIGIN_IMG!=null}}" src="{{detail.REPRESENT_ORIGIN_IMG}}" alt class="_img data-v-4a32ab3c"></image>
+              <view class="_dl data-v-4a32ab3c">
+                <view class="_dt data-v-4a32ab3c">{{detail.REPRESENT_USER_NAME}}</view>
+                <view class="_dd data-v-4a32ab3c">
+                  <view class="_div data-v-4a32ab3c zw">
+                    <view class="_p data-v-4a32ab3c">现任 {{detail.USER_POSITION}}</view>
+                  </view>
+                  <view class="_div data-v-4a32ab3c count">
+                    <view class="_i data-v-4a32ab3c iconfont icon-renshu-"></view> 已接待群众数:{{detail.PEPRESENT_COUNT}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-4a32ab3c content already" wx:if="{{detail.COMMENT.length}}">
+        <view class="_h4 data-v-4a32ab3c">已接待群众</view>
+        <view class="_div data-v-4a32ab3c member" wx:key="index1" key="{{index1}}" bindtap="handleProxy" data-eventid="{{'0-'+index1}}" data-comkey="{{$k}}" wx:for="{{detail.COMMENT}}" wx:for-index="index1" wx:for-item="list">
+          <view class="_div data-v-4a32ab3c userinfo">
+            <image wx:if="{{list.USER_PIC==null}}" src="/images/user_pic.png" alt class="_img data-v-4a32ab3c"></image>
+            <image wx:if="{{list.USER_PIC!=null}}" src="{{list.USER_PIC}}" alt class="_img data-v-4a32ab3c"></image>
+            <view class="_div data-v-4a32ab3c username">{{list.USER_NAME}}</view>
+          </view>
+          <view class="_div data-v-4a32ab3c time">{{list.CREATE_TIME}}</view>
+        </view>
+      </view>
+      <view class="_div data-v-4a32ab3c content ly_btn">
+        <view class="_div data-v-4a32ab3c btn" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"> 给Ta留言 </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

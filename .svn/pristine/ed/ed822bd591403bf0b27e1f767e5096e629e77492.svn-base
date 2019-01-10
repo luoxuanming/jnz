@@ -1,0 +1,50 @@
+<template name="40984b20">
+  <view class="_div data-v-6a9bee04 zjdx">
+    <view class="_div data-v-6a9bee04 head">
+      <image src="/images/zjdx.png" class="_img data-v-6a9bee04 zjdx_bg" mode="widthFix" alt></image>
+      <view class="_div data-v-6a9bee04 btnGroups">
+        <view class="_div data-v-6a9bee04 btn" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">微课程</view>
+        <view class="_div data-v-6a9bee04 btn">图文资料</view>
+        <view class="_div data-v-6a9bee04 btn" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">闯关答题</view>
+      </view>
+    </view>
+    <scroll-view scroll-y="{{true}}" class="_scroll-view data-v-6a9bee04 scroll">
+      <view class="_div data-v-6a9bee04 content" wx:if="{{kcList.length}}">
+        <view class="_h4 data-v-6a9bee04">热门微课</view>
+        <view class="_div data-v-6a9bee04 kc">
+          <view class="_div data-v-6a9bee04 kc_list" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'3-'+index}}" data-comkey="{{$k}}" wx:for="{{kcList}}" wx:for-index="index" wx:for-item="item">
+            <view class="_div data-v-6a9bee04 pic">
+              <image src="{{item.DOC_THUMB_IMG}}" mode="widthFix" alt binderror="handleProxy" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}" class="_img data-v-6a9bee04"></image>
+            </view>
+            <view class="_dl data-v-6a9bee04">
+              <view class="_dt data-v-6a9bee04">{{item.DOC_NAME}}</view>
+              <view class="_dd data-v-6a9bee04"><label class="_span data-v-6a9bee04">
+                  <image src="{{start<item.DOC_RATE?'../../images/start_active.png':'../../images/start.png'}}" class="_img data-v-6a9bee04 start" wx:key="index" key="{{index}}" alt wx:for="{{5}}" wx:for-index="s_index" wx:for-item="start"></image>
+                  {{item.DOC_RATE}}分
+                </label> <label class="_span data-v-6a9bee04">{{item.LearnCount}}人观看</label></view>
+            </view>
+          </view>
+          <view class="_div data-v-6a9bee04 more" wx:if="{{index>5}}"> 查看更多> </view>
+        </view>
+      </view>
+      <view class="_div data-v-6a9bee04 hr"></view>
+      <view class="_div data-v-6a9bee04 content">
+        <view class="_h4 data-v-6a9bee04">热门资料</view>
+      </view>
+      <view class="_div data-v-6a9bee04 content zl_content">
+        <view class="_div data-v-6a9bee04 zl_list" wx:if="{{zlList.length}}" wx:key="index" key="{{index}}" wx:for="{{zlList}}" wx:for-index="index" wx:for-item="item">
+          <image src="/images/default_img.jpg" class="_img data-v-6a9bee04 zl_img" alt></image>
+          <view class="_dl data-v-6a9bee04">
+            <view class="_dt data-v-6a9bee04">港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务</view>
+            <view class="_dd data-v-6a9bee04">
+              <view class="_div data-v-6a9bee04">总课程<label class="_span data-v-6a9bee04">12</label>节</view>
+              <view class="_div data-v-6a9bee04">2018-08-09</view>
+              <view class="_div data-v-6a9bee04 count">15学分</view>
+            </view>
+          </view>
+        </view>
+        <view class="_div data-v-6a9bee04 more"> 查看更多> </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

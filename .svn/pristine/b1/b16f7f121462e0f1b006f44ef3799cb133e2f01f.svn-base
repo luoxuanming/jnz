@@ -1,0 +1,248 @@
+<template>
+  <div class="twzl">
+    <scroll-view class="scroll" :scroll-y="true">
+      <div class="tw_container">
+        <div class="head card f28" v-if="detail">
+          <dl>
+            <dt>课程名称</dt>
+            <dd>{{detail.DOC_NAME}}</dd>
+          </dl>
+          <dl>
+            <dt>课程简介</dt>
+            <dd>{{detail.DOC_DESC}}</dd>
+          </dl>
+          <div class="f22">
+            <span>{{detail.DOC_SCORE}}学分</span>
+            <span>{{detail.CREATE_TIME}}</span>
+            <span @click="coll(detail.DOC_ID)" class="active" v-if="flag">
+              <i class="iconfont icon-xingxing"></i>已收藏
+            </span>
+            <span @click="coll(detail.DOC_ID)" v-else>
+              <i class="iconfont icon-kongxing"></i>收藏本课程
+            </span>
+          </div>
+        </div>
+        <div class="zl_list" v-if="zlList.length" v-for="(item,index) in zlList" :key="index" @click="goDetail(item.RES_ID)">
+          <!--<img :src="item.DOC_IMG" @error="errorfn(index)" class="zl_img" alt="">-->
+          <dl>
+            <dt>{{item.RES_NAME}}</dt>
+            <dd>
+              <div>文本类型</div>
+              <div>未学</div>
+              <div class="count">{{item.DOC_SCORE}}学分</div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </scroll-view>
+  </div>
+</template>
+
+<script>
+  import * as conf from '../../utils/config'
+  export default {
+
+    data () {
+      return {
+        detail:{},
+        zlList:[],
+        userId:"",
+        flag:null
+      }
+    },
+    methods:{
+      getTwzlRes(docId,userId){
+        var that=this;
+        console.log(docId+"*"+userId)
+        wx.request({
+          url:`${conf.HOST}/stddj-gzgj/servlet/twzl.action?method=getTwzlRes`,
+          data:{
+            docId:docId,
+            userId:userId
+          },
+          success(res){
+            console.log(JSON.stringify(res.data.FAV_DOC));
+            that.detail=res.data;
+            that.zlList=res.data.resList;
+            that.flag=res.data.FAV_DOC;
+          }
+        })
+      },
+      coll(docId){
+        console.log(docId);
+        var that=this;
+        this.flag=!this.flag;
+        if(this.flag){
+          wx.request({
+            url:`${conf.HOST}/stddj-gzgj/servlet/twzl.action?method=favDoc`,
+            data:{
+              docId:docId,
+              userId:that.userId
+            },
+            success(res){
+              wx.showToast({
+                title:"已收藏",
+                icon:"success",
+                duration:2000
+              })
+            }
+          })
+        }else{
+          wx.request({
+            url:`${conf.HOST}/stddj-gzgj/servlet/twzl.action?method=cancelFavDoc`,
+            data:{
+              docId:docId,
+              userId:that.userId
+            },
+            success(res){
+              console.log("*****"+JSON.stringify(res))
+              wx.showToast({
+                title:"已取消收藏",
+                icon:"success",
+                duration:2000
+              })
+            }
+          })
+        }
+      },
+      goDetail(resId){
+        console.log(resId);
+        var that=this;
+        wx.navigateTo({
+          url:`/pages/twzlDetail/main?resId=${resId}&userId=${that.userId}`
+        })
+      }
+    },
+    created () {
+
+    },
+    onLoad(params){
+      console.log(params.userId);
+      let docId =params.docId;
+      let userId =params.userId;
+      this.userId=userId;
+      this.getTwzlRes(docId,userId)
+    },
+    components: {
+    },
+  }
+</script>
+
+<style scoped lang="less">
+  @import "../../common/css/less/base";
+  @import "../../common/css/font/iconfont.css";
+  .f28{
+    font:28rpx "微软雅黑";
+  }
+  .f22{
+    font:22rpx "黑体";
+  }
+  .twzl{
+    width: 100%;
+
+    .tw_container{
+      width: 100%;
+      padding:20rpx 30rpx;
+      box-sizing: border-box;
+      background: #fff;
+    }
+    .card{
+      background: #fff;
+      border-radius: 10rpx;
+      box-shadow: 0 0 6rpx rgba(214, 214, 214,0.5);
+      padding:20rpx;
+      overflow: hidden;
+      margin-bottom: 20rpx;
+    }
+    .head{
+      dl{
+        display: flex;
+        margin-bottom:10rpx;
+        dt{
+          width: 156rpx;
+          color:#999999;
+        }
+        dd{
+          flex:1;
+          text-overflow: -o-ellipsis-lastline;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+          -webkit-box-orient: vertical;
+          font:28rpx "微软雅黑";
+          line-height: 50rpx;
+        }
+      }
+      div{
+        display: flex;
+        justify-content: space-between;
+        span{
+          color:#999999;
+          line-height:50rpx;
+          display: flex;
+          align-items: center;
+          i{
+            margin-top:-4rpx;
+            margin-right:-4rpx;
+          }
+        }
+        span:first-child{
+          color:@mainColor;
+        }
+        span.active{
+          color: @mainColor;
+        }
+      }
+    }
+    .zl_list{
+      width: 100%;
+      height:160rpx;
+      background: #fff;
+      padding:0 18rpx;
+      box-sizing: border-box;
+      box-shadow: 0 0 6rpx rgba(214, 214, 214,0.5);
+      border-radius: 10rpx;
+      display:flex;
+      align-items: center;
+      overflow: hidden;
+      margin-bottom: 20rpx;
+      .zl_img{
+        width: 172rpx;
+        height: 112rpx;
+        border-radius:10rpx;
+        float: left;
+      }
+      dl{
+        flex: 1;
+        overflow: hidden;
+        padding-left: 26rpx;
+        box-sizing: border-box;
+        dt{
+          font:30rpx "微软雅黑";
+          color:#333333;
+          white-space: nowrap;
+          padding-right: 30rpx;
+          box-sizing: border-box;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin-bottom: 20rpx;
+          color:#333;
+        }
+        dd{
+          font:22rpx "黑体";
+          color:#7f8699;
+          display: flex;
+          justify-content: space-between;
+          span{
+            color:#333;
+          }
+          .count{
+            color:@mainColor;
+          }
+        }
+      }
+    }
+  }
+</style>

@@ -1,0 +1,31 @@
+<template name="0639bcdb">
+  <view class="_div data-v-ddbc5f22 wyly">
+    <scroll-view class="_scroll-view data-v-ddbc5f22 scroll" wx:if="{{list.length}}" scroll-y="{{true}}">
+      <view class="_div data-v-ddbc5f22 lyb">
+        <view class="_div data-v-ddbc5f22 list" wx:key="index" key="{{index}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
+          <view class="_div data-v-ddbc5f22 info">
+            <view class="_div data-v-ddbc5f22 title"> 随着国家改革开放和经济的迅猛发展作为民族振兴基石的教育事业教育事业教育事业 </view>
+            <view class="_div data-v-ddbc5f22 time">2018-12-15 10:06</view>
+          </view>
+          <view class="_div data-v-ddbc5f22 state">
+            <view class="_div data-v-ddbc5f22 btn">未回复</view>
+          </view>
+        </view>
+        <view class="_div data-v-ddbc5f22 list">
+          <view class="_div data-v-ddbc5f22 info">
+            <view class="_div data-v-ddbc5f22 title"> 随着国家改革开放和经济的迅猛发展作为民族振兴基石的教育事业教育事业教育事业 </view>
+            <view class="_div data-v-ddbc5f22 time">2018-12-15 10:06</view>
+          </view>
+          <view class="_div data-v-ddbc5f22 state">
+            <view class="_div data-v-ddbc5f22 btn ok">已回复</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <view wx:else class="_div data-v-ddbc5f22 null">
+      <image src="/images/ly_null.png" mode="widthFix" alt class="_img data-v-ddbc5f22"></image>
+      <view class="_div data-v-ddbc5f22 ly_btn" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">我要留言</view>
+    </view>
+    <view class="_div data-v-ddbc5f22 bottom_btn" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">我要留言</view>
+  </view>
+</template>

@@ -1,0 +1,1 @@
+<import src="/pages/mapsearch/index.vue.wxml" /><template is="0004e734" data="{{ ...$root['0'], $root }}"/>

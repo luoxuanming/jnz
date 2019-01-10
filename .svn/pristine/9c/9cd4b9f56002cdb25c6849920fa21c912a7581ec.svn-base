@@ -1,0 +1,28 @@
+<import src="/base/search/search.vue.wxml" /><template name="0004e734">
+  <view class="_div data-v-4966bb1a mapsearch">
+    <view class="_div data-v-4966bb1a search"><template data="{{...$root[$kk+'0'], $root}}" is="c9584fa2"></template></view>
+    <view class="_div data-v-4966bb1a content">
+      <view class="_div data-v-4966bb1a hot">
+        <view class="_h3 data-v-4966bb1a">热门搜索</view>
+        <view class="_div data-v-4966bb1a hot_content">
+          <view bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_div data-v-4966bb1a">街道党群中心</view>
+          <view bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_div data-v-4966bb1a">社区党群服务站</view>
+          <view bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_div data-v-4966bb1a">重点单位</view>
+          <view bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_div data-v-4966bb1a">党支部</view>
+          <view bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_div data-v-4966bb1a">社区党委</view>
+          <view bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_div data-v-4966bb1a">街道党工委</view>
+        </view>
+      </view>
+      <view class="_div data-v-4966bb1a recent">
+        <view class="_h3 data-v-4966bb1a">最近搜索</view>
+        <view class="_ul data-v-4966bb1a">
+          <view wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'6-'+index}}" data-comkey="{{$k}}" wx:for="{{history}}" wx:for-index="index" wx:for-item="item" class="_li data-v-4966bb1a">
+            <view class="_i data-v-4966bb1a iconfont icon-shijian"></view>
+            {{item}}
+          </view>
+        </view>
+        <view class="_div data-v-4966bb1a clear">清空历史搜索记录</view>
+      </view>
+    </view>
+  </view>
+</template>

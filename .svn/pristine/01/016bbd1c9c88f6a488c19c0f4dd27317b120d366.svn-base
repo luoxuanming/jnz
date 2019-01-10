@@ -1,0 +1,580 @@
+<template>
+  <div class="dj_container">
+    <scroll-view class="scroll" :scroll-y="true">
+      <div class="box" v-if="detail">
+        <div class="title">
+          <div class="content">
+            <h2>{{detail.ALIAS_TITLE}}</h2>
+            <dl>
+              <dt>{{detail.PUB_TIME}}&nbsp;|&nbsp;阅读{{detail.READ_COUNT}}</dt>
+              <dd>{{detail.NEWS_AUTHOR}}</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="content neirong">
+          <div class="text">
+            <wxParse :content="article" :imageProp="imgmode" />
+            <!--  <rich-text :nodes="article"></rich-text>-->
+          </div>
+          <!--<img src="../../images/news_01.png" alt="">-->
+          <!--<p class="text">作出一个评价：我国经济发展能够创造中国奇迹，民营经济功不可没</p>-->
+          <div class="btn_zan" @click="addFav">
+            <i class="iconfont icon-dianzan"></i>
+            {{detail.LIKE_COUNT}}
+          </div>
+        </div>
+        <div class="line">
+          <div></div>分享<div></div>
+        </div>
+        <div class="share">
+          <button open-type="share" :plain="true">
+            <img src="../../images/weixin_icon.png" alt="">
+            微信好友
+          </button>
+          <button open-type="share" :plain="true">
+            <img src="../../images/pyq_icon.png" alt="">
+            微信朋友圈
+          </button>
+        </div>
+        <!--<div class="content_692">&lt;!&ndash;评论START&ndash;&gt;-->
+        <!--<div class="comment_title">-->
+        <!--<h3>全部评论</h3>-->
+        <!--<div>-->
+        <!--<span :class="current==0?'active':' '" @click="changeComm(0)">热度</span>-->
+        <!--<span :class="current==1?'active':' '" @click="changeComm(1)">时间</span>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<ul class="comment_content">-->
+        <!--<li>-->
+        <!--<div class="infos">-->
+        <!--<img src="../../images/user_pic.png" alt="">-->
+        <!--<dl>-->
+        <!--<dt>哈喽</dt>-->
+        <!--<dd>-->
+        <!--<span>2018-12-06 20:48</span>-->
+        <!--</dd>-->
+        <!--</dl>-->
+        <!--<div class="zan">-->
+        <!--<span>175 <i class="iconfont icon-dianzan"></i></span>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="comm">-->
+        <!--<p class="first_comm">和MIUI论坛合并</p>-->
+        <!--<div class="b_line">-->
+        <!--<div class="huifu">-->
+        <!--<p><span class="username">蜜蜜开心：</span><span class="text">支持！这个建议好！加油哟！支持！这个建议好！加油哟！</span></p>-->
+        <!--<p><span class="username">蜜蜜开心：</span><span class="text">支持！这个建议好！加油哟！</span></p>-->
+        <!--<p class="more">查看全部57条回复</p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<div class="infos">-->
+        <!--<img src="../../images/user_pic.png" alt="">-->
+        <!--<dl>-->
+        <!--<dt>username</dt>-->
+        <!--<dd>-->
+        <!--<span>2018-12-06 20:48</span>-->
+        <!--</dd>-->
+        <!--</dl>-->
+        <!--<div class="zan">-->
+        <!--<span>175 <i class="iconfont icon-dianzan"></i></span>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="comm">-->
+        <!--<p class="first_comm">和MIUI论坛合并</p>-->
+        <!--<div class="b_line">-->
+        <!--<div class="huifu">-->
+        <!--<p><span class="username">蜜蜜开心：</span><span class="text">支持！这个建议好！加油哟！支持！这个建议好！加油哟！</span></p>-->
+        <!--<p><span class="username">蜜蜜开心：</span><span class="text">支持！这个建议好！加油哟！</span></p>-->
+        <!--<p class="more">查看全部57条回复</p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>&lt;!&ndash;评论END&ndash;&gt;-->
+      </div>
+    </scroll-view>
+    <!--<div class="sendMsg">-->
+    <!--<div class="content">-->
+    <!--<input class="msg_btn send" type="text" :model="comment" placeholder="说两句...">-->
+    <!--<div class="msg_btn chat"><i class="iconfont icon-xinxi"></i>28</div>-->
+    <!--<div class="msg_btn count"><i class="iconfont icon-dianzan"></i>84</div>-->
+    <!--<div class="msg_btn share_btn"><i class="iconfont icon-zhuanfa"></i></div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<canvas canvas-id="myCanvas" style="display: block;"></canvas>-->
+  </div>
+</template>
+
+<script>
+  import wxParse from 'mpvue-wxparse'
+  import * as conf from '../../utils/config'
+
+  export default {
+    data () {
+      return {
+        current:0,
+        comment:"说两句",
+        detail:{},
+        article:"",
+        imgmode:{
+          mode:"widthFix",
+          domain:conf.IP
+        },
+        newsId:"",
+        portrait_temp:"",
+        qrcode_temp: "",
+        windowWidth:"100",
+        scale:""
+      }
+    },
+    created () {
+
+    },
+    methods:{
+      changeComm(index){
+        this.current=index;
+      },
+      getDetail(id){
+        this.newsId=id;
+        console.log(id.newsId);
+        var that=this;
+        wx.request({
+          url: conf.HOST+"/cloud-app/servlet/dynamic.action?method=newsDetail",
+          data: {
+            newsId:id.newsId,
+            userId:'77'
+          },
+          header: {
+            'content-type': 'application/json' // 默认值
+            // 'Authorization':"eyJhbGciOiJIUzI1NiJ9.eyJnQ29kZSI6IjAwMTA0NEc1NTAwMjAwNDAyNCIsImdJZCI6IjQwNCIsIm9Db2RlIjoiMDAxMDQ0RzU1MDAyMDA0MDI0Iiwib0lkIjoiNDA0IiwidUNvZGUiOiJEWTc3IiwidUlkIjo3NywidVR5cGUiOiIwIiwianRpIjoiYzAxYjA3MTY3YWU5NDdiM2FlODQ5YTVlMjJhZjZiNWEiLCJpYXQiOjE1NDQxODczMTcsImV4cCI6MTU0NTQ4MzMxN30.-4yNha5aH656sCn_MFJATvpWlP8ADSOg2-rAr2ESYfY"
+          },
+          success (res) {
+            // console.log(JSON.stringify(res.data));
+            that.$nextTick(function(){
+              that.detail=res.data.datas;
+              // that.article=res.data.datas.NEWS_CONTENT;
+
+              var html0 =res.data.datas.NEWS_CONTENT;
+              var html1 = html0.replace(/\s+style="[^"]*"/g,'')
+              var newHtml = html1.replace(/<img/g, '<img style="max-width:100%;"')
+              that.article=`<div style="font-size: 30rpx !important; ">${newHtml}</div>`;
+              //console.log(that.article)
+            })
+          }
+        });
+      },
+      addFav(){
+        var that=this;
+        wx.request({
+          url: conf.HOST+"/cloud-app/servlet/dynamic.action?method=likeNewsDetail",
+          data: {
+            newsId:that.newsId.newsId
+          },
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success (res) {
+            if(res.data.retcode==0){
+              that.detail.LIKE_COUNT+=1;
+            }
+          }
+        });
+      },
+      onShareAppMessage(res) {
+        wx.hideShareMenu();
+        if (res.from === 'button') {
+          // 来自页面内转发按钮
+          // console.log(res.target)
+        }
+        return {
+          title: '自定义转发标题',
+          path: '/page/user?id=123'
+        }
+      },
+      drawImage() {
+        //绘制canvas图片
+        var that = this
+        const ctx = wx.createCanvasContext('myCanvas')
+        var bgPath = '/images/wybs.png'
+        var portraitPath = that.portrait_temp //头像
+        var hostNickname = that.portrait_temp
+
+        var qrPath = that.qrcode_temp //二维码
+        var windowWidth = that.windowWidth
+        that.scale=1.6
+
+        //绘制背景图片
+        ctx.drawImage(bgPath, 0, 0, windowWidth, windowWidth)
+
+        //绘制头像
+        ctx.save()
+        ctx.beginPath()
+        ctx.arc(windowWidth / 2, 0.32 * windowWidth, 0.15 * windowWidth, 0, 2 * Math.PI)
+        ctx.clip()
+        ctx.drawImage(portraitPath, 0.7 * windowWidth / 2, 0.17 * windowWidth, 0.3 * windowWidth, 0.3 * windowWidth)
+        ctx.restore()
+        //绘制第一段文本
+        ctx.setFillStyle('#fff')
+        ctx.setFontSize(0.037 * windowWidth)
+        ctx.setTextAlign('center')
+        ctx.fillText(hostNickname + ' 正在参加疯狂红包活动', windowWidth / 2, 0.52 * windowWidth)
+        //绘制第二段文本
+        ctx.setFillStyle('#ffffff')
+        ctx.setFontSize(0.037 * windowWidth)
+        ctx.setTextAlign('center')
+        ctx.fillText('邀请你一起来领券抢红包啦~', windowWidth / 2, 0.57 * windowWidth)
+        //绘制二维码
+        ctx.drawImage(qrPath, 0.64 * windowWidth / 2, 0.75 * windowWidth, 0.36 * windowWidth, 0.36 * windowWidth)
+        //绘制第三段文本
+        ctx.setFillStyle('#ffffff')
+        ctx.setFontSize(0.037 * windowWidth)
+        ctx.setTextAlign('center')
+        ctx.fillText('长按保存', windowWidth / 2, 1.36 * windowWidth)
+        ctx.draw();
+      },
+      canvasToImage() {
+        var that = this
+        wx.canvasToTempFilePath({
+          x: 0,
+          y: 0,
+          width: that.windowWidth,
+          height: that.windowWidth,
+          destWidth: that.windowWidth * 4,
+          destHeight: that.windowWidth * 4 * that.scale,
+          canvasId: 'myCanvas',
+          success: function (res) {
+            console.log('朋友圈分享图生成成功:' + res.tempFilePath)
+            wx.previewImage({
+              current: res.tempFilePath, // 当前显示图片的http链接
+              urls: [res.tempFilePath] // 需要预览的图片http链接列表
+            })
+          },
+          fail: function (err) {
+            console.log('失败')
+            console.log(err)
+          }
+        })
+      },
+      sharefq(){
+
+        var that=this;
+        wx.downloadFile({
+          //缓存头像图片
+          url: "https://jnz.zhdj360.cn/resource/news/201812/08/c82ce0703a9949e19e8a9d2e0ae9b3a0.png",
+          success: function (res1) {
+            // console.log(res1)
+            //缓存头像图片
+            that.portrait_temp=res1.tempFilePath;
+            // //缓存canvas绘制小程序二维码
+            wx.downloadFile({
+              url:"https://jnz.zhdj360.cn/resource/news/201812/08/14b1856fbd9e4127bafd30c153434894.png",
+              success:function(res2){
+                console.log('二维码：' + res2.tempFilePath);
+                that.qrcode_temp=res2.tempFilePath;
+                console.log('开始绘制图片')
+                that.drawImage();
+                wx.hideLoading();
+                setTimeout(function () {
+                  that.canvasToImage()
+                }, 200)
+              }
+            });
+          }
+        })
+      }
+    },
+    onLoad:function(id){
+      this.getDetail(id);
+    },
+    onUnload(){
+      this.detail={};
+    },
+    onShow(){
+    },
+    components:{
+      wxParse
+    }
+  }
+</script>
+
+<style scoped lang="less">
+  @import url("~mpvue-wxparse/src/wxParse.css");
+  @import "../../common/css/less/base";
+  @import "../../common/css/font/iconfont.css";
+
+  .dj_container{
+    background:#fbfdfe;
+    width: 100%;
+    height: 100vh;
+    padding-top:0;
+    .scroll{
+      width: 100%;
+      height: 100vh;
+      /*padding-bottom: 114rpx;*/
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .content{
+      width: 692rpx;
+      margin:0 auto;
+      overflow: hidden;
+      .text{
+        width: 100%;
+        font:32rpx "黑体";
+        line-height:50rpx;
+        text-align:justify;
+        *{
+          font-size:32rpx !important;
+          font-family: "黑体" !important;
+          background: transparent;
+          color:#000;
+        }
+      }
+    }
+    .content *{
+
+          font-size:32rpx !important;
+          font-family: "黑体" !important;
+          background: transparent;
+          color:#000;
+
+    }
+    .neirong{
+      padding:24rpx 0;
+      img{
+        width: 100%;
+        height:306rpx;
+        margin:20rpx auto;
+      }
+      i{
+        margin-right:20rpx;
+      }
+    }
+    .title{
+      width: 100%;
+      background: #fff;
+      padding-top: 20rpx;
+      padding-bottom: 20rpx;
+      h2{
+        font:38rpx "黑体";
+        font-weight: bold;
+        font-width:bold;
+        margin-bottom:20rpx;
+      }
+      dl{
+        font:22rpx "黑体";
+        color:@smfontColor;
+        dt{
+          margin-bottom:8rpx;
+        }
+      }
+    }
+    .line{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font:24rpx "黑体";
+      color:#7f8699;
+      div{
+        width: 302rpx;
+        height: 1rpx;
+        background: #d7dce9;
+      }
+    }
+    .share{
+      width: 100%;
+      height: 138rpx;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      img{
+        width: 38rpx;
+        height: 38rpx;
+        margin-right:8rpx;
+      }
+      button{
+        width: 236rpx;
+        height: 60rpx;
+        margin:0 16rpx;
+        border:1rpx solid #dddfe3;
+        color:#9fa5b4;
+        border-radius: 8rpx;
+        font:26rpx "黑体";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .content_692{
+      width: 100%;
+      .comment_title{
+        width: 692rpx;
+        height: 78rpx;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h3{
+          font:30rpx "黑体";
+          font-weight: bold;
+        }
+        div{
+          display: flex;
+          align-items: center;
+          span{
+            font:24rpx "黑体";
+            color:#8f9093;
+          }
+          span:last-child{
+            margin-left:20rpx;
+          }
+          .active{
+            color:#000;
+          }
+        }
+      }
+      .comment_content{
+        width: 692rpx;
+        margin:0 auto;
+        li{
+          width: 100%;
+          padding:40rpx 0;
+          padding-bottom: 0;
+          .infos{
+            display: flex;
+            align-items: center;
+            position: relative;
+            img{
+              width: 64rpx;
+              height: 64rpx;
+            }
+            dl{
+              margin-left:10rpx;
+              dt{
+                font:28rpx "黑体";
+                margin-bottom: 2rpx;
+              }
+              dd{
+                font:22rpx "黑体";
+              }
+            }
+            .zan{
+              display: flex;
+              position: absolute;
+              right: 0;
+              top:0;
+              span{
+                display: flex;
+                align-items: center;
+                font:22rpx "黑体";
+                color:#858689;
+                float: right;
+                i{
+                  margin-left: 10rpx;
+                  font-size: 26rpx;
+                }
+              }
+            }
+          }
+          .comm{
+            width: 100%;
+            padding-left:74rpx;
+            box-sizing: border-box;
+            .first_comm{
+              margin:20rpx 0;
+              font:28rpx "黑体";
+            }
+            .b_line{
+              padding-bottom: 40rpx;
+              border-bottom:1rpx solid #d7dce9;
+              background: #f6f8fd;
+              .huifu{
+                width: 622rpx;
+                padding:30rpx 28rpx;
+                background: #f0f2f7;
+                box-sizing: border-box;
+                p{
+                  overflow: hidden;
+                  .username{
+                    font:28rpx "黑体";
+                    color:#99a8de;
+                  }
+                  .text{
+                    font:28rpx "黑体";
+                  }
+                }
+                .more{
+                  text-align: left;
+                  font:28rpx "黑体";
+                  color:#99a8de;
+                  margin-top: 18rpx;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .sendMsg{
+      width: 100%;
+      height: 90rpx;
+      background: #fff;
+      position: fixed;
+      bottom: 0;
+      border-top:1rpx soild #dddfe3;
+      z-index: 10;
+      .content{
+        width: 692rpx;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        .send{
+          width: 282rpx;
+          height: 60rpx;
+          font:28rpx "黑体";
+          color:#7f8699;
+          margin-right:40rpx;
+          text-align: left;
+          padding-left:20rpx;
+        }
+        .chat{
+          width: 158rpx;
+          font:24rpx "黑体";
+          line-height:60rpx;
+          color:#7f8699;
+          margin-right:10rpx;
+          display: flex;
+          justify-content:center;
+        }
+        .count{
+          width: 130rpx;
+          font:24rpx "黑体";
+          line-height:60rpx;
+          color:#7f8699;
+          margin-right:10rpx;
+          display: flex;
+          justify-content:center;
+          i{
+            margin-right: 5rpx;
+          }
+        }
+        .share_btn{
+          width: 60rpx;
+          height: 60rpx;
+          font:22rpx "黑体";
+          line-height:60rpx;
+          color:#7f8699;
+        }
+      }
+    }
+    .content-detail{
+      background: transparent !important;
+    }
+  }
+
+</style>

@@ -1,0 +1,35 @@
+<import src="/components/listbar/listbar.vue.wxml" />
+<import src="/components/linedzb/linedzb.vue.wxml" />
+<import src="/base/tab/tab.vue.wxml" /><template name="64491cfc">
+  <view class="_div data-v-497f4c30 dj_container">
+    <scroll-view class="_scroll-view data-v-497f4c30 scroll" scroll-y="{{true}}">
+      <view class="_div data-v-497f4c30 login">
+        <image src="http://139.159.180.215/resource/images/login.png" alt class="_img data-v-497f4c30 login_bg"></image>
+        <view class="_div data-v-497f4c30 user_info">
+          <view class="_div data-v-497f4c30 avatarbox">
+            <open-data class="_open-data data-v-497f4c30 avatar" type="userAvatarUrl"></open-data>
+          </view>
+          <open-data class="_open-data data-v-497f4c30 username" type="userNickName"></open-data> <button style="margin-right:-60rpx;" open-type="getUserInfo" bindtap="handleProxy" plain="{{true}}" lang="zh_CN" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-497f4c30">请登录</button>
+        </view>
+        <view class="_div data-v-497f4c30 temperature">
+          <image src="/images/cloud.png" alt class="_img data-v-497f4c30"></image> <label class="_span data-v-497f4c30">20℃</label>
+        </view>
+      </view>
+      <view class="_div data-v-497f4c30 wrap">
+        <swiper class="_swiper data-v-497f4c30 slider" bindchange="handleProxy" indicator-dots="{{false}}" circular="{{true}}" autoplay="{{true}}" current="{{swiperCurrent}}" interval="{{2000}}" duration="{{400}}" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+          <block wx:key="index" key="{{index}}" wx:for="{{imgUrls}}" wx:for-index="index" wx:for-item="item">
+            <swiper-item style="position: relative;" class="_swiper-item data-v-497f4c30">
+              <image src="{{item.img}}" class="_img data-v-497f4c30 slide_image"></image>
+            </swiper-item>
+          </block>
+        </swiper>
+        <view class="_div data-v-497f4c30 dots">
+          <block><label wx:key="index" key="{{index}}" class="_span data-v-497f4c30 dot {{index == swiperCurrent ? 'active' : ' '}}" wx:for="{{imgUrls}}" wx:for-index="index" wx:for-item="item"></label></block>
+        </view>
+      </view> <template data="{{...$root[$kk+'3'], $root}}" is="6bfad1e6"></template>
+      <view class="_div data-v-497f4c30 hr"></view> <template data="{{...$root[$kk+'4'], $root}}" is="1358f2ac"></template>
+      <view class="_div data-v-497f4c30 hr"></view> <template data="{{...$root[$kk+'5'], $root}}" is="7057f7e1"></template>
+    </scroll-view>
+    <image src="http://139.159.180.215/resource/images/jf.gif" class="_img data-v-497f4c30 jf" alt mode="widthFix" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}"></image>
+  </view>
+</template>

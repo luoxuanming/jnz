@@ -1,0 +1,44 @@
+<template name="19d35172">
+  <view class="_div data-v-b68935f4 dfjn">
+    <scroll-view class="_scroll-view data-v-b68935f4 scroll" scroll-y="{{true}}">
+      <view class="_div data-v-b68935f4 type">
+        <view class="_div data-v-b68935f4 content">
+          <view class="_h4 data-v-b68935f4">待缴党费记录</view>
+        </view>
+      </view>
+      <view class="_div data-v-b68935f4 list content" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        <view class="_p data-v-b68935f4">2018年12月党费缴纳税</view>
+        <view class="_div data-v-b68935f4">
+          <view class="_dl data-v-b68935f4 active">
+            <view class="_dt data-v-b68935f4"><label class="_span data-v-b68935f4">¥</label>2018.00 </view>
+            <view class="_dd data-v-b68935f4">点击立即缴费</view>
+          </view>
+          <view class="_i data-v-b68935f4 iconfont"> > </view>
+        </view>
+      </view>
+      <view class="_div data-v-b68935f4 list content" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+        <view class="_p data-v-b68935f4">2018年04月党费缴纳税</view>
+        <view class="_div data-v-b68935f4">
+          <view class="_dl data-v-b68935f4 active">
+            <view class="_dt data-v-b68935f4"><label class="_span data-v-b68935f4">¥</label>0.01 </view>
+            <view class="_dd data-v-b68935f4">点击立即缴费</view>
+          </view>
+          <view class="_i data-v-b68935f4 iconfont"> > </view>
+        </view>
+      </view>
+      <view class="_div data-v-b68935f4 type">
+        <view class="_div data-v-b68935f4 content">
+          <view class="_h4 data-v-b68935f4">已缴党费记录</view>
+        </view>
+      </view>
+      <view class="_div data-v-b68935f4 list content">
+        <view class="_p data-v-b68935f4">2018年04月党费缴纳税</view>
+        <view class="_div data-v-b68935f4">
+          <view class="_dl data-v-b68935f4">
+            <view class="_dt data-v-b68935f4"><label class="_span data-v-b68935f4">¥</label>0.00 </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

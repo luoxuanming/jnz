@@ -1,0 +1,68 @@
+@import "../../common/vendor.wxss";
+
+.dj_container.data-v-dd7bb8b6 {
+  width: 100%;
+  padding-top: 130rpx;
+  overflow-x: hidden;
+}
+.btn_zan.data-v-dd7bb8b6 {
+  width: 288rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 32rpx;
+  border: 1rpx solid #d30000;
+  color: #d30000;
+  margin: 38rpx auto;
+}
+.msg_btn.data-v-dd7bb8b6 {
+  border: 1rpx solid #d7dce9;
+  border-radius: 38rpx;
+  text-align: center;
+}
+.infoPublish.data-v-dd7bb8b6 {
+  background: #f6f8fd;
+}
+.scroll.data-v-dd7bb8b6 {
+  width: 100%;
+  height: 100vh;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.scroll .list.data-v-dd7bb8b6 {
+  width: 726rpx;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  border-radius: 10rpx;
+  justify-content: space-between;
+  height: 178rpx;
+  box-sizing: border-box;
+  padding: 24rpx 0;
+  background: #fff;
+  padding: 20rpx;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+}
+.scroll .list ._dl.data-v-dd7bb8b6 {
+  width: 490rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.scroll .list ._dl ._dt.data-v-dd7bb8b6 {
+  font: 30rpx "\5FAE\8F6F\96C5\9ED1";
+  margin-bottom: 5rpx;
+}
+.scroll .list ._dl ._dd ._span.data-v-dd7bb8b6 {
+  font: 24rpx "\9ED1\4F53";
+  color: #7f8699;
+}
+.scroll .list ._dl ._dd .count.data-v-dd7bb8b6 {
+  margin-left: 36rpx;
+}
+.scroll .list ._img.data-v-dd7bb8b6 {
+  width: 198rpx;
+  height: 123rpx;
+}

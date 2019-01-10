@@ -1,0 +1,108 @@
+<template name="4d18f504">
+  <view class="_div data-v-4ffdeed0 chat">
+    <scroll-view class="_scroll-view data-v-4ffdeed0 scroll" scroll-y="{{true}}" scroll-top="{{length}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+      <view class="_div data-v-4ffdeed0 content top">
+        <view class="_div data-v-4ffdeed0 head">
+          <view class="_div data-v-4ffdeed0 title">{{getContent.MEETING_TITLE}}</view>
+          <view class="_div data-v-4ffdeed0 type"><label wx:key="index1" key="{{index1}}" wx:for="{{getContent.MEETING_TYPE}}" wx:for-index="index1" wx:for-item="type" class="_span data-v-4ffdeed0">{{type}}</label></view>
+          <view class="_dl data-v-4ffdeed0">
+            <view class="_dt data-v-4ffdeed0">
+              <view class="_i data-v-4ffdeed0 iconfont icon-dangzhibu"></view>
+            </view>
+            <view class="_dd data-v-4ffdeed0">
+              {{getContent.ORG_NAME}}
+            </view>
+          </view>
+          <view class="_dl data-v-4ffdeed0">
+            <view class="_dt data-v-4ffdeed0">
+              <view class="_i data-v-4ffdeed0 iconfont icon-dingwei1"></view>
+            </view>
+            <view class="_dd data-v-4ffdeed0">
+              {{getContent.MEETING_ADDR}}
+            </view>
+          </view>
+          <view class="_dl data-v-4ffdeed0">
+            <view class="_dt data-v-4ffdeed0">
+              <view class="_i data-v-4ffdeed0 iconfont icon-shijian"></view>
+            </view>
+            <view class="_dd data-v-4ffdeed0">
+              {{getContent.BEGIN_TIME}} ~ {{getContent.END_TIME}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-4ffdeed0 content body">
+        <view class="_div data-v-4ffdeed0 msg" style="z-index:999; position:relative">
+          <view class="_div data-v-4ffdeed0 userInfo">
+            <image src="/images/user_pic.png" alt class="_img data-v-4ffdeed0"></image>
+            <view class="_div data-v-4ffdeed0 username">江小南</view>
+            <view class="_div data-v-4ffdeed0 zd">置顶</view>
+            <view class="_div data-v-4ffdeed0 time">2018-12-23 10:00</view>
+          </view>
+          <view class="_div data-v-4ffdeed0 gg {{ggFlag == true ? 'gg2' : ' '}}"> 楼主公告：传达学习党的路线方针政策和上级党组织的决议、指示，制定本单位贯彻落实的计划、措施；定期听取支部委员会的工作报告，对支部委员会的工作进行审查和监督；讨论接收新党员和预备党员转正，讨论决定对党员的表彰和处分； <view class="_div data-v-4ffdeed0 more {{ggFlag == true ? 'more2' : ' '}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+              {{more}}
+              <view class="_i data-v-4ffdeed0 iconfont icon-xiala"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-4ffdeed0 content message {{gnFlag == true ? 'message2' : ''}}">
+        <view class="_div data-v-4ffdeed0 other" wx:key="index" key="{{index}}" wx:for="{{replyMsgList}}" wx:for-index="index" wx:for-item="itemLits">
+          <view class="_div data-v-4ffdeed0 avatar">
+            <image wx:if="{{itemLits.USER_PIC==null}}" src="/images/user_pic.png" alt class="_img data-v-4ffdeed0"></image>
+            <image wx:else src="{{itemLits.USER_PIC}}" alt class="_img data-v-4ffdeed0"></image>
+          </view>
+          <view class="_div data-v-4ffdeed0 reply_msg">
+            <view class="_div data-v-4ffdeed0 username">{{itemLits.POST_USER_NAME}}</view>
+            <view class="_div data-v-4ffdeed0 text">{{itemLits.POST_CONTENT}}</view>
+          </view>
+        </view>
+        <view class="_div data-v-4ffdeed0 my" wx:if="{{mySendList.length}}" wx:key="index" key="{{index}}" wx:for="{{mySendList}}" wx:for-index="index" wx:for-item="item">
+          <view class="_div data-v-4ffdeed0 text">{{item.text}}</view>
+          <view class="_div data-v-4ffdeed0 avatar">
+            <image src="/images/user_pic.png" alt class="_img data-v-4ffdeed0"></image>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <image class="_img data-v-4ffdeed0 nullImg" src="/images/ly_null.png" wx:if="{{nullImg}}"></image>
+    <view class="_div data-v-4ffdeed0 sendMsg {{gnFlag == true ? 'gnFlag' : ' '}}">
+      <view class="_div data-v-4ffdeed0 send">
+        <view class="_div data-v-4ffdeed0"><input placeholder="请输入回复" type="text" confirm-type="send" value="{{sendMessage}}" bindinput="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_input data-v-4ffdeed0" /></view> <label bindtap="handleProxy" style="font-size:30rpx;color:#666" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_span data-v-4ffdeed0">回复</label>
+      </view>
+      <image style="position: fixed;bottom: 90rpx;left: 50%;margin-left: -100px;width: 360rpx;height: 290rpx;" class="_img data-v-4ffdeed0 nullImg" src="/images/ly_null.png" wx:if="{{nullImg}}"></image>
+      <view class="_div data-v-4ffdeed0 gn">
+        <view class="_dl data-v-4ffdeed0">
+          <view class="_dt data-v-4ffdeed0">
+            <view class="_i data-v-4ffdeed0 iconfont icon-zhaopian2"></view>
+          </view>
+          <view class="_dd data-v-4ffdeed0">照片</view>
+        </view>
+        <view class="_dl data-v-4ffdeed0">
+          <view class="_dt data-v-4ffdeed0">
+            <view class="_i data-v-4ffdeed0 iconfont icon-zhaopian11"></view>
+          </view>
+          <view class="_dd data-v-4ffdeed0">拍摄</view>
+        </view>
+        <view class="_dl data-v-4ffdeed0">
+          <view class="_dt data-v-4ffdeed0">
+            <view class="_i data-v-4ffdeed0 iconfont icon-wenjian1"></view>
+          </view>
+          <view class="_dd data-v-4ffdeed0">文件</view>
+        </view>
+        <view class="_dl data-v-4ffdeed0">
+          <view class="_dt data-v-4ffdeed0">
+            <view class="_i data-v-4ffdeed0 iconfont icon-zhiding1"></view>
+          </view>
+          <view class="_dd data-v-4ffdeed0">置顶公告</view>
+        </view>
+        <view class="_dl data-v-4ffdeed0">
+          <view class="_dt data-v-4ffdeed0">
+            <view class="_i data-v-4ffdeed0 iconfont icon-toupiao2"></view>
+          </view>
+          <view class="_dd data-v-4ffdeed0">投票评议</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

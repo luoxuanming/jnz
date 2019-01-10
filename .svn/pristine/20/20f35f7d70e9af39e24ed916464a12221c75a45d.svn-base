@@ -1,0 +1,55 @@
+<template name="2c927094">
+  <view class="_div data-v-75f4447a answering">
+    <scroll-view class="_scroll-view data-v-75f4447a scroll" scroll-y="{{true}}">
+      <view class="_div data-v-75f4447a state">
+        <view class="_div data-v-75f4447a content">
+          <view class="_div data-v-75f4447a circle">
+            <view class="_i data-v-75f4447a iconfont icon-gou"></view>
+            <view class="_dl data-v-75f4447a">
+              <view class="_dt data-v-75f4447a">心声已提交</view>
+              <view class="_dd data-v-75f4447a">2018-07-01 10:00</view>
+            </view>
+          </view>
+          <view class="_div data-v-75f4447a default_line"></view>
+          <view class="_div data-v-75f4447a circle">
+            <view class="_i data-v-75f4447a iconfont icon-loudou"></view>
+            <view class="_dl data-v-75f4447a">
+              <view class="_dt data-v-75f4447a">未回复</view>
+              <view class="_dd data-v-75f4447a">请耐心等待</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-75f4447a xq">
+        <view class="_div data-v-75f4447a content2">
+          <view class="_h4 data-v-75f4447a">心声详情</view>
+          <view class="_div data-v-75f4447a text {{flag ? 'brief_more' : ' '}}">
+            <view class="_p data-v-75f4447a">港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口调度业务港口</view>
+            <view class="_div data-v-75f4447a more {{flag ? 'gd_none' : ' '}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">查看更多 <view class="_i data-v-75f4447a iconfont icon-xiala"></view>
+            </view>
+            <view class="_div data-v-75f4447a borderline {{flag ? 'gd_none' : ' '}}">
+              <view class="_div data-v-75f4447a"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-75f4447a hf">
+        <view class="_div data-v-75f4447a content">
+          <view class="_h4 data-v-75f4447a">回复详情</view>
+          <view class="_div data-v-75f4447a list">
+            <view class="_div data-v-75f4447a head">
+              <image src="/images/user_pic.png" alt class="_img data-v-75f4447a"></image>
+              <view class="_dl data-v-75f4447a">
+                <view class="_dt data-v-75f4447a">江小南</view>
+                <view class="_dd data-v-75f4447a">4小时前更新</view>
+              </view>
+            </view>
+            <view class="_div data-v-75f4447a article">
+              <view class="_p data-v-75f4447a">党员干部的得失一定要与民心相关联。要以大局为重注重整体利益，要做到舍小家、为大家。要树立正确的价值观，严控欲望，做好修身功夫。作为党员干部就要有更高的思想境界和自我约束力，避免患得患失保持理想信念不变色，保持平和心态，用一生的忠诚和执著坚守着精神高地，作为党员干部，要做到不以善小而不为，不以恶小而为之”。无论去哪，都应时时刻刻用正确的行为准则严格要求自己。</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

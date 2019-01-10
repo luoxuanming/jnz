@@ -1,0 +1,77 @@
+@import "../../common/vendor.wxss";
+
+.dj_container.data-v-e9251e04 {
+  width: 100%;
+  padding-top: 130rpx;
+  overflow-x: hidden;
+}
+.btn_zan.data-v-e9251e04 {
+  width: 288rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 32rpx;
+  border: 1rpx solid #d30000;
+  color: #d30000;
+  margin: 38rpx auto;
+}
+.msg_btn.data-v-e9251e04 {
+  border: 1rpx solid #d7dce9;
+  border-radius: 38rpx;
+  text-align: center;
+}
+.dfjn .content.data-v-e9251e04 {
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.dfjn .msg.data-v-e9251e04 {
+  font: 28rpx "\5FAE\8F6F\96C5\9ED1";
+  color: #333;
+  padding-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.dfjn .card.data-v-e9251e04 {
+  width: 100%;
+  box-shadow: 0 0 6rpx #e0e0e0;
+  border-radius: 20rpx;
+  background: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-bottom: 100rpx;
+}
+.dfjn .card ._dl.data-v-e9251e04 {
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #ededed;
+  display: flex;
+  justify-content: space-between;
+  font: 30rpx "\5FAE\8F6F\96C5\9ED1";
+  color: #333;
+}
+.dfjn .card ._dl ._dd.data-v-e9251e04 {
+  color: #999999;
+}
+.dfjn .card ._dl.data-v-e9251e04:last-child {
+  flex-direction: column;
+}
+.dfjn .card ._dl:last-child ._dd.data-v-e9251e04 {
+  padding: 70rpx 0;
+  text-align: center;
+  font: 100rpx "\5FAE\8F6F\96C5\9ED1";
+  color: #000;
+  word-spacing: 8rpx;
+  letter-spacing: 0rpx;
+}
+.dfjn .btn.data-v-e9251e04 {
+  width: 100%;
+  height: 80rpx;
+  background: #e82c2c;
+  color: #fff;
+  font: 30rpx "\5FAE\8F6F\96C5\9ED1";
+  line-height: 80rpx;
+  border-radius: 10rpx;
+  text-align: center;
+}

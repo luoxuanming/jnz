@@ -1,0 +1,37 @@
+<template name="1358f2ac">
+  <view class="_div data-v-0c0014ba linedzb">
+    <view class="_div data-v-0c0014ba content">
+      <view class="_h4 data-v-0c0014ba">线上党支部</view>
+      <view class="_ul data-v-0c0014ba">
+        <view bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_li data-v-0c0014ba">
+          <view class="_dl data-v-0c0014ba">
+            <view class="_dt data-v-0c0014ba">聚聚吧</view>
+            <view class="_dd data-v-0c0014ba">沟通零距离</view>
+          </view>
+          <image src="/images/linedzb01.png" alt class="_img data-v-0c0014ba"></image>
+        </view>
+        <view bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_li data-v-0c0014ba">
+          <view class="_dl data-v-0c0014ba">
+            <view class="_dt data-v-0c0014ba">党内法规</view>
+            <view class="_dd data-v-0c0014ba">学党章用党章</view>
+          </view>
+          <image src="/images/linedzb02.png" alt class="_img data-v-0c0014ba"></image>
+        </view>
+        <view bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_li data-v-0c0014ba">
+          <view class="_dl data-v-0c0014ba">
+            <view class="_dt data-v-0c0014ba">党务指南</view>
+            <view class="_dd data-v-0c0014ba">党务工作小助手</view>
+          </view>
+          <image src="/images/linedzb03.png" alt class="_img data-v-0c0014ba"></image>
+        </view>
+        <view bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_li data-v-0c0014ba">
+          <view class="_dl data-v-0c0014ba">
+            <view class="_dt data-v-0c0014ba">党费缴纳</view>
+            <view class="_dd data-v-0c0014ba">便捷又安全</view>
+          </view>
+          <image src="/images/linedzb04.png" alt class="_img data-v-0c0014ba"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

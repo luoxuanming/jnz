@@ -1,0 +1,11 @@
+<template name="516ada1b">
+  <view class="_div data-v-945b3748 login">
+    <image src="/images/login.png" alt class="_img data-v-945b3748 login_bg"></image>
+    <view class="_div data-v-945b3748 user_info">
+      <image src="{{userInfos.avatarUrl}}" alt="{{userInfos.avatarUrl}}" class="_img data-v-945b3748"></image> <label class="_span data-v-945b3748 username">{{userInfos.nickName}}</label> <label class="_span data-v-945b3748">积分：30</label> <button wx:if="{{canIUse}}" open-type="getUserInfo" bindtap="handleProxy" plain="{{true}}" lang="zh_CN" bindgetuserinfo="onGotUserInfo" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-945b3748">请登录</button>
+    </view>
+    <view class="_div data-v-945b3748 temperature">
+      <image src="/images/cloud.png" alt class="_img data-v-945b3748"></image> <label class="_span data-v-945b3748">20℃</label>
+    </view>
+  </view>
+</template>

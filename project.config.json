@@ -1,0 +1,103 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": false,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"miniprogramRoot": "dist/wx/",
+	"compileType": "miniprogram",
+	"appid": "wx989678316c875f67",
+	"projectname": "%E6%B1%9F%E5%8D%97%E4%B8%AD",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 10,
+			"list": [
+				{
+					"id": -1,
+					"name": "登录页",
+					"pathName": "pages/login/main",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "聚聚吧",
+					"pathName": "pages/jjb/main",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "聚聚吧详情",
+					"pathName": "pages/chat/main",
+					"query": "id=7"
+				},
+				{
+					"id": -1,
+					"name": "地图",
+					"pathName": "pages/djmap/main",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "图文",
+					"pathName": "pages/zjdx/main",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "两代表一委员",
+					"pathName": "pages/ldbywy/main",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "活动日历",
+					"pathName": "pages/volunteerCalendar/main",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/myCenter/main",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "志愿活动",
+					"pathName": "pages/volunteerActivty/main",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "共治共建",
+					"pathName": "pages/gzgz/main",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我要办事",
+					"pathName": "pages/wybs/main",
+					"query": ""
+				}
+			]
+		}
+	}
+}

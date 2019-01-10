@@ -1,0 +1,19 @@
+<template name="cd6d42c2">
+  <view class="_div data-v-5f969634 gjgz">
+    <image src="/images/gjgz.png" alt class="_img data-v-5f969634 gjgz_bg"></image>
+    <view class="_div data-v-5f969634 content">
+      <view class="_div data-v-5f969634">
+        <image src="/images/gjgz01.png" mode="widthFix" alt bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_img data-v-5f969634"></image>
+      </view>
+      <view class="_div data-v-5f969634">
+        <image src="/images/gjgz02.png" mode="widthFix" alt bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_img data-v-5f969634"></image>
+      </view>
+      <view class="_div data-v-5f969634">
+        <image src="/images/gjgz03.png" mode="widthFix" alt bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_img data-v-5f969634"></image>
+      </view>
+    </view>
+    <view class="_div data-v-5f969634 logo_container">
+      <image src="/images/logo.png" alt class="_img data-v-5f969634 logo"></image>
+    </view>
+  </view>
+</template>

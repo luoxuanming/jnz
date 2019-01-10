@@ -1,0 +1,32 @@
+<import src="/modules/mpvue-wxparse/src/wxParse.vue.wxml" /><template name="7f8d9130">
+  <view class="_div data-v-c49e78f8 dj_container">
+    <scroll-view class="_scroll-view data-v-c49e78f8 scroll" scroll-y="{{true}}">
+      <view class="_div data-v-c49e78f8 box" wx:if="{{detail}}">
+        <view class="_div data-v-c49e78f8 title">
+          <view class="_div data-v-c49e78f8 content">
+            <view class="_h2 data-v-c49e78f8">{{detail.ALIAS_TITLE}}</view>
+            <view class="_dl data-v-c49e78f8">
+              <view class="_dt data-v-c49e78f8">{{detail.PUB_TIME}} | 阅读{{detail.READ_COUNT}}</view>
+              <view class="_dd data-v-c49e78f8">{{detail.NEWS_AUTHOR}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="_div data-v-c49e78f8 content neirong">
+          <view class="_div data-v-c49e78f8 text"><template data="{{...$root[$kk+'0'], $root}}" is="a913ef8c"></template></view>
+          <view class="_div data-v-c49e78f8 btn_zan" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+            <view class="_i data-v-c49e78f8 iconfont icon-dianzan"></view>
+            {{detail.LIKE_COUNT}}
+          </view>
+        </view>
+        <view class="_div data-v-c49e78f8 line">
+          <view class="_div data-v-c49e78f8"></view>分享<view class="_div data-v-c49e78f8"></view>
+        </view>
+        <view class="_div data-v-c49e78f8 share"><button open-type="share" plain="{{true}}" class="_button data-v-c49e78f8">
+            <image src="/images/weixin_icon.png" alt class="_img data-v-c49e78f8"></image> 微信好友
+          </button> <button open-type="share" plain="{{true}}" class="_button data-v-c49e78f8">
+            <image src="/images/pyq_icon.png" alt class="_img data-v-c49e78f8"></image> 微信朋友圈
+          </button></view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

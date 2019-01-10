@@ -1,0 +1,25 @@
+@bglow:#f6f8fd;//浅色背景色
+@smfontColor:#7f8699;//小字颜色
+@mainColor:#e82c2c;
+.dj_container{
+  width: 100%;
+  padding-top:130rpx;
+  overflow-x:hidden;
+}
+.btn_zan{
+  width:288rpx;
+  height: 64rpx;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  border-radius:32rpx;
+  border:1rpx solid #d30000;
+  color:#d30000;
+  margin:38rpx auto;
+}
+
+.msg_btn{
+  border:1rpx solid #d7dce9;
+  border-radius:38rpx;
+  text-align: center;
+}

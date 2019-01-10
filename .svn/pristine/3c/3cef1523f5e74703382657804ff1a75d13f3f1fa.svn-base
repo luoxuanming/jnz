@@ -1,0 +1,287 @@
+<template>
+  <div class="lyform">
+    <scroll-view class="scroll" :scroll-y="true">
+      <div class="content">
+        <div class="text_area">
+          <dl>
+            <dt>
+              标题
+              <span>*</span>
+            </dt>
+            <dd><input type="text" v-model="title" placeholder="请输入不超过50字的标题"></dd>
+          </dl>
+          <dl>
+            <dt>
+              类型
+              <span>*</span>
+            </dt>
+            <dd>
+              <picker @change="bindPickerChange" :value="index" :range="array">
+                <view class="picker"> {{array[index]}} <i class="iconfont icon-xiala"></i> </view>
+              </picker>
+            </dd>
+          </dl>
+          <dl class="comm">
+            <dt>
+              内容
+              <span>*</span>
+            </dt>
+            <dd>
+              <textarea name="" id="" v-model="content" placeholder="请输入留言内容" class="textinput"></textarea>
+            </dd>
+          </dl>
+        </div>
+        <div class="fj">
+          <div>
+            <img src="../../images/fj.png" class="fj" alt="">
+            添加附件
+          </div>
+          <div class="icon">+</div>
+        </div>
+        <div class="fj">
+          <div>
+            <img src="../../images/tp.png" class="fj" alt="">
+            添加图片
+          </div>
+          <div class="icon">+</div>
+        </div>
+        <div class="fj gk">
+          <div>是否公开</div>
+          <div class="icon"><switch checked @change="switch1Change" :color="color" class="wx-switch-input"/></div>
+        </div>
+      </div>
+      <div class="btn">
+        <div class="tj" @click="tj">提交</div>
+      </div>
+    </scroll-view>
+  </div>
+</template>
+
+<script>
+  import * as conf from '../../utils/config'
+  export default {
+
+    data () {
+      return {
+        index:0,
+        array:[
+          "请选择反馈类型",
+          "党群服务中心",
+          "民生微实事",
+          "志愿者服务活动",
+          "其他意见建议"
+        ],
+        color:"#97abf4",
+        title:"",
+        content:"",
+        isShow:true
+      }
+    },
+
+    created () {
+
+    },
+    methods:{
+      bindPickerChange(e){
+        // console.log(e.target.value)
+        this.index=e.target.value;
+      },
+      tj(){
+        //提交
+        if(!this.title || !this.content){
+          wx.showToast({
+            title: '请完成信息',
+            icon: 'none',
+            duration: 2000
+          });
+        }else{
+          if(this.index==0){
+            wx.showToast({
+              title: '请选择反馈类型',
+              icon: 'none',
+              duration: 2000
+            });
+          }else{
+            this.addComment();
+          }
+        }
+      },
+      switch1Change(e){
+        //console.log(e.target.value)
+        this.isShow=!this.isShow;
+      },
+      addComment(){
+        //添加留言
+        var that=this;
+        wx.getStorage({
+          key: 'userInfos',
+          success(ret) {
+            console.log(ret.data.USER_ID+"*"+that.title+"*"+that.content+"*"+that.array[that.index]+"*"+that.isShow);
+            wx.request({
+              url:`${conf.HOST}/stddj-gzgj/servlet/comment.action?method=addComment`,
+              data:{
+                userId:ret.data.USER_ID,
+                commentTitle:that.title,
+                commentNotes:that.content,
+                commentType:that.index,
+                isShow:that.isShow,
+                representId:1
+              },
+              success(res){
+                console.log(JSON.stringify(res))
+                wx.showToast({
+                  title: '提交完成',
+                  icon: 'success',
+                  duration: 2000
+                })
+              }
+            })
+          }
+        })
+      }
+    },
+    components: {
+
+    },
+  }
+</script>
+
+<style scoped lang="less">
+  @import "../../common/css/less/base";
+  @import "../../common/css/font/iconfont.css";
+  .lyform{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    .scroll{
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: url("../../images/logo.png") no-repeat;
+      background-size: 363rpx 70rpx;
+      background-position: center bottom 30rpx;
+      box-sizing: border-box;
+      .content{
+        width: 100%;
+        background: #f6f8fd;
+        margin-bottom: 90rpx;
+        .text_area{
+          width: 100%;
+          background: #fff;
+          padding:0 40rpx;
+          box-sizing: border-box;
+          margin-bottom: 20rpx;
+          dl{
+            width: 100%;
+            height: 80rpx;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1rpx solid #e4e4e4;
+            dt{
+              width: 129rpx;
+              font:30rpx "微软雅黑";
+              color:#333;
+              span{
+                color:@mainColor;
+              }
+            }
+            dd{
+              width: 100%;
+              font:30rpx "微软雅黑";
+              color:#999;
+              overflow: hidden;
+              text-align: right;
+              .picker{
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                i{
+                  font-size: 26rpx;
+                  margin-left: 10rpx;
+                  color:#999;
+                }
+              }
+
+            }
+          }
+          .comm{
+            display: flex;
+            flex-direction: column;
+            align-items: normal;
+            height: auto;
+            border: none;
+            dt{
+              display: flex;
+              align-items: center;
+              line-height: 80rpx;
+              span{
+                margin-left: 10rpx;
+              }
+            }
+            dd{
+              text-align: left;
+              textarea{
+                width: 100%;
+                color:#333;
+              }
+              .textinput::-webkit-input-placeholder{
+                color:#999;
+              }
+            }
+          }
+        }
+        .fj{
+          width: 100%;
+          height: 80rpx;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: #fff;
+          margin-bottom: 20rpx;
+          div{
+            font:30rpx "微软雅黑";
+            color:#333;
+            padding:0 40rpx;
+            height: 80rpx;
+            display: flex;
+            align-items: center;
+            display: flex;
+            align-items: center;
+            img{
+              width: 50rpx;
+              height: 50rpx;
+              margin-top:20rpx;
+              margin-right: 20rpx;
+            }
+          }
+          .icon{
+            color:#d7dce9;
+            font-size: 66rpx;
+          }
+        }
+        .gk{
+          margin-bottom: 0;
+        }
+
+      }
+      .btn{
+        width: 100%;
+        padding:0 40rpx;
+        box-sizing: border-box;
+        .tj{
+          width: 100%;
+          height: 86rpx;
+          background: #97abf4;
+          box-sizing: border-box;
+          border-radius: 10rpx;
+          text-align: center;
+          font:30rpx "微软雅黑";
+          color:#fff;
+          line-height: 86rpx;
+        }
+      }
+    }
+  }
+</style>

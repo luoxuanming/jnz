@@ -1,0 +1,492 @@
+<template>
+  <div class="chat">
+    <scroll-view class="scroll" :scroll-y="true" :scroll-top="length" @click="closeGn">
+      <div class="content top">
+        <div class="head">
+          <div class="title">2018年11月江南中道青凤社区党员大会——开创党新建时代，智慧党建项目策划会</div>
+          <div class="type">
+            <span>党员大会</span>
+            <span>投票评议</span>
+          </div>
+          <dl>
+            <dt><i class="iconfont icon-dangzhibu"></i></dt>
+            <dd>
+              江南中街道第一党支部
+            </dd>
+          </dl>
+          <dl>
+            <dt><i class="iconfont icon-dingwei1"></i></dt>
+            <dd>
+              广东省广州市天河区
+            </dd>
+          </dl>
+          <dl>
+            <dt><i class="iconfont icon-shijian"></i></dt>
+            <dd>
+              2018-12-23 15:00
+            </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="content body">
+        <div class="msg">
+          <div class="userInfo">
+            <img src="../../images/user_pic.png" alt="">
+            <div class="username">江小南</div>
+            <div class="zd">置顶</div>
+            <div class="time">2018-12-23 10:00</div>
+          </div>
+          <div class="gg" :class="ggFlag==true?'gg2':' '">
+            楼主公告：传达学习党的路线方针政策和上级党组织的决议、指示，制定本单位贯彻落实的计划、措施；定期听取支部委员会的工作报告，对支部委员会的工作进行审查和监督；讨论接收新党员和预备党员转正，讨论决定对党员的表彰和处分；
+            <div class="more" :class="ggFlag==true?'more2':' '" @click="MoreFn">
+              {{more}} <i class="iconfont icon-xiala"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content message" :class="gnFlag==true?'message2':' '">
+        <div class="msgtime">
+          <div class="current_time">
+            12:00
+          </div>
+        </div>
+        <div class="other">
+          <div class="avatar">
+            <img src="../../images/user_pic.png" alt="">
+          </div>
+          <div class="reply_msg">
+            <div class="username">李爱党</div>
+            <div class="text">你好</div>
+          </div>
+        </div>
+        <div class="my" v-if="mySendList.length" v-for="(item,index) in mySendList" :key="index">
+          <div class="text">{{item.text}}</div>
+          <div class="avatar">
+            <img src="../../images/user_pic.png" alt="">
+          </div>
+        </div>
+      </div>
+    </scroll-view>
+    <div class="sendMsg" :class="gnFlag==true?'gnFlag':' '">
+      <div class="send">
+        <i class="iconfont icon-yuyin1"></i>
+        <div>
+          <input type="text" confirm-type="send" v-model="sendMessage" @confirm="confirm($event)">
+        </div>
+        <i class="iconfont icon-biaoqing"></i>
+        <i class="iconfont icon-gengduo3" @click="gnFn"></i>
+        <i class="iconfont icon-shoucang1"></i>
+      </div>
+      <div class="gn">
+        <dl>
+          <dt><i class="iconfont icon-zhaopian2"></i></dt>
+          <dd>照片</dd>
+        </dl>
+        <dl>
+          <dt><i class="iconfont icon-zhaopian11"></i></dt>
+          <dd>拍摄</dd>
+        </dl>
+        <dl>
+          <dt><i class="iconfont icon-wenjian1"></i></dt>
+          <dd>文件</dd>
+        </dl>
+        <dl>
+          <dt><i class="iconfont icon-zhiding1"></i></dt>
+          <dd>置顶公告</dd>
+        </dl>
+        <dl>
+          <dt><i class="iconfont icon-toupiao2"></i></dt>
+          <dd>投票评议</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+
+  export default {
+
+    data () {
+      return {
+        gnFlag:false,
+        ggFlag:false,
+        more:"查看更多",
+        sendMessage:"",
+        mySendList:[],
+        length:""
+      }
+    },
+
+    created () {
+
+    },
+    methods:{
+      gnFn(){
+        this.gnFlag=!this.gnFlag;
+      },
+      closeGn(){
+        this.gnFlag=false;
+      },
+      MoreFn(){
+        //查看更多
+        this.ggFlag=!this.ggFlag;
+        if(this.ggFlag==false){
+          this.more="查看更多"
+        }else{
+          this.more="收起"
+        }
+      },
+      confirm(e){
+        console.log(e.target.value)
+        this.mySendList.push({
+          text:e.target.value
+        });
+        this.length+=90;
+        this.sendMessage="";
+      }
+    },
+    components: {
+
+    },
+  }
+</script>
+
+<style scoped lang="less">
+  @import "../../common/css/less/base";
+  @import "../../common/css/font/iconfont.css";
+.chat{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  .scroll{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: url("../../images/logo.png") no-repeat;
+    background-size: 363rpx 70rpx;
+    background-position: center bottom 30rpx;
+    box-sizing: border-box;
+    background: #f6f8fd;
+  }
+  .content{
+    width: 100%;
+    padding:0 30rpx;
+    box-sizing: border-box;
+  }
+  .head{
+    width: 100%;
+    background: #fff;
+    padding:30rpx 24rpx;
+    box-sizing: border-box;
+    background: #fff;
+    .title{
+      font:30rpx "微软雅黑";
+      color:#333;
+      text-overflow: -o-ellipsis-lastline;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      text-align: justify;
+    }
+    .type{
+      width: 100%;
+      margin-bottom: 30rpx;
+      span{
+        padding:6rpx 16rpx;
+        background: #f3f6fd;
+        font:22rpx "黑体";
+        color:#fc7c7c;
+        text-align: center;
+        border-radius: 10rpx;
+        margin-right: 12rpx;
+      }
+    }
+    dl{
+      display: flex;
+      margin-bottom: 10rpx;
+      dt{
+        margin-right: 12rpx;
+        i{
+          font-size: 26rpx;
+          color:#7f8699;
+        }
+        .icon-dingwei1{
+          font-size: 28rpx;
+          margin:0 -12rpx;
+        }
+      }
+      dd{
+        font:22rpx "黑体";
+        color:#7f8699;
+      }
+    }
+  }
+  .top{
+    background: #fff;
+    margin-bottom:20rpx;
+  }
+  .body{
+    width: 100%;
+    background: #f6f8fd;
+    box-sizing: border-box;
+    .msg{
+      width: 100%;
+      padding:25rpx 30rpx;
+      box-sizing: border-box;
+      background: #fff;
+      border-radius: 10rpx;
+      margin-bottom: 10rpx;
+      .userInfo{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        img{
+          width: 64rpx;
+          height: 64rpx;
+          border-radius: 32rpx;
+          box-shadow:2rpx 2rpx 3rpx rgba(221,221,221,0.7);
+        }
+        .username{
+          font:30rpx "微软雅黑";
+          color:#333;
+          margin:0 12rpx;
+        }
+        .zd{
+          padding:2rpx 6rpx;
+          border:1rpx solid #fc7c7c;
+          border-radius:5rpx;
+          font:22rpx "黑体";
+          color:#fc7c7c;
+          margin-right: 12rpx;
+        }
+        .time{
+          font:22rpx "黑体";
+          color:#7f8699;
+        }
+      }
+      .gg{
+        width: 100%;
+        padding-left: 80rpx;
+        padding-bottom: 80rpx;
+        box-sizing: border-box;
+        text-overflow: -o-ellipsis-lastline;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp:3;
+        -webkit-box-orient: vertical;
+        font:30rpx "微软雅黑";
+        line-height: 50rpx;
+        color:#333;
+        text-align: justify;
+        position: relative;
+        .more{
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 170rpx;
+          background: linear-gradient(to bottom,
+          rgba(255,255,255,0.2),
+          rgba(255,255,255,0.8),
+          rgba(255,255,255,1),
+          rgba(255,255,255,1));
+          text-align: center;
+          font:24rpx "黑体";
+          line-height: 272rpx;
+          color:#7f8699;
+          display: flex;
+          justify-content: center;
+          i{
+            display: block;
+            font-size: 24rpx;
+            color:#7f8699;
+            margin-left: 5rpx;
+          }
+        }
+        .more2{
+          background: transparent;
+          i{
+            display: none;
+            color:transparent !important;
+          }
+        }
+      }
+      .gg2{
+        -webkit-line-clamp:default !important;
+        display:block !important;
+      }
+    }
+  }
+  .message{
+    padding-bottom: 92rpx;
+  }
+  .message2{
+    padding-bottom: 552rpx !important;
+  }
+  .my{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-bottom: 30rpx;
+    .text{
+      position: relative;
+      background: #fff;
+      max-width: 490rpx;
+      border-radius:10rpx;
+      padding:10rpx 20rpx;
+      box-sizing: border-box;
+      margin-right: 20rpx;
+      font:30rpx "微软雅黑";
+      color:#333;
+      text-align: justify;
+    }
+    .text::before{
+      content:'';
+      position: absolute;
+      top:20rpx;
+      right: -20rpx;
+      width: 0;
+      height: 0;
+      border:10rpx solid #fff;
+      border-color: transparent transparent transparent  #fff;
+    }
+  }
+  .other{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 30rpx;
+    .username{
+      font:22rpx "黑体";
+      color:#333;
+      padding-left: 22rpx;
+      margin-bottom: 10rpx;
+    }
+    .text{
+      position: relative;
+      background: #fff;
+      max-width: 490rpx;
+      border-radius:10rpx;
+      padding:10rpx 20rpx;
+      box-sizing: border-box;
+      margin-left: 20rpx;
+      font:30rpx "微软雅黑";
+      color:#333;
+      text-align: justify;
+    }
+    .text::before{
+      content:'';
+      position: absolute;
+      top:20rpx;
+      left: -20rpx;
+      width: 0;
+      height: 0;
+      border:10rpx solid #fff;
+      border-color: transparent  #fff transparent transparent;
+    }
+  }
+  .avatar{
+    img{
+      width: 64rpx;
+      height: 64rpx;
+      border-radius: 10rpx;
+      box-shadow:2rpx 2rpx 3rpx rgba(221,221,221,0.7);
+    }
+  }
+  .msgtime{
+    width: 100%;
+    height: 150rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .current_time{
+      width: 92rpx;
+      height: 40rpx;
+      border-radius:10rpx;
+      background: #d7dce9;
+      text-align: center;
+      font:22rpx "黑体";
+      line-height: 40rpx;
+      color:#fff;
+    }
+  }
+  .sendMsg{
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    bottom:-460rpx;
+    left: 0;
+    z-index: 99;
+    transition: all 0.3s;
+    .send{
+      width: 100%;
+      height: 92rpx;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom:1rpx solid #d7dce9;
+      padding:0 30rpx;
+      box-sizing: border-box;
+      i{
+        font-size:56rpx;
+        color:#7f8699;
+      }
+      div{
+        width: 394rpx;
+        height: 62rpx;
+        border:1rpx solid #d7dce9;
+        border-radius: 10rpx;
+      }
+      input{
+        width: 100%;
+        height:66rpx;
+        padding-left:10rpx;
+      }
+    }
+    .gn{
+      width: 100%;
+      height: 460rpx;
+      padding:42rpx 58rpx;
+      padding-bottom: 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: wrap;
+      background: #fff;
+      dl{
+        margin-right: 47rpx;
+        margin-bottom: 46rpx;
+        dt{
+          width: 120rpx;
+          height: 120rpx;
+          border:1rpx solid #7f8699;
+          border-radius: 10rpx;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 10rpx;
+          i{
+            font-size: 60rpx;
+            color:#7f8699;
+          }
+        }
+        dd{
+          text-align: center;
+          font:26rpx "微软雅黑";
+          color:#7f8699;
+        }
+
+      }
+      dl:nth-child(4){
+        margin-right:0;
+      }
+    }
+  }
+  .gnFlag{
+    bottom: 0 !important;
+  }
+}
+</style>

@@ -1,0 +1,7 @@
+<template name="8f543dd0">
+  <view class="_div data-v-6973773e outlink">
+    <scroll-view scroll-y="{{true}}" class="_scroll-view data-v-6973773e scroll">
+      <web-view src="{{url}}" class="_web-view data-v-6973773e"></web-view>
+    </scroll-view>
+  </view>
+</template>

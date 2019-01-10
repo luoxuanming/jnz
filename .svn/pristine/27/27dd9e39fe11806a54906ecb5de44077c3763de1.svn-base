@@ -1,0 +1,1 @@
+<import src="/pages/wyly/index.vue.wxml" /><template is="0639bcdb" data="{{ ...$root['0'], $root }}"/>

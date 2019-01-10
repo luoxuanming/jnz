@@ -1,0 +1,13 @@
+<template name="731ef151">
+  <view class="_div data-v-dd7bb8b6 infoPublish">
+    <scroll-view scroll-y="{{true}}" class="_scroll-view data-v-dd7bb8b6 scroll">
+      <view class="_div data-v-dd7bb8b6 list" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
+        <view class="_dl data-v-dd7bb8b6">
+          <view class="_dt data-v-dd7bb8b6">深圳开发开发40年：“烂泥渡”摇变“最摩登”（专题文章标题</view>
+          <view class="_dd data-v-dd7bb8b6"><label class="_span data-v-dd7bb8b6">2018/09/15 17:00</label> <label class="_span data-v-dd7bb8b6 count">2323 阅读</label></view>
+        </view>
+        <image src="/images/dy_pic01.png" alt class="_img data-v-dd7bb8b6"></image>
+      </view>
+    </scroll-view>
+  </view>
+</template>

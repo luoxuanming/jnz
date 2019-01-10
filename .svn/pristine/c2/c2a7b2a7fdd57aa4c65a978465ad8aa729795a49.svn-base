@@ -1,0 +1,11 @@
+<template name="fe787ba2">
+  <view class="_div data-v-34290c03">
+    <view class="_div data-v-34290c03 list" bindtap="handleProxy" wx:key="index" key="{{index}}" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
+      <view class="_dl data-v-34290c03">
+        <view class="_dt data-v-34290c03">{{item.ALIAS_TITLE}}</view>
+        <view class="_dd data-v-34290c03"><label class="_span data-v-34290c03">{{item.MODIFY_TIME}}</label> <label class="_span data-v-34290c03 count">{{item.READ_COUNT}} 阅读</label></view>
+      </view>
+      <image wx:if="{{item.NEWS_THUMB_IMG!=null}}" src="{{item.NEWS_THUMB_IMG}}" binderror="handleProxy" alt data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" class="_img data-v-34290c03"></image>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,45 @@
+<template name="8eab2b46">
+  <view class="_div data-v-73e15a7a jjb">
+    <scroll-view scroll-y="{{true}}" class="_scroll-view data-v-73e15a7a scroll">
+      <view class="_div data-v-73e15a7a state">
+        <view class="_div data-v-73e15a7a content">
+          <view class="_div data-v-73e15a7a circle">
+            <view class="_i data-v-73e15a7a iconfont icon-loudou active"></view>
+            <view class="_dl data-v-73e15a7a">
+              <view class="_dt data-v-73e15a7a">进行中</view>
+              <view class="_dd data-v-73e15a7a">选择发起类型</view>
+            </view>
+          </view>
+          <view class="_div data-v-73e15a7a default_line"></view>
+          <view class="_div data-v-73e15a7a circle">
+            <view class="_i data-v-73e15a7a iconfont icon-icon-test"></view>
+            <view class="_dl data-v-73e15a7a">
+              <view class="_dt data-v-73e15a7a">未开始</view>
+              <view class="_dd data-v-73e15a7a">填写信息并发起</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-73e15a7a hr"></view>
+      <view class="_div data-v-73e15a7a fq_type">
+        <view class="_div data-v-73e15a7a content">
+          <view class="_h4 data-v-73e15a7a">选择发起类型</view>
+          <view class="_dl data-v-73e15a7a list" wx:if="{{list.length}}" wx:key="index" key="{{index}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
+            <view class="_dt data-v-73e15a7a">{{item.type}}</view>
+            <view class="_dd data-v-73e15a7a">
+              <view wx:if="{{item.flag==true}}" class="_i data-v-73e15a7a iconfont icon-xuanzhonggou" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}"></view>
+              <view wx:if="{{item.flag==false}}" class="_i data-v-73e15a7a border" bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-73e15a7a btn_groups content">
+        <view class="_div data-v-73e15a7a btns">
+          <view bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_div data-v-73e15a7a">上一步</view>
+          <view bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_div data-v-73e15a7a">下一步 <view class="_i data-v-73e15a7a iconfont icon-xuanzhonggou"></view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

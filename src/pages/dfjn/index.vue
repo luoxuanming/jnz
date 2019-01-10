@@ -1,0 +1,173 @@
+<template>
+  <div class="dfjn">
+    <scroll-view class="scroll" :scroll-y="true">
+       <div class="type">
+         <div class="content">
+           <h4>待缴党费记录</h4>
+         </div>
+       </div>
+      <div class="list content" @click="goPay">
+        <p>2018年12月党费缴纳税</p>
+        <div>
+          <dl class="active">
+            <dt>
+              <span>¥</span>2018.00
+            </dt>
+            <dd>点击立即缴费</dd>
+          </dl>
+          <i class="iconfont"> > </i>
+        </div>
+      </div>
+      <div class="list content" @click="goPay">
+        <p>2018年04月党费缴纳税</p>
+        <div>
+          <dl class="active">
+            <dt>
+              <span>¥</span>0.01
+            </dt>
+            <dd>点击立即缴费</dd>
+          </dl>
+          <i class="iconfont"> > </i>
+        </div>
+      </div>
+      <div class="type">
+        <div class="content">
+          <h4>已缴党费记录</h4>
+        </div>
+      </div>
+      <div class="list content">
+        <p>2018年04月党费缴纳税</p>
+        <div>
+          <dl>
+            <dt>
+              <span>¥</span>0.00
+            </dt>
+          </dl>
+        </div>
+      </div>
+    </scroll-view>
+  </div>
+</template>
+
+<script>
+import * as conf from '../../utils/config'
+  export default {
+
+    data () {
+      return {
+        placeholder:"差党建服务站、搜重点单位",
+        cardlist:[1,2],
+        pastlist:[1,2],
+        token:''
+      }
+    },
+
+    created () {
+      var that=this;
+      wx.getStorage({
+        key: 'token',
+        success(res) {
+         // console.log(res.data)
+          that.token=res.data
+        }
+      })
+     // this.getList()
+    },
+    methods:{
+      goPay(){
+        wx.navigateTo({
+          url:`/pages/pay/main`
+        })
+      },
+      getList(){
+          var that=this;
+          wx.request({
+              url:`${conf.HOST}/eac-pay/mobile/pay/getNoPayMonthlyList/1`, 
+              data: {
+              },
+              header: {
+                'content-type': 'application/json',
+                'Authorization':  that.token// 默认值
+              },
+              success(res) {
+               console.log(res)
+              }
+            })
+      }
+    },
+    components: {
+    },
+  }
+</script>
+
+<style scoped lang="less">
+  @import "../../common/css/less/base";
+  .dfjn{
+    .scroll{
+
+    }
+    .content{
+      width: 100%;
+      padding:0 30rpx;
+      box-sizing: border-box;
+    }
+    .type{
+      width: 100%;
+      height: 84rpx;
+      background: #f9f9f9;
+      border-bottom:1px solid #ededed;
+      h4{
+        font:30rpx "微软雅黑";
+        color:#333;
+        line-height: 84rpx;
+      }
+    }
+    .list{
+      width: 100%;
+      height: 142rpx;
+      border-bottom:1px solid #ededed;
+      display: flex;
+      justify-content: space-between;
+      padding:44rpx 30rpx;
+      box-sizing: border-box;
+      p{
+        font:30rpx "微软雅黑";
+        color:#333;
+      }
+      div{
+        display: flex;
+        align-items: center;
+        dl{
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          text-align: right;
+          color:#999999;
+          dt{
+            font:36rpx "微软雅黑";
+
+            span{
+              font-size: 22rpx;
+              margin-bottom: 5rpx;
+            }
+          }
+          dd{
+            font:22rpx "黑体";
+          }
+        }
+        dl.active{
+          color:@mainColor;
+        }
+        i{
+          font:30rpx "宋体";
+          margin-left: 28rpx;
+          font-weight: bold;
+          color:#999999;
+        }
+      }
+
+    }
+  }
+
+</style>

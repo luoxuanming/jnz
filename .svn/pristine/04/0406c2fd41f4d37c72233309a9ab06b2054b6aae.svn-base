@@ -1,0 +1,469 @@
+require("../../common/manifest.js");
+require("../../common/vendor.js");
+global.webpackJsonp([14],{
+
+/***/ 280:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(281);
+
+
+
+var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */]);
+app.$mount();
+
+/***/ }),
+
+/***/ 281:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_template_compiler_index_id_data_v_c49e78f8_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(284);
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(282)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-c49e78f8"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_selector_type_script_index_0_index_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_template_compiler_index_id_data_v_c49e78f8_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_1_1_2_mpvue_loader_lib_selector_type_template_index_0_index_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src\\pages\\newsDetail\\index.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] index.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c49e78f8", Component.options)
+  } else {
+    hotAPI.reload("data-v-c49e78f8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ 282:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 283:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_mpvue_wxparse__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_config__ = __webpack_require__(2);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  data: function data() {
+    return {
+      current: 0,
+      comment: "说两句",
+      detail: {},
+      article: "",
+      imgmode: {
+        mode: "widthFix",
+        domain: __WEBPACK_IMPORTED_MODULE_1__utils_config__["d" /* IP */]
+      },
+      newsId: "",
+      portrait_temp: "",
+      qrcode_temp: "",
+      windowWidth: "100",
+      scale: ""
+    };
+  },
+  created: function created() {},
+
+  methods: {
+    changeComm: function changeComm(index) {
+      this.current = index;
+    },
+    getDetail: function getDetail(id) {
+      this.newsId = id;
+      console.log(id.newsId);
+      var that = this;
+      wx.request({
+        url: __WEBPACK_IMPORTED_MODULE_1__utils_config__["c" /* HOST */] + "/cloud-app/servlet/dynamic.action?method=newsDetail",
+        data: {
+          newsId: id.newsId,
+          userId: '77'
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+          // 'Authorization':"eyJhbGciOiJIUzI1NiJ9.eyJnQ29kZSI6IjAwMTA0NEc1NTAwMjAwNDAyNCIsImdJZCI6IjQwNCIsIm9Db2RlIjoiMDAxMDQ0RzU1MDAyMDA0MDI0Iiwib0lkIjoiNDA0IiwidUNvZGUiOiJEWTc3IiwidUlkIjo3NywidVR5cGUiOiIwIiwianRpIjoiYzAxYjA3MTY3YWU5NDdiM2FlODQ5YTVlMjJhZjZiNWEiLCJpYXQiOjE1NDQxODczMTcsImV4cCI6MTU0NTQ4MzMxN30.-4yNha5aH656sCn_MFJATvpWlP8ADSOg2-rAr2ESYfY"
+        },
+        success: function success(res) {
+          // console.log(JSON.stringify(res.data));
+          that.$nextTick(function () {
+            that.detail = res.data.datas;
+            // that.article=res.data.datas.NEWS_CONTENT;
+
+            var html0 = res.data.datas.NEWS_CONTENT;
+            var html1 = html0.replace(/\s+style="[^"]*"/g, '');
+            var newHtml = html1.replace(/<img/g, '<img style="max-width:100%;"');
+            that.article = '<div style="font-size: 30rpx !important; ">' + newHtml + '</div>';
+            //console.log(that.article)
+          });
+        }
+      });
+    },
+    addFav: function addFav() {
+      var that = this;
+      wx.request({
+        url: __WEBPACK_IMPORTED_MODULE_1__utils_config__["c" /* HOST */] + "/cloud-app/servlet/dynamic.action?method=likeNewsDetail",
+        data: {
+          newsId: that.newsId.newsId
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success: function success(res) {
+          if (res.data.retcode == 0) {
+            that.detail.LIKE_COUNT += 1;
+          }
+        }
+      });
+    },
+    onShareAppMessage: function onShareAppMessage(res) {
+      wx.hideShareMenu();
+      if (res.from === 'button') {
+        // 来自页面内转发按钮
+        // console.log(res.target)
+      }
+      return {
+        title: '自定义转发标题',
+        path: '/page/user?id=123'
+      };
+    },
+    drawImage: function drawImage() {
+      //绘制canvas图片
+      var that = this;
+      var ctx = wx.createCanvasContext('myCanvas');
+      var bgPath = '/images/wybs.png';
+      var portraitPath = that.portrait_temp; //头像
+      var hostNickname = that.portrait_temp;
+
+      var qrPath = that.qrcode_temp; //二维码
+      var windowWidth = that.windowWidth;
+      that.scale = 1.6;
+
+      //绘制背景图片
+      ctx.drawImage(bgPath, 0, 0, windowWidth, windowWidth);
+
+      //绘制头像
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(windowWidth / 2, 0.32 * windowWidth, 0.15 * windowWidth, 0, 2 * Math.PI);
+      ctx.clip();
+      ctx.drawImage(portraitPath, 0.7 * windowWidth / 2, 0.17 * windowWidth, 0.3 * windowWidth, 0.3 * windowWidth);
+      ctx.restore();
+      //绘制第一段文本
+      ctx.setFillStyle('#fff');
+      ctx.setFontSize(0.037 * windowWidth);
+      ctx.setTextAlign('center');
+      ctx.fillText(hostNickname + ' 正在参加疯狂红包活动', windowWidth / 2, 0.52 * windowWidth);
+      //绘制第二段文本
+      ctx.setFillStyle('#ffffff');
+      ctx.setFontSize(0.037 * windowWidth);
+      ctx.setTextAlign('center');
+      ctx.fillText('邀请你一起来领券抢红包啦~', windowWidth / 2, 0.57 * windowWidth);
+      //绘制二维码
+      ctx.drawImage(qrPath, 0.64 * windowWidth / 2, 0.75 * windowWidth, 0.36 * windowWidth, 0.36 * windowWidth);
+      //绘制第三段文本
+      ctx.setFillStyle('#ffffff');
+      ctx.setFontSize(0.037 * windowWidth);
+      ctx.setTextAlign('center');
+      ctx.fillText('长按保存', windowWidth / 2, 1.36 * windowWidth);
+      ctx.draw();
+    },
+    canvasToImage: function canvasToImage() {
+      var that = this;
+      wx.canvasToTempFilePath({
+        x: 0,
+        y: 0,
+        width: that.windowWidth,
+        height: that.windowWidth,
+        destWidth: that.windowWidth * 4,
+        destHeight: that.windowWidth * 4 * that.scale,
+        canvasId: 'myCanvas',
+        success: function success(res) {
+          console.log('朋友圈分享图生成成功:' + res.tempFilePath);
+          wx.previewImage({
+            current: res.tempFilePath, // 当前显示图片的http链接
+            urls: [res.tempFilePath] // 需要预览的图片http链接列表
+          });
+        },
+        fail: function fail(err) {
+          console.log('失败');
+          console.log(err);
+        }
+      });
+    },
+    sharefq: function sharefq() {
+
+      var that = this;
+      wx.downloadFile({
+        //缓存头像图片
+        url: "https://jnz.zhdj360.cn/resource/news/201812/08/c82ce0703a9949e19e8a9d2e0ae9b3a0.png",
+        success: function success(res1) {
+          // console.log(res1)
+          //缓存头像图片
+          that.portrait_temp = res1.tempFilePath;
+          // //缓存canvas绘制小程序二维码
+          wx.downloadFile({
+            url: "https://jnz.zhdj360.cn/resource/news/201812/08/14b1856fbd9e4127bafd30c153434894.png",
+            success: function success(res2) {
+              console.log('二维码：' + res2.tempFilePath);
+              that.qrcode_temp = res2.tempFilePath;
+              console.log('开始绘制图片');
+              that.drawImage();
+              wx.hideLoading();
+              setTimeout(function () {
+                that.canvasToImage();
+              }, 200);
+            }
+          });
+        }
+      });
+    }
+  },
+  onLoad: function onLoad(id) {
+    this.getDetail(id);
+  },
+  onUnload: function onUnload() {
+    this.detail = {};
+  },
+  onShow: function onShow() {},
+
+  components: {
+    wxParse: __WEBPACK_IMPORTED_MODULE_0_mpvue_wxparse__["a" /* default */]
+  }
+});
+
+/***/ }),
+
+/***/ 284:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "dj_container"
+  }, [_c('scroll-view', {
+    staticClass: "scroll",
+    attrs: {
+      "scroll-y": true
+    }
+  }, [(_vm.detail) ? _c('div', {
+    staticClass: "box"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_c('div', {
+    staticClass: "content"
+  }, [_c('h2', [_vm._v(_vm._s(_vm.detail.ALIAS_TITLE))]), _vm._v(" "), _c('dl', [_c('dt', [_vm._v(_vm._s(_vm.detail.PUB_TIME) + " | 阅读" + _vm._s(_vm.detail.READ_COUNT))]), _vm._v(" "), _c('dd', [_vm._v(_vm._s(_vm.detail.NEWS_AUTHOR))])], 1)], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "content neirong"
+  }, [_c('div', {
+    staticClass: "text"
+  }, [_c('wxParse', {
+    attrs: {
+      "content": _vm.article,
+      "imageProp": _vm.imgmode,
+      "mpcomid": '0'
+    }
+  })], 1), _vm._v(" "), _c('div', {
+    staticClass: "btn_zan",
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": _vm.addFav
+    }
+  }, [_c('i', {
+    staticClass: "iconfont icon-dianzan"
+  }), _vm._v("\n          " + _vm._s(_vm.detail.LIKE_COUNT) + "\n        ")], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "line"
+  }, [_c('div'), _vm._v("分享"), _c('div')]), _vm._v(" "), _c('div', {
+    staticClass: "share"
+  }, [_c('button', {
+    attrs: {
+      "open-type": "share",
+      "plain": true
+    }
+  }, [_c('img', {
+    attrs: {
+      "src": "../../images/weixin_icon.png",
+      "alt": ""
+    }
+  }), _vm._v("\n          微信好友\n        ")]), _vm._v(" "), _c('button', {
+    attrs: {
+      "open-type": "share",
+      "plain": true
+    }
+  }, [_c('img', {
+    attrs: {
+      "src": "../../images/pyq_icon.png",
+      "alt": ""
+    }
+  }), _vm._v("\n          微信朋友圈\n        ")])], 1)]) : _vm._e()])], 1)
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-c49e78f8", esExports)
+  }
+}
+
+/***/ })
+
+},[280]);
+//# sourceMappingURL=main.js.map

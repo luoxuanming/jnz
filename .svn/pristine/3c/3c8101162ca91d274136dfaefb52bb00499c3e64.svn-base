@@ -1,0 +1,395 @@
+<template>
+  <div class="zjdx">
+    <div class="head">
+      <img src="../../images/zjdx.png" class="zjdx_bg" mode="widthFix" alt="">
+      <div class="btnGroups">
+        <div class="btn" @click="goWkcList">微课程</div>
+        <div class="btn">图文资料</div>
+        <div class="btn" @click="goDtcg">闯关答题</div>
+      </div>
+    </div>
+    <scroll-view :scroll-y="true" class="scroll">
+      <div class="content" v-if="kcList.length">
+        <h4>热门微课</h4>
+        <div class="kc">
+          <div class="kc_list" v-for="(item,index) in kcList" :key="index" @click="goSee(item.DOC_ID,item.RES_ID,item.CAT_ID)">
+            <div class="pic">
+              <img :src="item.DOC_THUMB_IMG" mode="widthFix" alt="" @error="errorfn(index)">
+            </div>
+            <dl>
+              <dt>{{item.DOC_NAME}}</dt>
+              <dd>
+                <span>
+                  <img v-for="(start,s_index) in 5"
+                       :src="start<item.DOC_RATE?'../../images/start_active.png':'../../images/start.png'"
+                       class="start"
+                       :key="index"
+                       alt="">
+                  <!--<img src="../../images/start_active.png" class="start" alt="">-->
+                  {{item.DOC_RATE}}分</span>
+                <span>{{item.LearnCount}}人观看</span>
+              </dd>
+            </dl>
+          </div>
+          <div class="more" v-if="index>5">
+            查看更多>
+          </div>
+        </div>
+      </div>
+      <div class="hr"></div>
+      <div class="content">
+        <h4>热门资料</h4>
+      </div>
+      <div class="content zl_content">
+        <div class="zl_list" v-if="zlList.length" v-for="(item,index) in zlList" :key="index" @click="goTwzlRes(item.DOC_ID)">
+          <img :src="item.DOC_IMG" @error="errorfn(index)" class="zl_img" alt="">
+          <dl>
+            <dt>{{item.DOC_NAME}}</dt>
+            <dd>
+              <div>总课程<span>{{item.RES_COUNT}}</span>节</div>
+              <div>{{item.CREATE_TIME}}</div>
+              <div class="count">{{item.DOC_SCORE}}学分</div>
+            </dd>
+          </dl>
+        </div>
+        <div class="more">
+          查看更多>
+        </div>
+      </div>
+    </scroll-view>
+  </div>
+</template>
+
+<script>
+  import {mapState,mapMutations,mapGetters} from "Vuex";
+  import * as conf from '../../utils/config'
+  export default {
+
+    data () {
+      return {
+        kcList:[],
+        zlList:[],
+        id:""
+      }
+    },
+    computed:{
+      ...mapGetters({
+        token:"token"
+      })
+    },
+    created () {
+      this.getHotkc();
+      this.getfenlei();
+      this.getTwzlRes();
+    },
+    methods:{
+      getHotkc(){
+        var that=this;
+        wx.getStorage({
+          key: 'token',
+          success(ret) {
+            wx.request({
+              //获取热门微课
+              url: conf.HOST+"/stddj-learn/servlet/learn.action?method=getAllHotCourse",
+              data: {},
+              header: {
+                'content-type': 'application/json', // 默认值
+                'Authorization':ret.data
+              },
+              success (res) {
+                //console.log(JSON.stringify(res.data));
+                that.kcList=res.data;
+              }
+            });
+          }
+        })
+      },
+      goWkcList(){
+        var that=this;
+        wx.navigateTo({
+          url:`/pages/outLink/main?type=1&CAT_ID=${that.id}`
+        });
+      },
+      goSee(DOC_ID,RES_ID,CAT_ID){
+        wx.getStorage({
+          key:'userInfos',
+          success(res){
+            console.log(res.data)
+            var m_ORG_ID=res.data.ORG_ID;
+            var m_USER_NAME=res.data.USER_NAME
+            var m_USER_ID=res.data.USER_ID;
+            var m_ORG_NAME=res.data.ORG_ID;
+            //console.log(m_ORG_ID+":"+m_USER_NAME+":"+m_USER_ID+":"+m_ORG_NAME)
+            wx.navigateTo({
+              url:`/pages/outLink/main?type=2&DOC_ID=${DOC_ID}&RES_ID=${RES_ID}&CAT_ID=${CAT_ID}&m_ORG_ID=${m_ORG_ID}&m_USER_NAME=${m_USER_NAME}&m_USER_ID=${m_USER_ID}&m_ORG_NAME=${m_ORG_NAME}`
+            });
+
+          },
+          fail(){
+            wx.navigateTo({
+              url:`/pages/login/main`
+            })
+          }
+        })
+
+      },
+      getfenlei(){
+        var that=this;
+        wx.getStorage({
+          key: 'token',
+          success(ret) {
+            wx.request({
+              //获取热门微课
+              url: conf.HOST+"/stddj-learn/servlet/learn.action?method=getLearnCat",
+              data: {},
+              header: {
+                'content-type': 'application/json', // 默认值
+                'Authorization':ret.data
+              },
+              success (res) {
+                that.id=res.data[0].CAT_ID;
+              }
+            });
+          }
+        })
+      },
+      goDtcg(){
+        console.log(1)
+        wx.getStorage({
+          key:'userInfos',
+          success(res){
+            console.log(JSON.stringify(res.data.USER_CODE))
+            wx.navigateTo({
+              url:`/pages/outLink/main?type=4&USER_CODE=${res.data.USER_CODE}&ORG_ID=${res.data.ORG_ID}`
+            })
+          },
+          fail(){
+            wx.navigateTo({
+              url:`/pages/login/main`
+            })
+          }
+        })
+      },
+      getTwzlRes(){
+        //获取图文资料列表
+        var that=this;
+        wx.request({
+          url:`${conf.HOST}/stddj-gzgj/servlet/twzl.action?method=getTwzl`,
+          data:{
+            size:""
+          },
+          success(res){
+            //console.log(JSON.stringify(res.data))
+            that.zlList=res.data;
+          }
+        })
+      },
+      goTwzlRes(id){
+        console.log(id)
+        wx.getStorage({
+          key: 'userInfos',
+          success(res) {
+            wx.navigateTo({
+              url:`/pages/twzljj/main?docId=${id}&userId=${res.data.USER_ID}`
+            })
+          },
+          fail(){
+            wx.showToast({
+              title:"请登录后重试",
+              icon:"none",
+              duration:2000,
+              success(){
+
+              }
+            })
+            setTimeout(function(){
+              wx.navigateTo({
+                url:`/pages/login/main`
+              })
+            },2000)
+          }
+        })
+      },
+      errorfn(index){
+        this.list[index].NEWS_THUMB_IMG="../../images/default_img.jpg"
+      }
+    },
+    components: {
+
+    },
+  }
+</script>
+
+<style scoped lang="less">
+  @import "../../common/css/less/base";
+  .zjdx{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    .head{
+      width: 100%;
+      position: fixed;
+      top:0;
+      left:0;
+      background: #fff;
+      .zjdx_bg{
+        width: 100%;
+      }
+      .btnGroups{
+        position: absolute;
+        width: 100%;
+        height: 166rpx;
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+        align-items: center;
+        background: #fff;
+        padding:0 30rpx;
+        bottom: -166rpx;
+        .btn{
+          width: 210rpx;
+          height: 82rpx;
+          box-sizing: border-box;
+          border-radius:10rpx;
+          border:1rpx solid #4d5068;
+          color:#4d5068;
+          font:30rpx "微软雅黑";
+          line-height: 82rpx;
+          text-align: center;
+        }
+      }
+    }
+    .scroll{
+      width: 100%;
+      height: 100vh;
+      box-sizing: border-box;
+      padding-top:494rpx;
+      overflow: hidden;
+      background: url("../../images/logo.png") no-repeat;
+      background-size: 363rpx 70rpx;
+      background-position: center bottom 30rpx;
+      .kc{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .kc_list{
+          width: 332rpx;
+          margin-bottom: 60rpx;
+          .pic{
+            width: 100%;
+            height: 198rpx;
+            border-radius:10rpx;
+            overflow: hidden;
+            margin-bottom:20rpx;
+            img{
+              width: 100%;
+              height: 198rpx;
+            }
+          }
+          dl{
+            dt{
+              font:30rpx "微软雅黑";
+              color:#333333;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              padding-right: 54rpx;
+              margin-bottom: 16rpx;
+            }
+            dd{
+              font:22rpx "黑体";
+              color:#7f8699;
+              display: flex;
+              justify-content: space-between;
+              span{
+                .start{
+                  width: 18rpx;
+                  height: 18rpx;
+                  margin-right: 6rpx;
+                }
+              }
+            }
+          }
+        }
+      }
+      .zl_list{
+        width: 100%;
+        height:160rpx;
+        background: #fff;
+        padding:0 18rpx;
+        box-sizing: border-box;
+        box-shadow: 0 0 6rpx rgba(243,243,243,.6);
+        border-radius: 10rpx;
+        display:flex;
+        align-items: center;
+        overflow: hidden;
+        margin-bottom: 20rpx;
+        .zl_img{
+          width: 172rpx;
+          height: 112rpx;
+          border-radius:10rpx;
+          float: left;
+        }
+          dl{
+            flex: 1;
+            overflow: hidden;
+            padding-left: 26rpx;
+            box-sizing: border-box;
+            dt{
+              font:30rpx "微软雅黑";
+              color:#333333;
+              white-space: nowrap;
+              padding-right: 30rpx;
+              box-sizing: border-box;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              margin-bottom: 20rpx;
+            }
+            dd{
+              font:22rpx "黑体";
+              color:#7f8699;
+              display: flex;
+              justify-content: space-between;
+              span{
+                color:#333;
+              }
+              .count{
+                color:@mainColor;
+              }
+            }
+          }
+      }
+    }
+    .content{
+      width: 100%;
+      padding:0 30rpx;
+      box-sizing: border-box;
+      background: #fff;
+      h4{
+        height:86rpx;
+        font:38rpx "黑体";
+        font-weight:bold;
+        line-height:86rpx;
+        letter-spacing:-2rpx;
+      }
+      .more{
+        width: 100%;
+        text-align: center;
+        font:22rpx "黑体";
+        color:#7f8699;
+        margin-bottom:40rpx;
+      }
+    }
+    .zl_content{
+      background: #fafafa;
+      padding-top:20rpx;
+      padding-bottom: 10rpx;
+    }
+    .hr{
+      width: 100%;
+      height: 20rpx;
+      background: #fafafa;
+    }
+  }
+</style>

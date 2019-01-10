@@ -1,0 +1,52 @@
+<template name="52a7b14e">
+  <view class="_div data-v-37dde082 login">
+    <view class="_div data-v-37dde082 head">
+      <image src="/images/login_bg.jpg" mode="widthFix" class="_img data-v-37dde082 login_bg" alt></image>
+      <view class="_div data-v-37dde082 logobox">
+        <view class="_p data-v-37dde082">江南中街道党群服务中心</view>
+      </view>
+    </view>
+    <view class="_div data-v-37dde082 body">
+      <view class="_div data-v-37dde082 form_bg">
+        <view class="_dl data-v-37dde082">
+          <view class="_dd data-v-37dde082"><input type="text" value="{{username}}" bindinput="handleProxy" placeholder="请输入真实姓名，提交后不可修改" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_input data-v-37dde082" /></view>
+        </view>
+      </view>
+      <view class="_div data-v-37dde082 form_bg">
+        <view class="_dl data-v-37dde082">
+          <view class="_dd data-v-37dde082">
+            <picker bindchange="handleProxy" value="{{index0}}" range="{{array0}}" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_picker data-v-37dde082">
+              <view class="_view data-v-37dde082 picker">
+                {{array0[index0]?array0[index0]:'请选择党支部类型'}}
+                <view class="_i data-v-37dde082 iconfont icon-xiala"></view>
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-37dde082 form_bg">
+        <view class="_dl data-v-37dde082">
+          <view class="_dd data-v-37dde082">
+            <picker bindchange="handleProxy" value="{{index}}" range="{{array}}" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_picker data-v-37dde082">
+              <view style=" text-align: left;" class="_view data-v-37dde082 picker"> {{array[index]?array[index]:'请选择所属党支部'}}
+                <view class="_i data-v-37dde082 iconfont icon-xiala"></view>
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-37dde082 form_bg">
+        <view class="_dl data-v-37dde082">
+          <view class="_dd data-v-37dde082"><input type="text" value="{{tel}}" bindinput="handleProxy" placeholder="请输入11位手机号" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_input data-v-37dde082" /></view>
+        </view>
+      </view>
+      <view class="_div data-v-37dde082 form_bg">
+        <view class="_dl data-v-37dde082">
+          <view class="_dd data-v-37dde082"><input type="text" placeholder="请输入您的验证码" class="_input data-v-37dde082" /></view>
+          <view style="color:#f35555" class="_dt data-v-37dde082">获取验证码</view>
+        </view>
+      </view>
+      <view class="_div data-v-37dde082 login_btn" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">登录</view>
+    </view>
+  </view>
+</template>

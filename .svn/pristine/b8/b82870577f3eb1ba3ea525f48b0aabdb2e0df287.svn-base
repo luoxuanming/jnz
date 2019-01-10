@@ -1,0 +1,71 @@
+<template name="6d842b46">
+  <view class="_div data-v-2e406c5a volunteerAct">
+    <scroll-view class="_scroll-view data-v-2e406c5a scroll" scroll-y="{{true}}">
+      <view class="_div data-v-2e406c5a searchBox">
+        <view class="_div data-v-2e406c5a search">
+          <view class="_div data-v-2e406c5a addr">
+            <view class="_i data-v-2e406c5a iconfont icon-dingwei"></view><label class="_span data-v-2e406c5a">江南中街道</label>
+          </view>
+          <view class="_div data-v-2e406c5a input_area">
+            <view class="_i data-v-2e406c5a iconfont icon-sousuo1"></view> <input type="text" placeholder="{{placeholder}}" class="_input data-v-2e406c5a" />
+          </view>
+        </view>
+        <view class="_div data-v-2e406c5a content">
+          <view class="_div data-v-2e406c5a btnGroups">
+            <view class="_div data-v-2e406c5a btn">志愿者申请</view>
+            <view class="_div data-v-2e406c5a btn">活动日历</view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-2e406c5a cards">
+        <view class="_div data-v-2e406c5a content">
+          <view class="_div data-v-2e406c5a cardlist" bindtap="handleProxy" wx:key="index" key="{{index}}" wx:if="{{index<6}}" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{cardlist}}" wx:for-index="index" wx:for-item="item">
+            <view class="_div data-v-2e406c5a pic">
+              <image src="{{item.ACTIVITY_IMG}}" alt class="_img data-v-2e406c5a banner"></image> <label class="_span data-v-2e406c5a">{{item.CUR_STATUS}}</label>
+            </view>
+            <view class="_div data-v-2e406c5a cont">
+              <view class="_div data-v-2e406c5a">
+                <view class="_p data-v-2e406c5a">{{item.ACTIVITY_NAME}}</view>
+                <view class="_i data-v-2e406c5a iconfont icon-huo"></view>
+              </view>
+              <view class="_dl data-v-2e406c5a">
+                <view class="_dt data-v-2e406c5a">
+                  <view class="_i data-v-2e406c5a iconfont icon-dingwei1"></view>{{item.ACTIVITY_ADDR}}
+                </view>
+                <view class="_dd data-v-2e406c5a">
+                  <view class="_i data-v-2e406c5a iconfont icon-shijian"></view>{{item.ACTIVITY_START}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-2e406c5a past" wx:if="{{pastlist.length}}">
+        <view class="_div data-v-2e406c5a content">
+          <view class="_div data-v-2e406c5a title">往期志愿活动</view>
+          <view class="_div data-v-2e406c5a actlist" wx:key="index" key="{{index}}" wx:if="{{index<2}}" bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" wx:for="{{pastlist}}" wx:for-index="index" wx:for-item="item">
+            <view class="_div data-v-2e406c5a pic">
+              <image src="{{item.ACTIVITY_IMG}}" alt class="_img data-v-2e406c5a"></image> <label class="_span data-v-2e406c5a">{{item.CUR_STATUS}}</label>
+              <view class="_div data-v-2e406c5a text">{{item.ACTIVITY_CLASS_NAME}}</view>
+            </view>
+            <view class="_div data-v-2e406c5a info">
+              <view class="_p data-v-2e406c5a">
+                {{item.ACTIVITY_NAME}}
+              </view>
+              <view class="_dl data-v-2e406c5a">
+                <view class="_dt data-v-2e406c5a">
+                  <view class="_i data-v-2e406c5a iconfont icon-dingwei1"></view>{{item.ACTIVITY_ADDR}}
+                </view>
+                <view class="_dd data-v-2e406c5a"><label class="_span data-v-2e406c5a">
+                    <view class="_i data-v-2e406c5a iconfont icon-shijian"></view>{{item.ACTIVITY_START}}
+                  </label><label class="_span data-v-2e406c5a">
+                    <view class="_i data-v-2e406c5a iconfont icon-gengduo"></view>志愿活动
+                  </label></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

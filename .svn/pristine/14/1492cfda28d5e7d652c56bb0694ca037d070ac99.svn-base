@@ -1,0 +1,77 @@
+<template name="21ca46c6">
+  <view class="_div data-v-2f2f2f2c djmap"><map id="myMap" style="width: 100%; height: 100vh;" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}" show-location="{{true}}" scale="{{12}}" subkey="WHQBZ-VMOKJ-A2CFI-KQHIA-GGAV3-4HBKV" enable-rotate="{{true}}" bindmarkertap="handleProxy" class="_map data-v-2f2f2f2c map" data-eventid="{{'15'}}" data-comkey="{{$k}}">
+      <cover-view class="_cover-view data-v-2f2f2f2c search">
+        <cover-view class="_cover-view data-v-2f2f2f2c input_area" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+          <cover-image class="_cover-image data-v-2f2f2f2c iconfont" src="../../images/sousou.png"></cover-image>
+          <cover-view class="_cover-view data-v-2f2f2f2c text">查党群服务站、搜重点单位</cover-view>
+        </cover-view>
+        <cover-view class="_cover-view data-v-2f2f2f2c cancel">取消</cover-view>
+      </cover-view>
+      <cover-view class="_cover-view data-v-2f2f2f2c search_box {{boxflaghide}}">
+        <cover-view class="_cover-view data-v-2f2f2f2c content {{firsthide}}">
+          <cover-view class="_cover-view data-v-2f2f2f2c title"> 身边的党组织 <cover-image src="../../images/close.png" class="_cover-image data-v-2f2f2f2c iconfont" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"></cover-image>
+            <cover-view class="_cover-view data-v-2f2f2f2c borderB"></cover-view>
+          </cover-view>
+          <cover-view class="_cover-view data-v-2f2f2f2c scroll sbzj">
+            <cover-view class="_cover-view data-v-2f2f2f2c resultlist" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">街道党群中心</cover-view>
+            <cover-view class="_cover-view data-v-2f2f2f2c resultlist" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">社区党群服务站</cover-view>
+            <cover-view class="_cover-view data-v-2f2f2f2c resultlist" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">重点单位</cover-view>
+            <cover-view class="_cover-view data-v-2f2f2f2c resultlist" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">党支部</cover-view>
+            <cover-view class="_cover-view data-v-2f2f2f2c resultlist" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">社区党总支</cover-view>
+            <cover-view class="_cover-view data-v-2f2f2f2c resultlist" bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}">街道党工委</cover-view>
+          </cover-view>
+        </cover-view>
+        <cover-view class="_cover-view data-v-2f2f2f2c content {{twohide}}">
+          <cover-view class="_cover-view data-v-2f2f2f2c title"> 距离您最近的 <cover-view class="_cover-view data-v-2f2f2f2c back" bindtap="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}">返回 <cover-image src="../../images/back.png" class="_cover-image data-v-2f2f2f2c iconfont"></cover-image>
+            </cover-view>
+            <cover-view class="_cover-view data-v-2f2f2f2c borderB"></cover-view>
+          </cover-view>
+          <cover-view class="_cover-view data-v-2f2f2f2c scroll">
+            <cover-view class="_cover-view data-v-2f2f2f2c jllist" wx:key="index" key="{{index}}" wx:for="{{jllist}}" wx:for-index="index" wx:for-item="item">
+              <cover-image class="_cover-image data-v-2f2f2f2c disimg" src="../../images/dy_pic01.png"></cover-image>
+              <cover-view class="_cover-view data-v-2f2f2f2c center" bindtap="handleProxy" data-eventid="{{'9-'+index}}" data-comkey="{{$k}}">
+                <cover-view class="_cover-view data-v-2f2f2f2c name">青凤社区党群服务站</cover-view>
+                <cover-view class="_cover-view data-v-2f2f2f2c">
+                  <cover-view class="_cover-view data-v-2f2f2f2c addr">0.5km | 广州市海珠区青凤大街6号</cover-view>
+                  <cover-view class="_cover-view data-v-2f2f2f2c tel">联系电话:(020)84233811</cover-view>
+                </cover-view>
+              </cover-view>
+              <cover-view class="_cover-view data-v-2f2f2f2c phone">
+                <cover-image src="../../images/phone.png" class="_cover-image data-v-2f2f2f2c icon" bindtap="handleProxy" data-eventid="{{'10-'+index}}" data-comkey="{{$k}}"></cover-image>
+              </cover-view>
+              <cover-view class="_cover-view data-v-2f2f2f2c borderB"></cover-view>
+            </cover-view>
+          </cover-view>
+        </cover-view>
+        <cover-view class="_cover-view data-v-2f2f2f2c content {{threehide}}">
+          <cover-view class="_cover-view data-v-2f2f2f2c title"> 您选择了 <cover-view class="_cover-view data-v-2f2f2f2c back" bindtap="handleProxy" data-eventid="{{'11'}}" data-comkey="{{$k}}">返回 <cover-image src="../../images/back.png" class="_cover-image data-v-2f2f2f2c iconfont"></cover-image>
+            </cover-view>
+            <cover-view class="_cover-view data-v-2f2f2f2c borderB"></cover-view>
+          </cover-view>
+          <cover-view class="_cover-view data-v-2f2f2f2c scroll">
+            <cover-view class="_cover-view data-v-2f2f2f2c jllist">
+              <cover-image class="_cover-image data-v-2f2f2f2c disimg" src="../../images/dy_pic01.png"></cover-image>
+              <cover-view class="_cover-view data-v-2f2f2f2c center" bindtap="handleProxy" data-eventid="{{'12'}}" data-comkey="{{$k}}">
+                <cover-view class="_cover-view data-v-2f2f2f2c name">青凤社区党群服务站</cover-view>
+                <cover-view class="_cover-view data-v-2f2f2f2c">
+                  <cover-view class="_cover-view data-v-2f2f2f2c addr">0.5km | 广州市海珠区青凤大街6号</cover-view>
+                  <cover-view class="_cover-view data-v-2f2f2f2c tel">联系电话:(020)84233811</cover-view>
+                </cover-view>
+              </cover-view>
+              <cover-view class="_cover-view data-v-2f2f2f2c phone">
+                <cover-image src="../../images/phone.png" class="_cover-image data-v-2f2f2f2c icon" bindtap="handleProxy" data-eventid="{{'13'}}" data-comkey="{{$k}}"></cover-image>
+              </cover-view>
+              <cover-view class="_cover-view data-v-2f2f2f2c borderB"></cover-view>
+            </cover-view>
+            <cover-view class="_cover-view data-v-2f2f2f2c pingjia">
+              <cover-view class="_cover-view data-v-2f2f2f2c jianjie">简介</cover-view>
+              <cover-view class="_cover-view data-v-2f2f2f2c textBox">
+                <cover-view class="_cover-view data-v-2f2f2f2c text">11月1日，习近平在京主持召开民营企业座谈会在这场非同寻常的座谈会上，习近平总书记发表了十分重要的讲话。这篇近七千字的讲话内容非常丰富信息量很大，10个数字带你读懂。11月1日，习近平在京主持召开民营企业座谈会在这场非同寻常的座谈会上，习近平总书记发表了十分重要的讲话。这篇近七千字的讲话内容非常丰富信息量很大，10个数字带你读懂。</cover-view>
+                <cover-image class="_cover-image data-v-2f2f2f2c guodu" src="../../images/guodu.png" bindtap="handleProxy" data-eventid="{{'14'}}" data-comkey="{{$k}}"></cover-image>
+              </cover-view>
+            </cover-view>
+          </cover-view>
+        </cover-view>
+      </cover-view>
+    </map></view>
+</template>

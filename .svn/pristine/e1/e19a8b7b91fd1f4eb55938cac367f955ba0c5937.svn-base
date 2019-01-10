@@ -1,0 +1,24 @@
+<template name="34c859dd">
+  <view class="_div data-v-0f4b07b1 ldbywy">
+    <view class="_div data-v-0f4b07b1 head">
+      <image src="/images/ldbywy.png" class="_img data-v-0f4b07b1 ldbywy_bg" alt bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></image>
+      <view class="_div data-v-0f4b07b1 head_btn" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">什么是两代表一委员？</view>
+    </view>
+    <scroll-view class="_scroll-view data-v-0f4b07b1 scroll" scroll-y="{{true}}">
+      <view class="_div data-v-0f4b07b1 content">
+        <view class="_ul data-v-0f4b07b1 list">
+          <view wx:if="{{list.length}}" wx:key="index" key="{{index}}" wx:for="{{list}}" wx:for-index="index" wx:for-item="item" class="_li data-v-0f4b07b1">
+            <view class="_div data-v-0f4b07b1 pic" bindtap="handleProxy" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}">
+              <image wx:if="{{item.REPRESENT_THUMB_IMG==null}}" src="/images/default_img.jpg" class="_img data-v-0f4b07b1 photo" alt></image>
+              <image wx:if="{{item.REPRESENT_THUMB_IMG!=null}}" src="{{item.REPRESENT_THUMB_IMG}}" class="_img data-v-0f4b07b1 photo" alt></image>
+            </view>
+            <view class="_div data-v-0f4b07b1 js">
+              <view class="_p data-v-0f4b07b1">{{item.REPRESENT_USER_NAME}}</view>
+              <view class="_div data-v-0f4b07b1 head_btn" bindtap="handleProxy" data-eventid="{{'3-'+index}}" data-comkey="{{$k}}">给Ta留言</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</template>

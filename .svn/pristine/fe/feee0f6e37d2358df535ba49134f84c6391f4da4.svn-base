@@ -1,0 +1,7 @@
+<template name="c9584fa2">
+  <view class="_div data-v-4a79797a search">
+    <view class="_div data-v-4a79797a input_area">
+      <view class="_i data-v-4a79797a iconfont icon-sousuo1"></view> <input type="text" placeholder="{{placeholder}}" class="_input data-v-4a79797a" />
+    </view> <label bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_span data-v-4a79797a">取消</label>
+  </view>
+</template>

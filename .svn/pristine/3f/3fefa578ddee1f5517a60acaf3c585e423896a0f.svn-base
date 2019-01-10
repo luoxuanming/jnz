@@ -1,0 +1,476 @@
+<template>
+  <div class="jjb">
+    <div class="head">
+      <div class="content head_content">
+        <div class="bg">
+          <input type="text" placeholder="江南中街道第一党支部" @click="search">
+          <div class="icons">
+            <i class="iconfont icon-xiala"></i>
+            |
+            <i class="iconfont icon-sousuo1"></i>
+          </div>
+        </div>
+        <div class="sx">
+          <i class="iconfont icon-shaixuan"></i>
+        </div>
+      </div>
+    </div>
+    <div class="layer" v-show="flag">
+      <div class="result content">
+        <div class="result_span">
+          <span>投票评议</span>
+          <span>党员大会</span>
+          <span>组织活动</span>
+          <span>支委会</span>
+          <span>党课</span>
+        </div>
+        <div class="btns">
+          <div>重置</div>
+          <div @click="search">确认</div>
+        </div>
+      </div>
+    </div>
+    <scroll-view :scroll-y="true" class="scroll">
+       <div class="content body">
+         <div class="list" @click="goChat" v-if="list.length" v-for="(item,index) in list" :key="index">
+           <div class="userinfos">
+             <img v-if="item.USER_PIC==null" src="../../images/user_pic.png" alt="">
+             <img v-if="item.USER_PIC!=null" :src="item.USER_PIC" @error="errorfn(index)" alt="">
+             <dl>
+               <dt>
+                 {{item.CREATE_USER_NAME}} <span>{{item.BEGIN_TIME}}</span>
+               </dt>
+               <dd>
+                 <span v-for="(type,index1) in item.MEETING_TYPE" :key="index1">{{type}}</span>
+               </dd>
+             </dl>
+           </div>
+           <div class="text">
+             2018年11月江南中街道青凤社区党员大会—— 开创党建新时代，智慧党建项目策划会2018年11月江南中街道青凤社区党员大会—— 开创党建新时代，智慧党建项目策划会2018年11月江南中街道青凤社区党员大会—— 开创党建新时代，智慧党建项目策划会
+           </div>
+           <dl class="org">
+             <dt><i class="iconfont icon-dangzhibu"></i>{{item.ATTEND_ORG_NAME}}</dt>
+             <dd><i class="iconfont icon-dingwei1"></i>
+               <span>{{item.MEETING_ADDR}}</span>
+               <!--<span>-->
+                 <!--2018/07/01-->
+               <!--</span>|-->
+               <!--<span>-->
+                 <!--2018/07/01-->
+               <!--</span>|-->
+               <!--<span>10:00~18:00</span>-->
+             </dd>
+           </dl>
+           <dl class="count">
+             <dt>
+               <i class="iconfont icon-renshu-"></i>
+               100人参与
+             </dt>
+             <dd>
+               <i class="iconfont icon-xinxi"></i>
+               99+未读消息
+             </dd>
+           </dl>
+           <div class="tag">未开始</div>
+           <!--<div class="tag active">已开始</div>-->
+         </div>
+       </div>
+    </scroll-view>
+    <div class="f_icon" @click="goFq">+</div>
+  </div>
+</template>
+
+<script>
+  import * as conf from '../../utils/config'
+  export default {
+
+    data () {
+      return {
+        flag:false,
+        index:0,
+        index2:0,
+        index3:0,
+        array:[
+          "请选择",
+          "民生微实事",
+          "志愿者服务活动",
+          "其他意见建议"
+        ],
+        array2:[
+          "请选择",
+          "民生微实事",
+          "志愿者服务活动",
+          "其他意见建议"
+        ],
+        array3:[
+          "不限制",
+          "民生微实事",
+          "志愿者服务活动",
+          "其他意见建议"
+        ],
+        list:[]
+      }
+    },
+
+    created () {
+      this.getList();
+    },
+    methods:{
+      getList(){
+        var that=this;
+        wx.getStorage({
+          key: 'token',
+          success(ret) {
+            wx.request({
+              url:`${conf.HOST}/stddj-jjb/servlet/meeting.action?method=getMeetingList`, // 仅为示例，并非真实的接口地址
+              data: {
+                userId: '2',
+                orgId: '1'
+              },
+              header: {
+                'content-type': 'application/json' // 默认值
+              },
+              success(res) {
+                that.list=res.data;
+              }
+            })
+          }
+        })
+      },
+      bindPickerChange(e){
+        // console.log(e.target.value)
+        this.index=e.target.value;
+      },
+      bindPickerChange2(e){
+        // console.log(e.target.value)
+        this.index2=e.target.value;
+      },
+      bindPickerChange3(e){
+        // console.log(e.target.value)
+        this.index3=e.target.value;
+      },
+      search(){
+        this.flag=!this.flag;
+      },
+      goFq(){
+        wx.navigateTo({
+          url:`/pages/jjbfq/main`
+        })
+      },
+      goChat(){
+        wx.navigateTo({
+          url:`/pages/chat/main`
+        })
+      },
+      errorfn(index){
+        this.list[index].NEWS_THUMB_IMG="../../images/user_pic.png"
+      }
+    },
+    components: {
+
+    },
+  }
+</script>
+
+<style scoped lang="less">
+  @import "../../common/css/less/base";
+  @import "../../common/css/font/iconfont.css";
+  .jjb{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    .content{
+      width: 100%;
+      padding:0 30rpx;
+      box-sizing: border-box;
+    }
+    .scroll {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: url("../../images/logo.png") no-repeat;
+      background-size: 363rpx 70rpx;
+      background-position: center bottom 30rpx;
+    }
+    .head{
+      width: 100%;
+      height: 90rpx;
+      background: #fff;
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      top:0;
+      z-index:99;
+      background: #fff;
+      .head_content{
+        width: 100%;
+        height: 60rpx;
+        display: flex;
+        .bg{
+          width: 100%;
+          height: 100%;
+          background: #f4f8fb;
+          display: flex;
+          align-items: center;
+          padding-right: 24rpx;
+          box-sizing: border-box;
+          border-radius: 10rpx;
+          overflow: hidden;
+          .icons{
+            display: flex;
+            height: 100%;
+            color:#bebebe;
+            font-size: 30rpx;
+            align-items: center;
+            .icon-xiala{
+              margin-right:10rpx;
+            }
+          }
+          input{
+            width: 100%;
+            height: 100%;
+            font:30rpx "微软雅黑";
+            padding-left:44rpx;
+            box-sizing: border-box;
+          }
+        }
+        .sx{
+          width: 60rpx;
+          height: 100%;
+          float: right;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          text-align: right;
+          .icon-shaixuan{
+            font-size: 48rpx;
+            color:#bebebe;
+          }
+        }
+
+      }
+    }
+    .body{
+      width: 100%;
+      padding:0 30rpx;
+      padding-top:114rpx;
+      padding-bottom: 30rpx;
+      box-sizing: border-box;
+      background: #f6f8fd;
+      .list{
+        width: 100%;
+        background: #fff;
+        padding:30rpx 44rpx;
+        box-sizing: border-box;
+        position: relative;
+        border-radius:10rpx;
+        margin-bottom: 24rpx;
+        .userinfos{
+          width: 100%;
+          height:82rpx;
+          display: flex;
+          align-items: center;
+          margin-bottom: 22rpx;
+          img{
+            width:68rpx;
+            height:68rpx;
+            border-radius:34rpx;
+            box-shadow:2rpx 2rpx 3rpx rgba(221,221,221,0.7);
+            margin-right:40rpx;
+            float: left;
+          }
+          dl{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            dt{
+              font:30rpx "微软雅黑";
+              color:#333;
+              span{
+                font:22rpx "黑体";
+                color:#7f8699;
+                margin-left: 10rpx;
+              }
+            }
+            dd{
+              span{
+                padding:6rpx 16rpx;
+                background: #f3f6fd;
+                font:22rpx "黑体";
+                color:#fc7c7c;
+                text-align: center;
+                border-radius: 10rpx;
+                margin-right: 12rpx;
+              }
+            }
+          }
+        }
+        .text{
+          font:30rpx "黑体";
+          color:#333;
+          line-height: 50rpx;
+          text-overflow: -o-ellipsis-lastline;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+          -webkit-box-orient: vertical;
+          margin-bottom: 36rpx;
+        }
+        .org{
+          font:22rpx "黑体";
+          color:#7f8699;
+          border-bottom: 1rpx solid #e2e7f4;
+          margin-bottom: 20rpx;
+          dt{
+            display: flex;
+            align-items: center;
+            margin-right:10rpx;
+            margin-bottom:10rpx;
+          }
+          dd{
+            display: flex;
+            align-items: center;
+            margin-bottom:10rpx;
+            span{
+              margin:0 30rpx;
+            }
+            span:first-of-type{
+              margin-left: 0;
+            }
+          }
+          i{
+            font-size: 26rpx;
+            margin-right: 12rpx;
+          }
+          .icon-dingwei1{
+            margin-left:-12rpx;
+            font-size: 28rpx;
+            margin-right:1rpx;
+          }
+        }
+        .count{
+          display: flex;
+          font:22rpx "黑体";
+          color:#7f8699;
+          align-items: center;
+          dt{
+            display: flex;
+            align-items: center;
+            margin-right: 64rpx;
+          }
+          dd{
+            display: flex;
+            align-items: center;
+            i{
+              font-size: 24rpx;
+            }
+          }
+          i{
+            font-size: 30rpx;
+          }
+        }
+      }
+      .list:last-child{
+        margin-bottom: 0;
+      }
+    }
+    .tag{
+      width: 108rpx;
+      height: 38rpx;
+      background: #dde6fb;
+      text-align: center;
+      font:22rpx "黑体";
+      color:#7f8699;
+      line-height: 38rpx;
+      position: absolute;
+      top:0;
+      right: 44rpx;
+      border-radius: 0 0 10rpx 10rpx;
+    }
+    .active{
+      background: #fc7c7c;
+      color:#fff;
+    }
+    .f_icon{
+      width: 84rpx;
+      height: 84rpx;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom,
+      rgba(255,145,145,1),
+      rgba(252,124,124,1),
+      rgba(252,124,124,1),
+      rgba(252,124,124,1));
+      border-radius:42rpx;
+      color:#fff;
+      font-size:64rpx;
+      position: fixed;
+      bottom: 180rpx;
+      right: 30rpx;
+    }
+    .layer{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      padding-top:90rpx;
+      box-sizing: border-box;
+      overflow: hidden;
+      background: rgba(0,0,0,.6);
+      z-index: 50;
+      .result{
+        width: 100%;
+        height: 366rpx;
+        background: #fff;
+        position: relative;
+        .result_span{
+          width: 100%;
+          padding-top:40rpx;
+          box-sizing: border-box;
+          overflow: hidden;
+          >span{
+            display: block;
+            width: 170rpx;
+            height: 50rpx;
+            border:1rpx solid #d7dce9;
+            border-radius:10rpx;
+            font:30rpx "微软雅黑";
+            line-height: 50rpx;
+            color:#666666;
+            text-align: center;
+            float: left;
+            margin-right: 56rpx;
+            margin-bottom: 40rpx;
+          }
+
+        }
+      }
+      .btns{
+        width: 100%;
+        height: 90rpx;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        div{
+          height: 100%;
+          flex: 1;
+          background: #f2f2f2;
+          text-align: center;
+          color:#7f7f7f;
+          font:30rpx "微软雅黑";
+          line-height: 90rpx;
+        }
+        div:last-child{
+          background: #e82c2c;
+          color:#fff;
+        }
+      }
+    }
+  }
+</style>
